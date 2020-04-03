@@ -10,7 +10,9 @@ spring:
     hibernate:
       ddl-auto: create
       use-new-id-generator-mappings: false
-    properties:
+
+  jwt:
+    secret: jeongyunsung&&yon663
 
 logging:
   level:

@@ -3,21 +3,16 @@ package com.yunseong.second_project.member.command.application.dto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Getter
 @AllArgsConstructor
 public class MemberCreateRequest {
 
-    @NotBlank
-    @Min(value = 6) @Max(value = 12)
+    @Size(min = 6, max = 12)
     private String username;
-    @NotBlank
-    @Min(value = 8) @Max(value = 20)
+    @Size(min = 8, max = 20)
     private String password;
-    @NotBlank
-    @Min(value = 4) @Max(value = 8)
+    @Size(min = 4, max = 8)
     private String nickname;
 }

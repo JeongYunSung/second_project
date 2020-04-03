@@ -26,6 +26,9 @@ public class Member extends BaseEntity {
 
     private Integer money;
 
+    @Enumerated(value = EnumType.STRING)
+    private Grade grade;
+
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<Purchase> purchases = new ArrayList<>();
 
@@ -33,6 +36,12 @@ public class Member extends BaseEntity {
         this.username = username;
         this.password = password;
         this.nickname = nickname;
+        this.grade = Grade.BRONZE;
+    }
+
+    public void changeGrade(Grade grade) {
+        this.isDelete();
+        this.grade = grade;
     }
 
     public void changePassword(String password) {
@@ -79,5 +88,11 @@ public class Member extends BaseEntity {
         this.changeNickname(nickname);
         this.addMoney(money);
         purchases.forEach(this::addPurchase);
+    }
+
+    @Override
+    public void delete() {
+        super.delete();
+        this.getPurchases().forEach(Purchase::delete);
     }
 }

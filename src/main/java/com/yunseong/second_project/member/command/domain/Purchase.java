@@ -1,7 +1,6 @@
 package com.yunseong.second_project.member.command.domain;
 
 import com.yunseong.second_project.common.domain.BaseUserEntity;
-import com.yunseong.second_project.product.command.domain.Product;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,12 +17,13 @@ public class Purchase extends BaseUserEntity {
     @JoinColumn(name = "member_id")
     private Member member;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id")
-    private Product product;
+    private Long productId;
 
-    public Purchase(Product product) {
-        this.product = product;
+    private String productName;
+
+    public Purchase(Long productId, String productName) {
+        this.productId = productId;
+        this.productName = productName;
     }
 
     public void setMember(Member member) {

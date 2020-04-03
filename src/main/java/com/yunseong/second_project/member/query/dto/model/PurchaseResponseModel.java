@@ -1,6 +1,6 @@
-package com.yunseong.second_project.member.query.application.dto.model;
+package com.yunseong.second_project.member.query.dto.model;
 
-import com.yunseong.second_project.member.query.application.dto.PurchaseResponse;
+import com.yunseong.second_project.member.query.dto.PurchaseResponse;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.Link;
 

@@ -1,4 +1,4 @@
-package com.yunseong.second_project.member.query.application.dto;
+package com.yunseong.second_project.member.query.dto;
 
 import com.yunseong.second_project.member.command.domain.Purchase;
 import lombok.Getter;

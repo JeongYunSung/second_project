@@ -1,6 +1,6 @@
 package com.yunseong.second_project.common.domain;
 
-import com.yunseong.second_project.common.errors.NotExistEntityException;
+import com.yunseong.second_project.common.errors.DeletedEntityException;
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -34,7 +34,7 @@ public abstract class BaseEntity {
 
     public void isDelete() {
         if (this.isDelete) {
-            throw new NotExistEntityException("해당 엔티티는 삭제된 상태입니다.", BaseEntity.class);
+            throw new DeletedEntityException("해당 엔티티는 삭제된 상태입니다.");
         }
     }
 }

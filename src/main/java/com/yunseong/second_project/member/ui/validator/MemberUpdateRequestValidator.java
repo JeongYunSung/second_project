@@ -20,7 +20,7 @@ public class MemberUpdateRequestValidator implements Validator {
         MemberUpdateRequest request = (MemberUpdateRequest) target;
 
         if (!hasText(request.getPassword()) && !hasText(request.getNickname()) && !hasText(request.getVerifyPassword()) && request.getMoney() == null
-            && request.getPurchaseIdList() == null) {
+            && request.getGrade() == null && request.getPurchaseIdList() == null) {
             errors.reject("required", "All fields cannot be null");
         }
     }
