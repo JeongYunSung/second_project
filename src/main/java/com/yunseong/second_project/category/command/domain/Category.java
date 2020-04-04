@@ -1,7 +1,9 @@
 package com.yunseong.second_project.category.command.domain;
 
 import com.yunseong.second_project.common.domain.BaseUserEntity;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -9,6 +11,7 @@ import java.util.List;
 
 @Getter
 @Entity
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AttributeOverride(name = "id", column = @Column(name = "category_id"))
 public class Category extends BaseUserEntity {
 
@@ -30,7 +33,7 @@ public class Category extends BaseUserEntity {
         this.categoryName = categoryName;
     }
 
-    public void setPaernt(Category parent) {
+    public void setParent(Category parent) {
         if (this.getParent().getCategories().contains(this))
             this.getParent().getCategories().remove(this);
         this.parent = parent;

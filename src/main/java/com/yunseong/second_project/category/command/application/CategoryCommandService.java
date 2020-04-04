@@ -30,36 +30,38 @@ public class CategoryCommandService {
         Category parent = getCategory(request.getParentId());
         Category category = getCategory(id);
         category.changeName(request.getCategoryName());
-        category.setPaernt(parent);
-        return new CategoryUpdateResponse(category)
+        category.setParent(parent);
+        CategoryUpdateResponse response = new CategoryUpdateResponse(category)
                 .withId(category.getId())
-                .withCategoryName(category.getCategoryName())
-                .withParentId(parent.getId())
-                .withParentName(parent.getCategoryName());
+                .withCategoryName(category.getCategoryName());
+        if (parent != null) {
+            response.withParentId(parent.getId()).withParentName(parent.getCategoryName());
+        }
+        return response;
     }
 
     public CategoryUpdateResponse updatePatchCategory(Long id, CategoryUpdateRequest request) {
         Category category = getCategory(id);
         CategoryUpdateResponse response = new CategoryUpdateResponse(category);
-        if (StringUtils.hasText(request.getCategoryName())) {
-            category.changeName(request.getCategoryName());
-            response.withId(category.getId());
-            response.withCategoryName(category.getCategoryName());
-        }
         if (request.getParentId() != null) {
             Category parent = getCategory(request.getParentId());
             response.withParentId(parent.getId());
             response.withParentName(parent.getCategoryName());
         }
+        if (StringUtils.hasText(request.getCategoryName())) {
+            category.changeName(request.getCategoryName());
+            response.withId(category.getId());
+            response.withCategoryName(category.getCategoryName());
+        }
         return response;
     }
 
-    public void deleteCateogry(Long id) {
+    public void deleteCategory(Long id) {
         Category category = getCategory(id);
         category.delete();
     }
 
     private Category getCategory(Long id) {
-        return this.categoryRepository.findById(id).orElseThrow(() -> new NotFoundEntityException("해당 카테고리엔티티는 존재하지 않습니다.", id));
+        return this.categoryRepository.findFetchById(id).orElseThrow(() -> new NotFoundEntityException("해당 카테고리엔티티는 존재하지 않습니다.", id));
     }
 }

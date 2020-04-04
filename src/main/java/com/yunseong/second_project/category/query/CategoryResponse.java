@@ -23,8 +23,10 @@ public class CategoryResponse {
     public CategoryResponse(Category category) {
         this.id = category.getId();
         this.categoryName = category.getCategoryName();
-        this.parentId = category.getParent().getId();
-        this.parentName = category.getParent().getCategoryName();
+        if(category.getParent() != null) {
+            this.parentId = category.getParent().getId();
+            this.parentName = category.getParent().getCategoryName();
+        }
         this.child = category.getCategories().stream().map(c -> new CategoryChild(c.getId(), c.getCategoryName())).collect(Collectors.toList());
         this.createdTime = category.getCreatedTime();
         this.updatedTime = category.getUpdatedTime();

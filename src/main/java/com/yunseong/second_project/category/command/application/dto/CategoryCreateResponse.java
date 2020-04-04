@@ -1,5 +1,4 @@
 package com.yunseong.second_project.category.command.application.dto;
-
 import com.yunseong.second_project.category.command.domain.Category;
 import lombok.Getter;
 
@@ -17,8 +16,10 @@ public class CategoryCreateResponse {
     public CategoryCreateResponse(Category category) {
         this.id = category.getId();
         this.categoryName = category.getCategoryName();
-        this.parentId = category.getParent().getId();
-        this.parentName = category.getParent().getCategoryName();
+        if (category.getParent() != null) {
+            this.parentId = category.getParent().getId();
+            this.parentName = category.getParent().getCategoryName();
+        }
         this.createdTime = category.getCreatedTime();
     }
 }
