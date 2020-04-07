@@ -10,7 +10,6 @@ import com.yunseong.second_project.common.errors.NotFoundEntityException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.StringUtils;
 
 @Service
 @Transactional
@@ -20,7 +19,7 @@ public class CategoryCommandService {
     private final CategoryRepository categoryRepository;
 
     public CategoryCreateResponse registerCategory(CategoryCreateRequest request) {
-        Category parent = getCategory(request.getParentId());
+        Category parent = this.getCategory(request.getParentId());
         Category category = new Category(request.getCategoryName(), parent);
         this.categoryRepository.save(category);
         return new CategoryCreateResponse(category);
@@ -40,13 +39,16 @@ public class CategoryCommandService {
         return response;
     }
 
-    public CategoryUpdateResponse updatePatchCategory(Long id, CategoryUpdateRequest request) {
+/*    public CategoryUpdateResponse updatePatchCategory(Long id, CategoryUpdateRequest request) {
         Category category = getCategory(id);
         CategoryUpdateResponse response = new CategoryUpdateResponse(category);
         if (request.getParentId() != null) {
             Category parent = getCategory(request.getParentId());
-            response.withParentId(parent.getId());
-            response.withParentName(parent.getCategoryName());
+            category.setParent(parent);
+            if (parent != null) {
+                response.withParentId(parent.getId());
+                response.withParentName(parent.getCategoryName());
+            }
         }
         if (StringUtils.hasText(request.getCategoryName())) {
             category.changeName(request.getCategoryName());
@@ -54,7 +56,7 @@ public class CategoryCommandService {
             response.withCategoryName(category.getCategoryName());
         }
         return response;
-    }
+    }*/
 
     public void deleteCategory(Long id) {
         Category category = getCategory(id);
@@ -62,6 +64,7 @@ public class CategoryCommandService {
     }
 
     private Category getCategory(Long id) {
+        if (id == 0) return null;
         return this.categoryRepository.findFetchById(id).orElseThrow(() -> new NotFoundEntityException("해당 카테고리엔티티는 존재하지 않습니다.", id));
     }
 }

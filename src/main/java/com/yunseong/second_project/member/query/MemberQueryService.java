@@ -16,7 +16,7 @@ public class MemberQueryService {
     private final MemberRepository memberRepository;
 
     public MemberQueryResponse findMember(Long id) {
-        Member member = this.memberRepository.findById(id).orElseThrow(() -> new NotFoundEntityException("해당 유저는 존재하지 않습니다.", id));
-        return new MemberQueryResponse(member);
+        MemberQueryResponse member = this.memberRepository.findFetchById(id).orElseThrow(() -> new NotFoundEntityException("해당 유저는 존재하지 않습니다.", id));
+        return member;
     }
 }

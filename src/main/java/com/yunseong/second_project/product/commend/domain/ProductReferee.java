@@ -1,4 +1,4 @@
-package com.yunseong.second_project.product.domain;
+package com.yunseong.second_project.product.commend.domain;
 
 import com.yunseong.second_project.common.domain.BaseUserEntity;
 import lombok.*;

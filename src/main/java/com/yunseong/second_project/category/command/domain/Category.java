@@ -34,19 +34,18 @@ public class Category extends BaseUserEntity {
     }
 
     public void setParent(Category parent) {
-        if (this.getParent().getCategories().contains(this))
-            this.getParent().getCategories().remove(this);
+        if (parent != null) {
+            if (this.getParent() != null) {
+                this.getParent().getCategories().remove(this);
+            }
+            parent.getParent().getCategories().add(this);
+        }
         this.parent = parent;
-        parent.addChild(this);
-    }
-
-    private void addChild(Category child) {
-        this.getParent().addChild(child);
     }
 
     @Override
     public void delete() {
         super.delete();
-        this.getCategories().forEach(Category::delete);
+        this.getCategories().forEach(category -> category.setParent(null));
     }
 }

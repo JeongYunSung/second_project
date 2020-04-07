@@ -4,20 +4,21 @@ import com.yunseong.second_project.common.domain.CustomUser;
 import com.yunseong.second_project.common.errors.NotFoundEntityException;
 import com.yunseong.second_project.member.command.application.dto.*;
 import com.yunseong.second_project.member.command.domain.Member;
+import com.yunseong.second_project.member.command.domain.MemberPurchase;
 import com.yunseong.second_project.member.command.domain.MemberRepository;
 import com.yunseong.second_project.member.command.domain.Purchase;
-import com.yunseong.second_project.product.domain.Product;
-import com.yunseong.second_project.product.domain.ProductRepository;
+import com.yunseong.second_project.member.query.dto.PurchaseResponse;
+import com.yunseong.second_project.product.commend.domain.Product;
+import com.yunseong.second_project.product.commend.domain.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-
-import static org.springframework.util.StringUtils.hasText;
+import java.util.function.Supplier;
 
 @Service
 @Transactional
@@ -36,15 +37,28 @@ public class MemberCommandService {
     }
 
     public MemberUpdateResponse updatePutMember(MemberUpdateRequest request) {
-        Member member = getMember();
+        Member member = getMember(false);
         member.verifyPassword(request.getVerifyPassword(), this.passwordEncoder);
-        member.update(request.getPassword(), request.getNickname(), request.getMoney(),
-                getPurchases(request));
+        member.update(request.getPassword(), request.getNickname(), request.getMoney());
         return new MemberUpdateResponse(member)
-                .withPassword(member.getPassword()).withNickname(member.getNickname()).withMoney(member.getMoney()).withGrade(member.getGrade().getValue()).withPurchaseIdList(request.getPurchaseIdList());
+                .withPassword(member.getPassword()).withNickname(member.getNickname()).withMoney(member.getMoney()).withGrade(member.getGrade().getValue());
     }
 
-    public MemberUpdateResponse updatePatchMember(MemberUpdateRequest request) {
+    public List<PurchaseResponse> addPurchase(List<Long> purchaseIdList) {
+        List<PurchaseResponse> list = new ArrayList<>();
+        Member member = getMember(true);
+        purchaseIdList.stream().map(id -> {
+            Product product = this.productRepository.findById(id).orElseThrow(() -> new NotFoundEntityException("해당 상품은 존재하지 않습니다.", id));
+            MemberPurchase memberPurchase = new MemberPurchase(new Purchase(product.getId(), product.getProductName()));
+            memberPurchase.setMember(member);
+            list.add(new PurchaseResponse(memberPurchase));
+            return memberPurchase;
+        }).forEach(member::addPurchase);
+
+        return list;
+    }
+
+/*    public MemberUpdateResponse updatePatchMember(MemberUpdateRequest request) {
         Member member = getMember();
         member.verifyPassword(request.getVerifyPassword(), this.passwordEncoder);
         MemberUpdateResponse response = new MemberUpdateResponse(member);
@@ -71,22 +85,19 @@ public class MemberCommandService {
             response.withPurchaseIdList(request.getPurchaseIdList());
         }
         return response;
-    }
+    }*/
 
     public void deleteMember() {
-        Member member = getMember();
+        Member member = getMember(false);
         member.delete();
     }
 
-    private Member getMember() {
+    private Member getMember(boolean purchase) {
         CustomUser user = (CustomUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return this.memberRepository.findById(user.getId()).orElseThrow(() -> new NotFoundEntityException("해당 유저는 존재하지 않습니다.", user.getId()));
-    }
-
-    private List<Purchase> getPurchases(MemberUpdateRequest request) {
-        return request.getPurchaseIdList().stream().map(productId -> {
-            Product product = this.productRepository.findById(productId).get();
-            return new Purchase(productId, product.getProductName());
-        }).collect(Collectors.toList());
+        Supplier<NotFoundEntityException> notFoundEntityExceptionSupplier = () -> new NotFoundEntityException("해당 유저는 존재하지 않습니다.", user.getId());
+        if (purchase) {
+            return this.memberRepository.findPurchaseById(user.getId()).orElseThrow(notFoundEntityExceptionSupplier);
+        }
+        return this.memberRepository.findById(user.getId()).orElseThrow(notFoundEntityExceptionSupplier);
     }
 }

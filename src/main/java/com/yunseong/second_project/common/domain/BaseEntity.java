@@ -1,6 +1,5 @@
 package com.yunseong.second_project.common.domain;
 
-import com.yunseong.second_project.common.errors.DeletedEntityException;
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -25,16 +24,9 @@ public abstract class BaseEntity {
     @Column(nullable = false)
     private LocalDateTime updatedTime;
 
-    private boolean isDelete;
+    private boolean delete;
 
     public void delete() {
-        this.isDelete();
-        this.isDelete = true;
-    }
-
-    public void isDelete() {
-        if (this.isDelete) {
-            throw new DeletedEntityException("해당 엔티티는 삭제된 상태입니다.");
-        }
+        this.delete = true;
     }
 }

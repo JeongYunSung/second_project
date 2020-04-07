@@ -24,7 +24,7 @@ public class JwtTokenProvider {
     @Value("spring.jwt.secret")
     private String secret;
 
-    private long tokenValidMilisecond = 1000L * 60 * 30;
+    private long tokenValidMillisecond = 1000L * 60 * 30;
 
     private final MemberDetailsService memberDetailsService;
 
@@ -40,7 +40,7 @@ public class JwtTokenProvider {
         return Jwts.builder()
                 .setClaims(claims)
                 .setIssuedAt(now)
-                .setExpiration(new Date(now.getTime() + tokenValidMilisecond))
+                .setExpiration(new Date(now.getTime() + tokenValidMillisecond))
                 .signWith(SignatureAlgorithm.ES256, this.secret)
                 .compact();
     }

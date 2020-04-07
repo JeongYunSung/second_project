@@ -13,20 +13,11 @@ import javax.persistence.*;
 @AttributeOverride(name = "id", column = @Column(name = "purchase_id"))
 public class Purchase extends BaseUserEntity {
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_id")
-    private Member member;
-
     private Long productId;
-
     private String productName;
 
     public Purchase(Long productId, String productName) {
         this.productId = productId;
         this.productName = productName;
-    }
-
-    public void setMember(Member member) {
-        this.member = member;
     }
 }

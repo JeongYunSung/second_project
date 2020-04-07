@@ -7,8 +7,7 @@ import org.springframework.validation.Validator;
 
 import static org.springframework.util.StringUtils.hasText;
 
-@Component
-public class MemberUpdateRequestValidator implements Validator {
+public class MemberUpdatePatchRequestValidator implements Validator {
 
     @Override
     public boolean supports(Class<?> clazz) {

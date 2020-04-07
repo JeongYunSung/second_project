@@ -16,7 +16,6 @@ public class MemberUpdateResponse {
     private @With String nickname;
     private @With Integer money;
     private @With String grade;
-    private @With List<Long> purchaseIdList;
     private LocalDateTime createdTime;
     private LocalDateTime updatedTime;
 

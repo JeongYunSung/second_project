@@ -6,6 +6,8 @@ import lombok.Getter;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Getter
 public class MemberQueryResponse {
@@ -13,7 +15,7 @@ public class MemberQueryResponse {
     private String username;
     private String nickname;
     private Integer money;
-    private List<Purchase> purchase;
+    private Stream<PurchaseResponse> purchase;
     private LocalDateTime createdTime;
     private LocalDateTime updatedTime;
 
@@ -21,7 +23,7 @@ public class MemberQueryResponse {
         this.username = member.getUsername();
         this.nickname = member.getNickname();
         this.money = member.getMoney();
-        this.purchase = member.getPurchases();
+        this.purchase = member.getPurchases().stream().map(PurchaseResponse::new);
         this.createdTime = member.getCreatedTime();
         this.updatedTime = member.getUpdatedTime();
     }

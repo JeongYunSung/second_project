@@ -1,10 +1,15 @@
 package com.yunseong.second_project.common.util;
 
 import com.yunseong.second_project.common.errors.NotValidIdException;
+import com.yunseong.second_project.product.query.application.dto.ProductSearchCondition;
+import org.springframework.data.domain.Pageable;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.Link;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
+
+import static org.springframework.util.StringUtils.*;
 
 public class Util {
 
@@ -21,14 +26,49 @@ public class Util {
     }
 
     public <T> ResponseEntity getUpdateResponseEntity(Errors errors, T t, Link...links) {
-        if (errors.hasErrors()) {
-            return ResponseEntity.badRequest().body(errors);
+        if (errors != null) {
+            if (errors.hasErrors()) {
+                return ResponseEntity.badRequest().body(errors);
+            }
         }
         EntityModel<T> entityModel = new EntityModel<>(t);
         entityModel.add(links);
         entityModel.add(Util.profile);
 
         return ResponseEntity.ok(entityModel);
+    }
+
+    public String getPageableQuery(Pageable pageable) {
+        String query = "";
+        if (pageable != null) {
+            query += "?";
+            if (pageable.getPageNumber() > 0)
+                query += "page=" + pageable.getPageNumber() + "&";
+            if (pageable.getPageSize() > 0 && pageable.getPageSize() != 10)
+                query += "size=" + pageable.getPageSize() + "&";
+            if (pageable.getSort() != null && !pageable.getSort().isUnsorted())
+                query += "sort=" + pageable.getSort() + "&";
+            query = query.substring(0, query.length()-1);
+        }
+        return query;
+    }
+
+    public String getProductConditionQuery(ProductSearchCondition condition, boolean queryCheck) {
+        String query = "";
+        if (condition != null) {
+            if(queryCheck)
+                query += "?";
+            if (condition.getMin() != null && condition.getMin() >= 0)
+                query += "min=" + condition.getMin() + "&";
+            if (condition.getMax() != null && condition.getMax() <= Integer.MAX_VALUE)
+                query += "max=" + condition.getMax() + "&";
+            if (hasText(condition.getCategoryName()))
+                query += "categoryName=" + condition.getCategoryName() + "&";
+            if (hasText(condition.getProductName()))
+                query += "productName=" + condition.getProductName() + "&";
+            query = query.substring(0, query.length()-1);
+        }
+        return query;
     }
 
     public void validId(Long id) {

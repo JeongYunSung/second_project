@@ -7,10 +7,9 @@ import com.yunseong.second_project.member.command.application.MemberCommandServi
 import com.yunseong.second_project.member.command.application.MemberDetailsService;
 import com.yunseong.second_project.member.command.application.dto.MemberCreateRequest;
 import com.yunseong.second_project.member.command.application.dto.MemberCreateResponse;
-import com.yunseong.second_project.member.query.dto.MemberSiginRequest;
+import com.yunseong.second_project.member.query.dto.MemberSigninRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.hateoas.EntityModel;
-import org.springframework.hateoas.Link;
 import org.springframework.hateoas.MediaTypes;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,7 +38,7 @@ public class MemberSignController {
     private final MemberCommandService memberCommandService;
 
     @PostMapping("/signin")
-    public ResponseEntity signIn(@RequestBody  MemberSiginRequest request, Errors errors) {
+    public ResponseEntity signIn(@RequestBody MemberSigninRequest request, Errors errors) {
         CustomUser user = (CustomUser) this.memberDetailsService.loadUserByUsername(request.getUsername());
         if (!this.passwordEncoder.matches(user.getPassword(), request.getPassword())) {
             errors.rejectValue("password", "wrongValue", "Password is wrongValue");

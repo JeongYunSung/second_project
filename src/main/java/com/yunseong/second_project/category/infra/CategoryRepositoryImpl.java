@@ -1,6 +1,7 @@
 package com.yunseong.second_project.category.infra;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import com.yunseong.second_project.category.command.domain.QCategory;
 import com.yunseong.second_project.category.query.CategoryQueryRepository;
 import com.yunseong.second_project.category.query.CategoryResponse;
 import com.yunseong.second_project.category.query.QCategoryResponse;
@@ -25,13 +26,18 @@ public class CategoryRepositoryImpl implements CategoryQueryRepository {
 
     @Override
     public Page<CategoryResponse> findAllByPage(Pageable pageable) {
+        QCategory parent = new QCategory("parent");
+        QCategory child = new QCategory("child");
         List<CategoryResponse> content = this.queryFactory
-                .select(new QCategoryResponse(category))
+                .select(new QCategoryResponse(category)).distinct()
                 .from(category)
+                .leftJoin(category.parent, parent)
+                .leftJoin(category.categories, child)
+                .where(category.delete.eq(false))
                 .offset(pageable.getOffset())
                 .limit(pageable.getPageSize())
                 .fetch();
         return PageableExecutionUtils.getPage(content, pageable,
-                this.queryFactory.select(new QCategoryResponse(category)).from(category)::fetchCount);
+                this.queryFactory.select(new QCategoryResponse(category)).from(category).where(category.delete.eq(false))::fetchCount);
     }
 }

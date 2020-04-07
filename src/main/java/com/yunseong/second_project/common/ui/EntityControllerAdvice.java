@@ -1,10 +1,9 @@
 package com.yunseong.second_project.common.ui;
 
-import com.yunseong.second_project.common.domain.BaseEntity;
-import com.yunseong.second_project.common.errors.DeletedEntityException;
 import com.yunseong.second_project.common.errors.NotFoundEntityException;
 import com.yunseong.second_project.common.errors.NotMatchPasswordException;
 import com.yunseong.second_project.common.errors.NotValidIdException;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.Errors;
@@ -28,17 +27,17 @@ public class EntityControllerAdvice {
         return ResponseEntity.badRequest().body(errors);
     }
 
-    @ExceptionHandler(DeletedEntityException.class)
-    public ResponseEntity handleNotExistEntityException(DeletedEntityException exception) {
-        Errors errors = new BeanPropertyBindingResult(BaseEntity.class, "엔티티");
-        errors.reject("deleted", "Entity is deleted");
-        return ResponseEntity.badRequest().body(errors);
-    }
-
     @ExceptionHandler(NotValidIdException.class)
     public ResponseEntity handleNotValidIdException(NotValidIdException exception) {
         Errors errors = new BeanPropertyBindingResult(exception.getId(), "아이디");
         errors.rejectValue("id", "notValid", "Id is notValid");
+        return ResponseEntity.badRequest().body(errors);
+    }
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity handleDataIntegrityViolationException(DataIntegrityViolationException excepton) {
+        Errors errors = new BeanPropertyBindingResult(null, "");
+        errors.reject("중복", "해당 엔티티는 이미 존재합니다");
         return ResponseEntity.badRequest().body(errors);
     }
 }

@@ -1,14 +1,21 @@
 package com.yunseong.second_project.admin.ui;
 
+import com.yunseong.second_project.admin.ui.validator.CategoryPatchValidator;
 import com.yunseong.second_project.category.command.application.CategoryCommandService;
 import com.yunseong.second_project.category.command.application.dto.CategoryCreateRequest;
 import com.yunseong.second_project.category.command.application.dto.CategoryCreateResponse;
 import com.yunseong.second_project.category.command.application.dto.CategoryUpdateRequest;
-import com.yunseong.second_project.category.ui.CategoryController;
+import com.yunseong.second_project.category.query.CategoryQueryService;
+import com.yunseong.second_project.category.query.CategoryResponse;
+import com.yunseong.second_project.category.query.CategoryResponseModel;
 import com.yunseong.second_project.common.util.Util;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.MediaTypes;
+import org.springframework.hateoas.PagedModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +30,30 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 @RequiredArgsConstructor
 public class AdminController {
 
+    private final CategoryQueryService categoryQueryService;
     private final CategoryCommandService categoryCommandService;
+    private final CategoryPatchValidator categoryPatchValidator;
+
+    @GetMapping("/categories/{id}")
+    public ResponseEntity findCategory(@PathVariable Long id) {
+        Util.getUtil().validId(id);
+        EntityModel<CategoryResponse> entityModel = new EntityModel<>(this.categoryQueryService.findCategory(id));
+        entityModel.add(linkTo(methodOn(AdminController.class).findCategory(id)).withSelfRel());
+        entityModel.add(Util.profile);
+
+        return ResponseEntity.ok(entityModel);
+    }
+
+    @GetMapping("/categories")
+    public ResponseEntity findCategories(@PageableDefault Pageable pageable) {
+        Page<CategoryResponseModel> page = this.categoryQueryService.findCategoryByPage(pageable).map(categoryResponse -> new CategoryResponseModel(categoryResponse,
+                linkTo(methodOn(AdminController.class).findCategory(categoryResponse.getId())).withRel("child")));
+        PagedModel<CategoryResponseModel> pagedModel = new PagedModel<>(page.getContent(),
+                new PagedModel.PageMetadata(pageable.getPageSize(), pageable.getPageNumber(), page.getTotalElements()));
+        pagedModel.add(linkTo(AdminController.class).slash("categories" + Util.getUtil().getPageableQuery(pageable)).withSelfRel());
+        pagedModel.add(Util.profile);
+        return ResponseEntity.ok(pagedModel);
+    }
 
     @PostMapping("/categories")
     public ResponseEntity registerCategory(@RequestBody CategoryCreateRequest request, Errors errors) {
@@ -31,7 +61,7 @@ public class AdminController {
             return ResponseEntity.badRequest().body(errors);
         }
         CategoryCreateResponse response = this.categoryCommandService.registerCategory(request);
-        URI uri = linkTo(methodOn(CategoryController.class).findCategory(response.getId())).toUri();
+        URI uri = linkTo(methodOn(AdminController.class).findCategory(response.getId())).toUri();
         EntityModel<CategoryCreateResponse> entityModel = new EntityModel<>(response);
         entityModel.add(Util.profile);
 
@@ -43,16 +73,20 @@ public class AdminController {
         Util util = Util.getUtil();
         util.validId(id);
         return util.getUpdateResponseEntity(errors, this.categoryCommandService.updatePutCategory(id, request),
-                linkTo(methodOn(CategoryController.class).findCategory(id)).withSelfRel());
+                linkTo(methodOn(AdminController.class).findCategory(id)).withSelfRel());
     }
 
-    @PatchMapping("/categories/{id}")
+/*    @PatchMapping("/categories/{id}")
     public ResponseEntity updatePatchCategory(@PathVariable Long id, @RequestBody CategoryUpdateRequest request, Errors errors) {
         Util util = Util.getUtil();
         util.validId(id);
+        this.categoryPatchValidator.validate(request, errors);
+        if (errors.hasErrors()) {
+            return ResponseEntity.badRequest().body(errors);
+        }
         return util.getUpdateResponseEntity(errors, this.categoryCommandService.updatePatchCategory(id, request),
                 linkTo(methodOn(CategoryController.class).findCategory(id)).withSelfRel());
-    }
+    }*/
 
     @DeleteMapping("/categories/{id}")
     public ResponseEntity deleteCategory(@PathVariable Long id) {

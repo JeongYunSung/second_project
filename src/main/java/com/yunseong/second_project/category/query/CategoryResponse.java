@@ -27,7 +27,8 @@ public class CategoryResponse {
             this.parentId = category.getParent().getId();
             this.parentName = category.getParent().getCategoryName();
         }
-        this.child = category.getCategories().stream().map(c -> new CategoryChild(c.getId(), c.getCategoryName())).collect(Collectors.toList());
+        if(category.getCategories() != null && category.getCategories().size() > 1)
+            this.child = category.getCategories().stream().map(c -> new CategoryChild(c.getId(), c.getCategoryName())).collect(Collectors.toList());
         this.createdTime = category.getCreatedTime();
         this.updatedTime = category.getUpdatedTime();
     }

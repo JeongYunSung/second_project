@@ -1,6 +1,6 @@
-package com.yunseong.second_project.product.application.dto;
+package com.yunseong.second_project.product.query.application.dto;
 
-import com.yunseong.second_project.product.domain.Type;
+import com.yunseong.second_project.product.commend.domain.Type;
 import lombok.Getter;
 
 @Getter
