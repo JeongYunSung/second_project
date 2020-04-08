@@ -26,7 +26,8 @@ public class Category extends BaseUserEntity {
 
     public Category(String categoryName, Category parent) {
         this.categoryName = categoryName;
-        this.parent = parent;
+        if(parent != null)
+            this.setParent(parent);
     }
 
     public void changeName(String categoryName) {
@@ -34,13 +35,11 @@ public class Category extends BaseUserEntity {
     }
 
     public void setParent(Category parent) {
-        if (parent != null) {
-            if (this.getParent() != null) {
-                this.getParent().getCategories().remove(this);
-            }
-            parent.getParent().getCategories().add(this);
+        if (this.getParent() != null) {
+            this.getParent().getCategories().remove(this);
         }
         this.parent = parent;
+        this.getParent().getCategories().add(this);
     }
 
     @Override

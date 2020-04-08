@@ -29,12 +29,14 @@ public class CategoryCommandService {
         Category parent = getCategory(request.getParentId());
         Category category = getCategory(id);
         category.changeName(request.getCategoryName());
-        category.setParent(parent);
         CategoryUpdateResponse response = new CategoryUpdateResponse(category)
                 .withId(category.getId())
                 .withCategoryName(category.getCategoryName());
         if (parent != null) {
-            response.withParentId(parent.getId()).withParentName(parent.getCategoryName());
+            category.setParent(parent);
+            response = response
+                    .withParentId(parent.getId())
+                    .withParentName(parent.getCategoryName());
         }
         return response;
     }
@@ -64,7 +66,7 @@ public class CategoryCommandService {
     }
 
     private Category getCategory(Long id) {
-        if (id == 0) return null;
+        if (id == null || id == 0) return null;
         return this.categoryRepository.findFetchById(id).orElseThrow(() -> new NotFoundEntityException("해당 카테고리엔티티는 존재하지 않습니다.", id));
     }
 }

@@ -12,6 +12,6 @@ public interface CategoryRepository extends JpaRepository<Category, Long>, Categ
     @Query("select c from Category c left join fetch c.parent parent where c.id = :id and c.delete = false")
     Optional<Category> findFetchById(Long id);
 
-    @Query("select new com.yunseong.second_project.category.query.CategoryResponse(c) from Category c left join c.parent parent left join c.categories child where c.id = :id and c.delete = false")
+    @Query("select distinct new com.yunseong.second_project.category.query.CategoryResponse(c) from Category c left join c.parent parent left join c.categories child where c.id = :id and c.delete = false")
     Optional<CategoryResponse> findDtoById(Long id);
 }

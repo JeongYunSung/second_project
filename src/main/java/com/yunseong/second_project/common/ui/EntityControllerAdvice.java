@@ -7,10 +7,10 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-@ControllerAdvice
+@RestControllerAdvice
 public class EntityControllerAdvice {
 
     @ExceptionHandler(NotFoundEntityException.class)
@@ -29,8 +29,8 @@ public class EntityControllerAdvice {
 
     @ExceptionHandler(NotValidIdException.class)
     public ResponseEntity handleNotValidIdException(NotValidIdException exception) {
-        Errors errors = new BeanPropertyBindingResult(exception.getId(), "아이디");
-        errors.rejectValue("id", "notValid", "Id is notValid");
+        Errors errors = new BeanPropertyBindingResult(null, "");
+        errors.reject("notValid", "Id is notValid");
         return ResponseEntity.badRequest().body(errors);
     }
 

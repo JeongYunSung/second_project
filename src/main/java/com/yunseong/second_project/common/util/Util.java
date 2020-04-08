@@ -73,7 +73,7 @@ public class Util {
 
     public void validId(Long id) {
         if (id == null || id < 1 || id > Long.MAX_VALUE) {
-            throw new NotValidIdException("해당 아이디값은 유효한 값이 아닙니다.", id);
+            throw new NotValidIdException("해당 아이디값은 유효한 값이 아닙니다.");
         }
     }
 }
