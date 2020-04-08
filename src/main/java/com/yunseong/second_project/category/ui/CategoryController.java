@@ -1,6 +1,5 @@
-package com.yunseong.second_project.admin.ui;
+package com.yunseong.second_project.category.ui;
 
-import com.yunseong.second_project.admin.ui.validator.CategoryPatchValidator;
 import com.yunseong.second_project.category.command.application.CategoryCommandService;
 import com.yunseong.second_project.category.command.application.dto.CategoryCreateRequest;
 import com.yunseong.second_project.category.command.application.dto.CategoryCreateResponse;
@@ -26,19 +25,18 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
-@RequestMapping(value = "/v1/admin", consumes = MediaTypes.HAL_JSON_VALUE, produces = MediaTypes.HAL_JSON_VALUE)
+@RequestMapping(value = "/v1/admin", produces = MediaTypes.HAL_JSON_VALUE)
 @RequiredArgsConstructor
-public class AdminController {
+public class CategoryController {
 
     private final CategoryQueryService categoryQueryService;
     private final CategoryCommandService categoryCommandService;
-    private final CategoryPatchValidator categoryPatchValidator;
 
     @GetMapping("/categories/{id}")
     public ResponseEntity findCategory(@PathVariable Long id) {
         Util.getUtil().validId(id);
         EntityModel<CategoryResponse> entityModel = new EntityModel<>(this.categoryQueryService.findCategory(id));
-        entityModel.add(linkTo(methodOn(AdminController.class).findCategory(id)).withSelfRel());
+        entityModel.add(linkTo(methodOn(CategoryController.class).findCategory(id)).withSelfRel());
         entityModel.add(Util.profile);
 
         return ResponseEntity.ok(entityModel);
@@ -47,10 +45,10 @@ public class AdminController {
     @GetMapping("/categories")
     public ResponseEntity findCategories(@PageableDefault Pageable pageable) {
         Page<CategoryResponseModel> page = this.categoryQueryService.findCategoryByPage(pageable).map(categoryResponse -> new CategoryResponseModel(categoryResponse,
-                linkTo(methodOn(AdminController.class).findCategory(categoryResponse.getId())).withRel("child")));
+                linkTo(methodOn(CategoryController.class).findCategory(categoryResponse.getId())).withRel("child")));
         PagedModel<CategoryResponseModel> pagedModel = new PagedModel<>(page.getContent(),
                 new PagedModel.PageMetadata(pageable.getPageSize(), pageable.getPageNumber(), page.getTotalElements()));
-        pagedModel.add(linkTo(AdminController.class).slash("categories" + Util.getUtil().getPageableQuery(pageable)).withSelfRel());
+        pagedModel.add(linkTo(CategoryController.class).slash("categories" + Util.getUtil().getPageableQuery(pageable)).withSelfRel());
         pagedModel.add(Util.profile);
         return ResponseEntity.ok(pagedModel);
     }
@@ -61,7 +59,7 @@ public class AdminController {
             return ResponseEntity.badRequest().body(errors);
         }
         CategoryCreateResponse response = this.categoryCommandService.registerCategory(request);
-        URI uri = linkTo(methodOn(AdminController.class).findCategory(response.getId())).toUri();
+        URI uri = linkTo(methodOn(CategoryController.class).findCategory(response.getId())).toUri();
         EntityModel<CategoryCreateResponse> entityModel = new EntityModel<>(response);
         entityModel.add(Util.profile);
 
@@ -73,7 +71,7 @@ public class AdminController {
         Util util = Util.getUtil();
         util.validId(id);
         return util.getUpdateResponseEntity(errors, this.categoryCommandService.updatePutCategory(id, request),
-                linkTo(methodOn(AdminController.class).findCategory(id)).withSelfRel());
+                linkTo(methodOn(CategoryController.class).findCategory(id)).withSelfRel());
     }
 
 /*    @PatchMapping("/categories/{id}")

@@ -10,10 +10,7 @@ import java.util.List;
 @Getter
 public class MemberQueryResponseModel extends EntityModel<MemberQueryResponse> {
 
-    private List<PurchaseResponseModel> products;
-
-    public MemberQueryResponseModel(MemberQueryResponse content, List<PurchaseResponseModel> products, Link... links) {
+    public MemberQueryResponseModel(MemberQueryResponse content, Link... links) {
         super(content, links);
-        this.products = products;
     }
 }

@@ -28,7 +28,7 @@ public class ProductCreateResponse {
         this.value = product.getValue();
         this.recommend = product.getProductReferees().stream().map(referee -> referee.getReferee().getUsername()).collect(Collectors.toList());
         this.view = product.getView();
-        this.categories = product.getTypes().stream().map(TypeResponse::new).collect(Collectors.toList());
+        this.categories = product.getTypes().stream().map(productType -> new TypeResponse(productType.getType())).collect(Collectors.toList());
         this.createdTime = product.getCreatedTime();
         this.updatedTime = product.getUpdatedTime();
     }

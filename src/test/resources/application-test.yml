@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    show-sql: true
+    open-in-view: false
+    hibernate:
+      use-new-id-generator-mappings: true
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+
+  jwt:
+    secret: jeongyunsung&&yon663

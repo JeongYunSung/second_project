@@ -7,10 +7,11 @@ import com.yunseong.second_project.member.command.application.MemberCommandServi
 import com.yunseong.second_project.member.command.application.MemberDetailsService;
 import com.yunseong.second_project.member.command.application.dto.MemberCreateRequest;
 import com.yunseong.second_project.member.command.application.dto.MemberCreateResponse;
-import com.yunseong.second_project.member.query.dto.MemberSigninRequest;
+import com.yunseong.second_project.member.query.dto.MemberSignInRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.MediaTypes;
+import org.springframework.hateoas.RepresentationModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.GrantedAuthority;
@@ -38,18 +39,18 @@ public class MemberSignController {
     private final MemberCommandService memberCommandService;
 
     @PostMapping("/signin")
-    public ResponseEntity signIn(@RequestBody MemberSigninRequest request, Errors errors) {
+    public ResponseEntity signIn(@RequestBody MemberSignInRequest request, Errors errors) {
         CustomUser user = (CustomUser) this.memberDetailsService.loadUserByUsername(request.getUsername());
-        if (!this.passwordEncoder.matches(user.getPassword(), request.getPassword())) {
+        if (!this.passwordEncoder.matches(request.getPassword(), user.getPassword())) {
             errors.rejectValue("password", "wrongValue", "Password is wrongValue");
         }
         if (errors.hasErrors()) {
-            return new ResponseEntity(errors, HttpStatus.UNAUTHORIZED);
+            return ResponseEntity.badRequest().body(errors);
         }
-        EntityModel<String> model = new EntityModel<>(this.jwtTokenProvider.createToken(user.getId(), user.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList())));
+        RepresentationModel model = new RepresentationModel();
         model.add(linkTo(MemberMeController.class).withSelfRel());
         model.add(Util.profile);
-        return ResponseEntity.ok(model);
+        return ResponseEntity.ok().header("X-AUTH-TOKEN", this.jwtTokenProvider.createToken(user.getUsername(), user.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList()))).body(model);
     }
 
     @PostMapping("/signup")

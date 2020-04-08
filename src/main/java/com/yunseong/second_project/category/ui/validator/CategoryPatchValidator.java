@@ -1,4 +1,4 @@
-package com.yunseong.second_project.admin.ui.validator;
+package com.yunseong.second_project.category.ui.validator;
 
 import com.yunseong.second_project.category.command.application.dto.CategoryUpdateRequest;
 import org.springframework.stereotype.Component;

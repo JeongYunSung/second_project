@@ -18,8 +18,7 @@ public class MemberUpdatePatchRequestValidator implements Validator {
     public void validate(Object target, Errors errors) {
         MemberUpdateRequest request = (MemberUpdateRequest) target;
 
-        if (!hasText(request.getPassword()) && !hasText(request.getNickname()) && !hasText(request.getVerifyPassword()) && request.getMoney() == null
-            && request.getGrade() == null && request.getPurchaseIdList() == null) {
+        if (!hasText(request.getPassword()) && !hasText(request.getNickname()) && !hasText(request.getVerifyPassword())) {
             errors.reject("required", "All fields cannot be null");
         }
     }

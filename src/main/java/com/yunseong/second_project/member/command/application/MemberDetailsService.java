@@ -23,7 +23,6 @@ public class MemberDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Member member = this.memberRepository.findMemberByUsername(username).orElseThrow(() -> new UsernameNotFoundException("해당 계정은 존재하지 않습니다."));
-        member.isDelete();
         return new CustomUser(member.getId(),
                 member.getUsername(),
                 member.getPassword(),

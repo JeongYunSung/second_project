@@ -6,10 +6,7 @@ import com.yunseong.second_project.member.command.application.MemberCommandServi
 import com.yunseong.second_project.member.command.application.dto.MemberUpdateRequest;
 import com.yunseong.second_project.member.query.MemberQueryService;
 import com.yunseong.second_project.member.query.dto.MemberQueryResponse;
-import com.yunseong.second_project.member.query.dto.PurchaseResponse;
 import com.yunseong.second_project.member.query.dto.model.MemberQueryResponseModel;
-import com.yunseong.second_project.member.query.dto.model.PurchaseResponseModel;
-import com.yunseong.second_project.member.ui.validator.MemberUpdatePatchRequestValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.hateoas.MediaTypes;
 import org.springframework.http.ResponseEntity;
@@ -17,13 +14,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
-
 @RestController
-@RequestMapping(value = "/v1/members/me", consumes = MediaTypes.HAL_JSON_VALUE, produces = MediaTypes.HAL_JSON_VALUE)
+@RequestMapping(value = "/v1/members/me", produces = MediaTypes.HAL_JSON_VALUE)
 @RequiredArgsConstructor
 public class MemberMeController {
 
@@ -33,10 +25,7 @@ public class MemberMeController {
     @GetMapping
     public ResponseEntity findMember() {
         MemberQueryResponse memberResponse = this.memberQueryService.findMember(((CustomUser)(SecurityContextHolder.getContext().getAuthentication().getPrincipal())).getId());
-        List<PurchaseResponseModel> products = memberResponse.getPurchase().map(purchaseResponse -> new PurchaseResponseModel(purchaseResponse,
-                linkTo(MemberMeController.class).withRel("product"))).collect(Collectors.toList());
-        MemberQueryResponseModel model = new MemberQueryResponseModel(memberResponse, products);
-        model.add(linkTo(MemberMeController.class).withSelfRel());
+        MemberQueryResponseModel model = new MemberQueryResponseModel(memberResponse);
         model.add(Util.profile);
         return ResponseEntity.ok(model);
     }

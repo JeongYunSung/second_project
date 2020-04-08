@@ -1,7 +1,6 @@
 package com.yunseong.second_project.member.query;
 
 import com.yunseong.second_project.common.errors.NotFoundEntityException;
-import com.yunseong.second_project.member.command.domain.Member;
 import com.yunseong.second_project.member.command.domain.MemberRepository;
 import com.yunseong.second_project.member.query.dto.MemberQueryResponse;
 import lombok.RequiredArgsConstructor;

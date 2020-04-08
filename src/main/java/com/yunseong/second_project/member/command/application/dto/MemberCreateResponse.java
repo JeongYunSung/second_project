@@ -12,13 +12,13 @@ public class MemberCreateResponse {
     private String password;
     private String nickname;
     private String grade;
-    private LocalDateTime createTime;
+    private LocalDateTime createdTime;
 
     public MemberCreateResponse(Member member) {
         this.username = member.getUsername();
         this.password = member.getPassword();
         this.nickname = member.getNickname();
         this.grade = member.getGrade().getValue();
-        this.createTime = member.getCreatedTime();
+        this.createdTime = member.getCreatedTime();
     }
 }

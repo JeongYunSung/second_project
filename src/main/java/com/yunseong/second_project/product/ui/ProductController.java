@@ -28,7 +28,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
-@RequestMapping(value = "/v1/products", consumes = MediaTypes.HAL_JSON_VALUE, produces = MediaTypes.HAL_JSON_VALUE)
+@RequestMapping(value = "/v1/products", produces = MediaTypes.HAL_JSON_VALUE)
 @RequiredArgsConstructor
 public class ProductController {
 

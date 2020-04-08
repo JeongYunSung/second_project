@@ -18,13 +18,15 @@ import java.util.List;
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = { "username", "nickname" }))
 public class Member extends BaseEntity {
 
+    @Column(name = "username")
     private String username;
 
     private String password;
 
+    @Column(name = "nickname")
     private String nickname;
 
-    private Integer money;
+    private int money;
 
     @Enumerated(value = EnumType.STRING)
     private Grade grade;
@@ -39,8 +41,8 @@ public class Member extends BaseEntity {
         this.grade = Grade.BRONZE;
     }
 
-    public void changeGrade(Grade grade) {
-        this.grade = grade;
+    public void changeGrade(int exp) {
+        this.grade = this.grade.changeGrade(exp);
     }
 
     public void changePassword(String password) {
@@ -74,7 +76,7 @@ public class Member extends BaseEntity {
         purchase.setMember(this);
     }
 
-    public void update(String password, String nickname, Integer money) {
+    public void update(String password, String nickname, int money) {
         this.changePassword(password);
         this.changeNickname(nickname);
         this.addMoney(money);

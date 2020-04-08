@@ -17,7 +17,7 @@ public class Product extends BaseUserEntity {
 
     private String productName;
     private String description;
-    private Integer value;
+    private int value;
     private Integer view;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -26,7 +26,7 @@ public class Product extends BaseUserEntity {
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ProductType> types = new ArrayList<>();
 
-    public Product(String productName, String description, Integer value, List<ProductType> list) {
+    public Product(String productName, String description, int value, List<ProductType> list) {
         this.productName = productName;
         this.description = description;
         this.value = value;

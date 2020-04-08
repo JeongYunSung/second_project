@@ -20,5 +20,5 @@ public class MemberUpdateRequest {
     private String nickname;
     @NotNull
     @Min(0) @Max(Integer.MAX_VALUE)
-    private Integer money;
+    private int money;
 }

@@ -33,15 +33,15 @@ public class JwtTokenProvider {
         this.secret = Base64.getEncoder().encodeToString(this.secret.getBytes());
     }
 
-    public String createToken(Long id, List<String> roles) {
-        Claims claims = Jwts.claims().setSubject(String.valueOf(id));
+    public String createToken(String username, List<String> roles) {
+        Claims claims = Jwts.claims().setSubject(username);
         claims.put("roles", roles);
         Date now = new Date();
         return Jwts.builder()
                 .setClaims(claims)
                 .setIssuedAt(now)
                 .setExpiration(new Date(now.getTime() + tokenValidMillisecond))
-                .signWith(SignatureAlgorithm.ES256, this.secret)
+                .signWith(SignatureAlgorithm.HS256, this.secret)
                 .compact();
     }
 
@@ -60,7 +60,7 @@ public class JwtTokenProvider {
 
     public boolean validateToken(String token) {
         try {
-            return Jwts.parser().setSigningKey(this.secret).parseClaimsJws(token).getBody().getExpiration().before(new Date());
+            return !Jwts.parser().setSigningKey(this.secret).parseClaimsJws(token).getBody().getExpiration().before(new Date());
         } catch (Exception e) {
             return false;
         }

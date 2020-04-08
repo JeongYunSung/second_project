@@ -3,15 +3,13 @@ package com.yunseong.second_project.member.command.application;
 import com.yunseong.second_project.common.domain.CustomUser;
 import com.yunseong.second_project.common.errors.NotFoundEntityException;
 import com.yunseong.second_project.member.command.application.dto.*;
-import com.yunseong.second_project.member.command.domain.Member;
-import com.yunseong.second_project.member.command.domain.MemberPurchase;
-import com.yunseong.second_project.member.command.domain.MemberRepository;
-import com.yunseong.second_project.member.command.domain.Purchase;
+import com.yunseong.second_project.member.command.domain.*;
 import com.yunseong.second_project.member.query.dto.PurchaseResponse;
 import com.yunseong.second_project.product.commend.domain.Product;
 import com.yunseong.second_project.product.commend.domain.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -42,6 +40,16 @@ public class MemberCommandService {
         member.update(request.getPassword(), request.getNickname(), request.getMoney());
         return new MemberUpdateResponse(member)
                 .withPassword(member.getPassword()).withNickname(member.getNickname()).withMoney(member.getMoney()).withGrade(member.getGrade().getValue());
+    }
+
+    public boolean changeGrade(String username, int exp) {
+        try {
+            Member member = this.memberRepository.findMemberByUsername(username).orElseThrow(() -> new UsernameNotFoundException("해당 유저는 존재하지 않습니다."));
+            member.changeGrade(exp);
+        } catch (IllegalArgumentException exception) {
+            return false;
+        }
+        return true;
     }
 
     public List<PurchaseResponse> addPurchase(List<Long> purchaseIdList) {

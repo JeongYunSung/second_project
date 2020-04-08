@@ -37,7 +37,7 @@ public class EntityControllerAdvice {
     @ExceptionHandler(DataIntegrityViolationException.class)
     public ResponseEntity handleDataIntegrityViolationException(DataIntegrityViolationException excepton) {
         Errors errors = new BeanPropertyBindingResult(null, "");
-        errors.reject("중복", "해당 엔티티는 이미 존재합니다");
+        errors.reject("reduplication", "Entity is reduplication");
         return ResponseEntity.badRequest().body(errors);
     }
 }
