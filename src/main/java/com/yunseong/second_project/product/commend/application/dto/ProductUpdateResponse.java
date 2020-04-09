@@ -16,7 +16,7 @@ public class ProductUpdateResponse {
     private Long id;
     private @With String productName;
     private @With String description;
-    private @With Integer value;
+    private @With int value;
     private @With List<TypeResponse> types;
     private LocalDateTime createdTime;
     private LocalDateTime updatedTime;

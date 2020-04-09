@@ -15,7 +15,7 @@ public class ProductReferee extends BaseUserEntity {
     @JoinColumn(name = "product_name")
     private Product product;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "referee_name")
     private Referee referee;
 

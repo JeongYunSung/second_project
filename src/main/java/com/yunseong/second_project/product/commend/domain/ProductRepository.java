@@ -22,6 +22,6 @@ public interface ProductRepository extends JpaRepository<Product, Long>, Product
     Optional<ProductResponse> findDtoById(Long id);
 
     @Query(value = "select distinct new com.yunseong.second_project.product.query.application.dto.ProductResponse(p) from Product p left join p.productReferees referee left join referee.referee recommend " +
-            "join p.types type join type.type t where p.delete = false", countQuery = "select distinct new com.yunseong.second_project.product.query.application.dto.ProductResponse(p) from Product p where p.delete = false")
-    Page<ProductResponse> findAllByPage(Pageable pageable);
+            "join p.types type join type.type t where p.delete = false", countQuery = "select count(p) from Product p where p.delete = false")
+    Page<ProductResponse> findByPage(Pageable pageable);
 }

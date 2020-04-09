@@ -40,7 +40,7 @@ public class ProductRepositoryImpl implements ProductQueryRepository {
                 .innerJoin(product.types, productType)
                 .innerJoin(productType.type, type)
                 .where(product.delete.eq(false), containsProductName(condition.getProductName()), containsCategoryName(condition.getCategoryName()),
-                        loeValue(condition.getMin()), goeValue(condition.getMax()))
+                        loeValue(condition.getMax()), goeValue(condition.getMin()))
                 .offset(pageable.getOffset())
                 .limit(pageable.getPageSize())
                 .fetch();
@@ -49,7 +49,7 @@ public class ProductRepositoryImpl implements ProductQueryRepository {
                         .select(new QProductResponse(product))
                         .from(product)
                         .where(containsProductName(condition.getProductName()), containsCategoryName(condition.getCategoryName()),
-                                loeValue(condition.getMin()), goeValue(condition.getMax()))::fetchCount);
+                                loeValue(condition.getMax()), goeValue(condition.getMin()))::fetchCount);
     }
 
     public BooleanExpression goeValue(Integer value) {
@@ -61,10 +61,10 @@ public class ProductRepositoryImpl implements ProductQueryRepository {
     }
 
     public BooleanExpression containsCategoryName(String categoryName) {
-        return hasText(categoryName) ? type.categoryName.contains(categoryName) : null;
+        return hasText(categoryName) ? type.categoryName.lower().contains(categoryName.toLowerCase()) : null;
     }
 
     public BooleanExpression containsProductName(String productName) {
-        return hasText(productName) ? product.productName.contains(productName) : null;
+        return hasText(productName) ? product.productName.lower().contains(productName.toLowerCase()) : null;
     }
 }

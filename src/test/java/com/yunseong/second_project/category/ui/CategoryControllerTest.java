@@ -25,8 +25,7 @@ import static org.springframework.restdocs.hypermedia.HypermediaDocumentation.li
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.*;
 import static org.springframework.restdocs.payload.PayloadDocumentation.*;
-import static org.springframework.restdocs.request.RequestDocumentation.parameterWithName;
-import static org.springframework.restdocs.request.RequestDocumentation.requestParameters;
+import static org.springframework.restdocs.request.RequestDocumentation.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -69,7 +68,7 @@ class CategoryControllerTest extends BaseTest {
                                 fieldWithPath("parentId").type(JsonFieldType.NUMBER).description("부모 카테고리 아이디"),
                                 fieldWithPath("parentName").type(JsonFieldType.STRING).description("부모 카테고리 이름"),
                                 fieldWithPath("createdTime").type(JsonFieldType.STRING).description("생성 시각"),
-                                subsectionWithPath("_links").description("유저생성 관련 주소")
+                                subsectionWithPath("_links").description("카테고리생성 관련 주소")
                         )));
     }
 
@@ -85,7 +84,14 @@ class CategoryControllerTest extends BaseTest {
         //then
         perform
                 .andDo(print())
-                .andExpect(status().isNoContent());
+                .andExpect(status().isNoContent())
+                .andDo(document("category-delete",
+                        requestHeaders(
+                                headerWithName("X-AUTH-TOKEN").description("자원의 접근하기위한 해당 유저의 토큰값")
+                        ),
+                        pathParameters(
+                                parameterWithName("id").description("상품 아이디")
+                        )));
     }
 
     @Test
@@ -128,8 +134,8 @@ class CategoryControllerTest extends BaseTest {
                         requestHeaders(
                                 headerWithName("X-AUTH-TOKEN").description("자원의 접근하기위한 해당 유저의 토큰값")
                         ),
-                        requestParameters(
-                                parameterWithName("id").optional().description("카테고리 아이디")
+                        pathParameters(
+                                parameterWithName("id").description("상품 아이디")
                         ),
                         responseFields(
                                 fieldWithPath("id").type(JsonFieldType.NUMBER).description("카테고리 아이디"),
@@ -138,7 +144,7 @@ class CategoryControllerTest extends BaseTest {
                                 fieldWithPath("parentName").type(JsonFieldType.STRING).description("부모 카테고리 이름"),
                                 fieldWithPath("createdTime").type(JsonFieldType.STRING).description("생성 시각"),
                                 fieldWithPath("updatedTime").type(JsonFieldType.STRING).description("수정 시각"),
-                                subsectionWithPath("_links").description("유저생성 관련 주소")
+                                subsectionWithPath("_links").description("카테고리생성 관련 주소")
                         )));
     }
 
@@ -175,7 +181,7 @@ class CategoryControllerTest extends BaseTest {
                 .header("X-AUTH-TOKEN", jwtToken));
         //then
         perform
-                .andDo(print())
+/*                .andDo(print())*/
                 .andExpect(status().isOk())
                 .andDo(document("category-select",
                         links(
@@ -185,8 +191,8 @@ class CategoryControllerTest extends BaseTest {
                         requestHeaders(
                                 headerWithName("X-AUTH-TOKEN").description("자원의 접근하기위한 해당 유저의 토큰값")
                         ),
-                        requestParameters(
-                                parameterWithName("id").optional().description("카테고리 아이디")
+                        pathParameters(
+                                parameterWithName("id").description("상품 아이디")
                         ),
                         responseFields(
                                 fieldWithPath("id").type(JsonFieldType.NUMBER).description("카테고리 아이디"),
@@ -196,7 +202,7 @@ class CategoryControllerTest extends BaseTest {
                                 subsectionWithPath("child").description("자식 카테고리 정보"),
                                 fieldWithPath("createdTime").type(JsonFieldType.STRING).description("생성 시각"),
                                 fieldWithPath("updatedTime").type(JsonFieldType.STRING).description("수정 시각"),
-                                subsectionWithPath("_links").description("유저생성 관련 주소")
+                                subsectionWithPath("_links").description("카테고리생성 관련 주소")
                         )));
     }
 
@@ -242,7 +248,7 @@ class CategoryControllerTest extends BaseTest {
                         responseFields(
                                 subsectionWithPath("page").description("현재 페이지 정보"),
                                 subsectionWithPath("_embedded.categoryResponseList").description("카테고리 리스트 정보"),
-                                subsectionWithPath("_links").description("유저생성 관련 주소")
+                                subsectionWithPath("_links").description("카테고리생성 관련 주소")
                         )));
     }
 }

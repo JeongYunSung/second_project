@@ -17,7 +17,7 @@ public class ProductType extends BaseUserEntity {
     @JoinColumn(name = "product_name")
     private Product product;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "type_name")
     private Type type;
 

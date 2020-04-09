@@ -4,6 +4,7 @@ import com.yunseong.second_project.category.command.domain.Category;
 import com.yunseong.second_project.category.command.domain.CategoryRepository;
 import com.yunseong.second_project.common.domain.CustomUser;
 import com.yunseong.second_project.common.errors.NotFoundEntityException;
+import com.yunseong.second_project.common.errors.NotMatchUserException;
 import com.yunseong.second_project.member.command.domain.Member;
 import com.yunseong.second_project.member.command.domain.MemberRepository;
 import com.yunseong.second_project.product.commend.application.dto.*;
@@ -36,11 +37,13 @@ public class ProductCommandService {
 
     public ProductUpdateResponse updatePutProduct(Long id, ProductUpdateRequest request) {
         Product product = this.getProduct(id, 2);
+        this.verifyUser(product);
         product.update(request.getProductName(), request.getDescription(), request.getValue(),
                 request.getCategoryId().stream().map(this::getType).collect(Collectors.toList()));
 
         return new ProductUpdateResponse(product.getId(), product.getCreatedTime(), product.getUpdatedTime())
                 .withProductName(product.getProductName()).withDescription(product.getDescription())
+                .withValue(product.getValue())
                 .withTypes(product.getTypes().stream().map(type -> new TypeResponse(type.getType())).collect(Collectors.toList()));
     }
 
@@ -83,18 +86,19 @@ public class ProductCommandService {
 
     public void delete(Long id) {
         Product product = getProduct(id, 0);
+        this.verifyUser(product);
         product.delete();
     }
 
     private ProductType getType(Long idx) {
         Category category = this.getCategory(idx);
-        ProductType type;
+        Type type;
         if (category.getParent() != null) {
-            type = new ProductType(new Type(category.getId(), category.getCategoryName(), category.getParent().getId(), category.getParent().getCategoryName()));
+            type = new Type(category.getId(), category.getCategoryName(), category.getParent().getId(), category.getParent().getCategoryName());
         } else {
-            type = new ProductType(new Type(category.getId(), category.getCategoryName()));
+            type = new Type(category.getId(), category.getCategoryName());
         }
-        return type;
+        return new ProductType(type);
     }
 
     private Category getCategory(Long id) {
@@ -109,5 +113,12 @@ public class ProductCommandService {
             return this.productRepository.findRecommendById(id).orElseThrow(() -> new NotFoundEntityException("해당 상품은 존재하지 않습니다.", id));
         }
         return this.productRepository.findTypesById(id).orElseThrow(() -> new NotFoundEntityException("해당 상품은 존재하지 않습니다.", id));
+    }
+
+    private void verifyUser(Product product) {
+        CustomUser user = (CustomUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if(product.getCreatedMemberId() != user.getId()) {
+            throw new NotMatchUserException("해당 게시글의 작성자가 아닙니다.");
+        }
     }
 }

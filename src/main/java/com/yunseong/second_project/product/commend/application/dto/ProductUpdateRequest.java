@@ -18,7 +18,7 @@ public class ProductUpdateRequest {
     private String description;
     @NotNull
     @Min(0) @Max(Integer.MAX_VALUE)
-    private Integer value;
+    private int value;
     @NotNull
     @Size(min = 1)
     private List<Long> categoryId;

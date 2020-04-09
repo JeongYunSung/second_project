@@ -16,7 +16,7 @@ public class CategoryQueryService {
     private final CategoryRepository categoryRepository;
 
     public CategoryResponse findCategory(Long id) {
-        CategoryResponse category = this.categoryRepository.findDtoById(id).orElseThrow(() -> new NotFoundEntityException("해당 카테고리는 존재하지 않습니다.", id));
+        CategoryResponse category = new CategoryResponse(this.categoryRepository.findDtoById(id).orElseThrow(() -> new NotFoundEntityException("해당 카테고리는 존재하지 않습니다.", id)));
         return category;
     }
 

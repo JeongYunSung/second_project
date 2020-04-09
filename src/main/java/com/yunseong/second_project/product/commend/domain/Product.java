@@ -18,7 +18,7 @@ public class Product extends BaseUserEntity {
     private String productName;
     private String description;
     private int value;
-    private Integer view;
+    private int view;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ProductReferee> productReferees = new ArrayList<>();
@@ -41,13 +41,11 @@ public class Product extends BaseUserEntity {
         this.description = description;
     }
 
-    public void changeValue(Integer value) {
-        if (value == null) {
-            this.value = 0;
-        }
+    public void changeValue(int value) {
+        this.value = value;
     }
 
-    public void update(String name, String description, Integer value, List<ProductType> types) {
+    public void update(String name, String description, int value, List<ProductType> types) {
         this.changeName(name);
         this.changeDescription(description);
         this.changeValue(value);

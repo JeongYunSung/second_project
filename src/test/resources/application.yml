@@ -17,3 +17,7 @@ spring:
 
   jwt:
     secret: jeongyunsung&&yon663
+
+logging:
+  level:
+    org.hibernate.type: trace

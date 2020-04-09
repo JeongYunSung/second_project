@@ -16,7 +16,7 @@ public class MemberPurchase extends BaseUserEntity {
     @JoinColumn(name = "member_name")
     private Member member;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "purchase_name")
     private Purchase purchase;
 

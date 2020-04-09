@@ -26,6 +26,6 @@ public class ProductQueryService {
     }
 
     public Page<ProductResponse> findByPage(Pageable pageable) {
-        return this.productRepository.findAllByPage(pageable);
+        return this.productRepository.findByPage(pageable);
     }
 }

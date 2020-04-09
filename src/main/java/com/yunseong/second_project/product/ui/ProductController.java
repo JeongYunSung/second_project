@@ -6,7 +6,6 @@ import com.yunseong.second_project.product.commend.application.dto.ProductCreate
 import com.yunseong.second_project.product.commend.application.dto.ProductCreateResponse;
 import com.yunseong.second_project.product.commend.application.dto.ProductUpdateRequest;
 import com.yunseong.second_project.product.query.application.ProductQueryService;
-import com.yunseong.second_project.product.query.application.dto.ProductResponse;
 import com.yunseong.second_project.product.query.application.dto.ProductResponseModel;
 import com.yunseong.second_project.product.query.application.dto.ProductSearchCondition;
 import com.yunseong.second_project.product.query.application.dto.RecommendResponse;
@@ -45,7 +44,7 @@ public class ProductController {
         EntityModel<ProductCreateResponse> entityModel = new EntityModel<>(product);
         entityModel.add(Util.profile);
 
-        URI uri = linkTo(methodOn(ProductController.class).getProduct(product.getId())).toUri();
+        URI uri = linkTo(methodOn(ProductController.class).getProduct(product.getId(), false)).toUri();
 
         return ResponseEntity.created(uri).body(entityModel);
     }
@@ -53,7 +52,7 @@ public class ProductController {
     @GetMapping
     public ResponseEntity getProducts(@PageableDefault Pageable pageable) {
         PagedModel<ProductResponseModel> pagedModel = getProductResponseModels(this.productQueryService.findByPage(pageable).map(product -> new ProductResponseModel(product,
-                linkTo(methodOn(ProductController.class).getProduct(product.getProductId())).withRel("product"))), pageable);
+                linkTo(methodOn(ProductController.class).getProduct(product.getProductId(), false)).withRel("product"))), pageable);
         pagedModel.add(linkTo(ProductController.class).slash("search" + Util.getUtil().getPageableQuery(pageable)).withSelfRel());
         pagedModel.add(Util.profile);
 
@@ -61,13 +60,13 @@ public class ProductController {
     }
 
     @GetMapping("/search")
-    public ResponseEntity getProducts(@PageableDefault Pageable pageable, ProductSearchCondition condition, Errors errors) {
+    public ResponseEntity getProducts(@PageableDefault Pageable pageable, @RequestBody ProductSearchCondition condition, Errors errors) {
         this.productSearchConditionValidator.validate(condition, errors);
         if (errors.hasErrors()) {
             return ResponseEntity.ok(this.productQueryService.findByPage(pageable));
         }
         PagedModel<ProductResponseModel> pagedModel = getProductResponseModels(this.productQueryService.findPageBySearch(condition, pageable).map(product -> new ProductResponseModel(product,
-                linkTo(methodOn(ProductController.class).getProduct(product.getProductId())).withRel("product"))), pageable);
+                linkTo(methodOn(ProductController.class).getProduct(product.getProductId(), false)).withRel("product"))), pageable);
         Util util = Util.getUtil();
         pagedModel.add(linkTo(ProductController.class).slash("search" + util.getPageableQuery(pageable) + util.getProductConditionQuery(condition, false)).withSelfRel());
 
@@ -82,12 +81,15 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity getProduct(@PathVariable Long id) {
+    public ResponseEntity getProduct(@PathVariable Long id, boolean view) {
         Util util = Util.getUtil();
         util.validId(id);
+        if (view) {
+            this.productCommandService.updateView(id);
+        }
         ProductResponseModel model = new ProductResponseModel(this.productQueryService.findProduct(id));
-        model.add(linkTo(methodOn(ProductController.class).getProduct(id)).withSelfRel());
-//        model.add(linkTo(methodOn(ProductController.class).getProducts(null)).withRel("list"));
+        model.add(linkTo(methodOn(ProductController.class).getProduct(id, view)).withSelfRel());
+        model.add(linkTo(ProductController.class).withRel("list"));
         model.add(Util.profile);
 
         return ResponseEntity.ok(model);
@@ -98,7 +100,7 @@ public class ProductController {
         Util util = Util.getUtil();
         util.validId(id);
         return util.getUpdateResponseEntity(errors, this.productCommandService.updatePutProduct(id, request),
-                linkTo(methodOn(ProductController.class).getProduct(id)).withSelfRel());
+                linkTo(methodOn(ProductController.class).getProduct(id, false)).withSelfRel());
     }
 
     @PutMapping("/{id}/recommend")
@@ -107,7 +109,7 @@ public class ProductController {
         util.validId(id);
         RecommendResponse recommendResponse = this.productCommandService.updateRecommendProduct(id);
         EntityModel<RecommendResponse> entityModel = new EntityModel<>(recommendResponse);
-        entityModel.add(linkTo(methodOn(ProductController.class).getProduct(id)).withSelfRel());
+        entityModel.add(linkTo(methodOn(ProductController.class).getProduct(id, false)).withSelfRel());
         entityModel.add(Util.profile);
 
         return ResponseEntity.ok(entityModel);
