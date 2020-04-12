@@ -14,6 +14,9 @@ import javax.persistence.*;
 @AttributeOverride(name = "id", column = @Column(name = "orderitem_id"))
 public class OrderItem extends BaseUserEntity {
 
+    @Version
+    private Integer version;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_name")
     private Order order;

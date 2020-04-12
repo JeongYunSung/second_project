@@ -1,9 +1,6 @@
 package com.yunseong.second_project.common.ui;
 
-import com.yunseong.second_project.common.errors.NotFoundEntityException;
-import com.yunseong.second_project.common.errors.NotMatchPasswordException;
-import com.yunseong.second_project.common.errors.NotMatchUserException;
-import com.yunseong.second_project.common.errors.NotValidIdException;
+import com.yunseong.second_project.common.errors.*;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BeanPropertyBindingResult;
@@ -46,6 +43,27 @@ public class EntityControllerAdvice {
     public ResponseEntity handleDataIntegrityViolationException(DataIntegrityViolationException excepton) {
         Errors errors = new BeanPropertyBindingResult(null, "");
         errors.reject("reduplication", "Entity is reduplication");
+        return ResponseEntity.badRequest().body(errors);
+    }
+
+    @ExceptionHandler(NotCanceledOrder.class)
+    public ResponseEntity handleNotCanceledOrderException(NotCanceledOrder exception) {
+        Errors errors = new BeanPropertyBindingResult(null, "");
+        errors.reject("canceled", "Order is canceled");
+        return ResponseEntity.badRequest().body(errors);
+    }
+
+    @ExceptionHandler(NotCanceledPayment.class)
+    public ResponseEntity handleNotCanceledPaymentException(NotCanceledPayment exception) {
+        Errors errors = new BeanPropertyBindingResult(null, "");
+        errors.reject("canceled", "Payment is canceled");
+        return ResponseEntity.badRequest().body(errors);
+    }
+
+    @ExceptionHandler(PaymentFailureException.class)
+    public ResponseEntity handlePaymentFailureExceptionException(PaymentFailureException exception) {
+        Errors errors = new BeanPropertyBindingResult(null, "");
+        errors.reject("failure", exception.getMessage());
         return ResponseEntity.badRequest().body(errors);
     }
 }

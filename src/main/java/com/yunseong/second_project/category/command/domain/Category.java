@@ -18,6 +18,9 @@ public class Category extends BaseUserEntity {
 
     private String categoryName;
 
+    @Version
+    private Integer version;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_name")
     private Category parent;

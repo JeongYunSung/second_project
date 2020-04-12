@@ -1,6 +1,7 @@
 package com.yunseong.second_project.order.commend.domain;
 
 import com.yunseong.second_project.common.domain.BaseUserEntity;
+import com.yunseong.second_project.common.errors.NotCanceledOrder;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -14,6 +15,9 @@ import java.util.List;
 public class Order extends BaseUserEntity {
 
     private int totalPrice;
+
+    @Version
+    private Integer version;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItem> orderItems = new ArrayList<>();
@@ -40,6 +44,9 @@ public class Order extends BaseUserEntity {
     }
 
     public void cancel() {
+        if (this.getOrderStatus() == OrderStatus.CANCEL) {
+            throw new NotCanceledOrder("해당 주문은 이미 취소된 상태입니다");
+        }
         this.orderStatus = OrderStatus.CANCEL;
     }
 }

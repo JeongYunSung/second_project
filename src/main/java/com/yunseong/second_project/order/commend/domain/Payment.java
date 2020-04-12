@@ -12,6 +12,7 @@ import javax.persistence.*;
 public class Payment extends BaseUserEntity {
 
     @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_name")
     private Order order;
 
     @Enumerated(EnumType.STRING)
@@ -26,8 +27,8 @@ public class Payment extends BaseUserEntity {
     }
 
     public void comp(int ownPrice) {
-        if (this.paymentStatus != PaymentStatus.COMP) {
-            throw new PaymentFailureException("해당 주문은 이미 결제된 상태입니다.");
+        if (this.paymentStatus == PaymentStatus.COMP) {
+            throw new PaymentFailureException("payment is completed");
         }
         if (this.getOrder().getTotalPrice() > ownPrice) {
             throw new PaymentFailureException("잔액이 부족합니다.");

@@ -8,6 +8,7 @@ import com.yunseong.second_project.member.query.dto.PurchaseResponse;
 import com.yunseong.second_project.product.commend.domain.Product;
 import com.yunseong.second_project.product.commend.domain.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import org.aspectj.weaver.Lint;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -50,6 +51,11 @@ public class MemberCommandService {
             return false;
         }
         return true;
+    }
+
+    public void addMoney(String username, int money) {
+        Member member = this.memberRepository.findMemberByUsername(username).orElseThrow(() -> new UsernameNotFoundException("해당 유저는 존재하지 않습니다."));
+        member.addMoney(money);
     }
 
     public List<PurchaseResponse> addPurchase(List<Long> purchaseIdList) {

@@ -63,11 +63,11 @@ public class Member extends BaseEntity {
         this.nickname = nickname;
     }
 
-    public void addMoney(Integer money) {
+    public void addMoney(int money) {
         this.money += money;
     }
 
-    public void subMoney(Integer money) {
+    public void subMoney(int money) {
         this.money -= money;
     }
 
