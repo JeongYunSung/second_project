@@ -4,6 +4,7 @@ import com.yunseong.second_project.category.command.application.CategoryCommandS
 import com.yunseong.second_project.category.command.application.dto.CategoryCreateRequest;
 import com.yunseong.second_project.category.command.application.dto.CategoryUpdateRequest;
 import com.yunseong.second_project.category.command.domain.Category;
+import com.yunseong.second_project.category.command.domain.CategoryRepository;
 import com.yunseong.second_project.common.BaseTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.hateoas.MediaTypes;
 import org.springframework.http.HttpHeaders;
 import org.springframework.restdocs.payload.JsonFieldType;
 import org.springframework.test.web.servlet.ResultActions;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +35,35 @@ class CategoryControllerTest extends BaseTest {
 
     @Autowired
     private CategoryCommandService categoryCommandService;
+
+    @Test
+    @Transactional(readOnly = true)
+    public void 카테고리_목록_조회_최적화_테스트() throws Exception {
+        //given
+        String jwtToken = this.getJwtToken();
+        int pageSize = 10;
+        int pageNumber = 1;
+        Pageable pageable = PageRequest.of(pageNumber, pageSize);
+        List<Category> list = new ArrayList<>();
+        IntStream.range(1, 11).forEach(i -> list.add(this.createCategory(i + " : Category", null)));
+        long size = (list.size() / 2) + 1;
+        for (int i = 0; i < size - 1; i++) {
+            this.categoryCommandService.updatePutCategory(i + 2L, new CategoryUpdateRequest("test",
+                    i + 1L));
+            this.categoryCommandService.updatePutCategory(i + size, new CategoryUpdateRequest("test",
+                    i + 1L));
+        }
+        //when
+        ResultActions perform = this.mockMvc.perform(get("/v1/categories")
+                .accept(MediaTypes.HAL_JSON_VALUE)
+                .header("X-AUTH-TOKEN", jwtToken)
+                .contentType(MediaTypes.HAL_JSON_VALUE)
+                .content(this.objectMapper.writeValueAsString(pageable)));
+        //then
+        perform
+                .andDo(print())
+                .andExpect(status().isOk());
+    }
 
     @Test
     public void 카테고리_생성() throws Exception {

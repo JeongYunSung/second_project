@@ -23,9 +23,9 @@ public class CartRepositoryImpl implements CartRepository {
     public void addItem(String id, CartItem item) {
         final String key = String.format("cart:%s", id);
 
-        this.redisTemplate.execute(new SessionCallback() {
+        this.redisTemplate.execute(new SessionCallback<List<Object>>() {
             @Override
-            public Object execute(RedisOperations operations) throws DataAccessException {
+            public List<Object> execute(RedisOperations operations) throws DataAccessException {
                 operations.watch(key);
 
                 try {

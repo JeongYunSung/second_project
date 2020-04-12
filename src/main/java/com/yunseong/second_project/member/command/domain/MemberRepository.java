@@ -11,7 +11,7 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     @Query("select m from Member m where m.id = :id and m.delete = false")
     Optional<Member> findById(Long id);
 
-    @Query("select m from Member m left join fetch m.purchases p where m.id = :id and m.delete = false")
+    @Query("select m from Member m left join fetch m.purchases p left join fetch p.purchase pur where m.id = :id and m.delete = false")
     Optional<Member> findPurchaseById(Long id);
 
     @Query("select m from Member m where m.username = :username and m.delete = false")

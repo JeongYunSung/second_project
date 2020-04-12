@@ -27,12 +27,10 @@ public class CategoryRepositoryImpl implements CategoryQueryRepository {
     @Override
     public Page<CategoryResponse> findAllByPage(Pageable pageable) {
         QCategory parent = new QCategory("parent");
-        QCategory child = new QCategory("child");
         List<CategoryResponse> content = this.queryFactory
-                .select(new QCategoryResponse(category)).distinct()
+                .select(new QCategoryResponse(category))
                 .from(category)
-                .leftJoin(category.parent, parent)
-                .leftJoin(category.categories, child)
+                .leftJoin(category.parent, parent).fetchJoin()
                 .where(category.delete.eq(false))
                 .offset(pageable.getOffset())
                 .limit(pageable.getPageSize())
