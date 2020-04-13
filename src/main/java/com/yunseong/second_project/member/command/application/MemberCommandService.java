@@ -39,6 +39,7 @@ public class MemberCommandService {
         Member member = getMember(false);
         member.verifyPassword(request.getVerifyPassword(), this.passwordEncoder);
         member.update(request.getPassword(), request.getNickname(), request.getMoney());
+        member.encodePassword(this.passwordEncoder);
         return new MemberUpdateResponse(member)
                 .withPassword(member.getPassword()).withNickname(member.getNickname()).withMoney(member.getMoney()).withGrade(member.getGrade().getValue());
     }

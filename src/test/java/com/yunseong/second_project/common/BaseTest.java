@@ -69,14 +69,13 @@ public abstract class BaseTest {
 
     private void register() {
         try {
-            this.memberRepository.findMemberByUsername(this.username);
+            this.memberRepository.findMemberByUsername(this.username).get();
         } catch (Exception e) {
+            MemberCreateRequest request = new MemberCreateRequest(this.username, this.password, this.username);
+            this.memberCommandService.createMember(request);
+            this.memberCommandService.changeGrade(this.username, Integer.MAX_VALUE);
             return;
         }
-        MemberCreateRequest request = new MemberCreateRequest(this.username, this.password, this.username);
-        this.memberCommandService.createMember(request);
-        this.memberCommandService.changeGrade(this.username, Integer.MAX_VALUE);
-        this.memberCommandService.addMoney(this.username, 100000);
     }
 
     protected Category createCategory(String name, Category parent) {

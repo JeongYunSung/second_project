@@ -35,8 +35,8 @@ class CartControllerTest extends BaseTest {
     public void 아이템_추가() throws Exception {
         //given
         String jwtToken = this.getJwtToken();
-        Category category = this.createCategory("category", null);
-        Product product = this.createProduct("product", "product", 100, Arrays.asList(category));
+        Category category = this.createCategory("category1", null);
+        Product product = this.createProduct("product1", "product1", 100, Arrays.asList(category));
         CartItem cartItem = new CartItem(product.getId(), product.getProductName(), product.getDescription(), product.getValue());
         //when
         ResultActions perform = this.mockMvc.perform(put("/v1/carts/items/new")
@@ -64,8 +64,8 @@ class CartControllerTest extends BaseTest {
     public void 아이템_삭제() throws Exception {
         //given
         String jwtToken = this.getJwtToken();
-        Category category = this.createCategory("category", null);
-        Product product = this.createProduct("product", "product", 100, Arrays.asList(category));
+        Category category = this.createCategory("category2", null);
+        Product product = this.createProduct("product2", "product2", 100, Arrays.asList(category));
         CartItem cartItem = new CartItem(product.getId(), product.getProductName(), product.getDescription(), product.getValue());
         //when
         this.cartRepository.addItem(this.username, cartItem);
@@ -92,8 +92,8 @@ class CartControllerTest extends BaseTest {
     public void 카트_비우기() throws Exception {
         //given
         String jwtToken = this.getJwtToken();
-        Category category = this.createCategory("category", null);
-        Product product = this.createProduct("product", "product", 100, Arrays.asList(category));
+        Category category = this.createCategory("category3", null);
+        Product product = this.createProduct("product3", "product3", 100, Arrays.asList(category));
         CartItem cartItem = new CartItem(product.getId(), product.getProductName(), product.getDescription(), product.getValue());
         //when
         this.cartRepository.addItem(this.username, cartItem);
@@ -114,7 +114,7 @@ class CartControllerTest extends BaseTest {
     public void 카트_아이템_생성_후_조회() throws Exception {
         //given
         String jwtToken = this.getJwtToken();
-        Category category = this.createCategory("category", null);
+        Category category = this.createCategory("category4", null);
         for(int i = 0;i<5;i++) {
             Product product = this.createProduct("product : " + i, "product : " + i, 100*i, Arrays.asList(category));
             CartItem cartItem = new CartItem(product.getId(), product.getProductName(), product.getDescription(), product.getValue());
@@ -127,10 +127,19 @@ class CartControllerTest extends BaseTest {
         //then
         perform
                 .andDo(print())
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andDo(document("cart-list-select",
+                        requestHeaders(
+                                headerWithName("X-AUTH-TOKEN").description("자원의 접근하기위한 해당 유저의 토큰값")
+                        ),
+                        responseFields(
+                                fieldWithPath("id").type(JsonFieldType.STRING).description("유저 아이디"),
+                                subsectionWithPath("cartItems").description("상품 목록"),
+                                fieldWithPath("totalMoney").type(JsonFieldType.NUMBER).description("총 금액")
+                        )));
     }
 
-    @Test
+/*    @Test
     public void 카트_조회() throws Exception {
         //given
         String jwtToken = this.getJwtToken();
@@ -151,5 +160,5 @@ class CartControllerTest extends BaseTest {
                                 subsectionWithPath("cartItems").description("상품 목록"),
                                 fieldWithPath("totalMoney").type(JsonFieldType.NUMBER).description("총 금액")
                         )));
-    }
+    }*/
 }

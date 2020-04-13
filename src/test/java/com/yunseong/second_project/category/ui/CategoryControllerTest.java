@@ -83,12 +83,16 @@ class CategoryControllerTest extends BaseTest {
         perform
                 .andDo(print())
                 .andExpect(status().isCreated())
-                .andDo(document("category-select",
+                .andDo(document("category-create",
                         links(
                                 linkWithRel("profile").description("API 관련 정보")
                         ),
                         requestHeaders(
                                 headerWithName("X-AUTH-TOKEN").description("자원의 접근하기위한 해당 유저의 토큰값")
+                        ),
+                        requestFields(
+                                fieldWithPath("categoryName").type(JsonFieldType.STRING).description("카테고리 이름"),
+                                fieldWithPath("parentId").type(JsonFieldType.NUMBER).description("부모 카테고리 아이디")
                         ),
                         responseHeaders(
                                 headerWithName(HttpHeaders.LOCATION).description("생성된 자원 주소")
@@ -157,7 +161,7 @@ class CategoryControllerTest extends BaseTest {
         perform
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andDo(document("category-select",
+                .andDo(document("category-update",
                         links(
                                 linkWithRel("self").description("현재 카테고리 목록"),
                                 linkWithRel("profile").description("API 관련 정보")

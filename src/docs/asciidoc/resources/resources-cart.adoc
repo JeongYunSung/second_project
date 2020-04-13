@@ -1,0 +1,89 @@
+:add: ../../../../build/generated-snippets/cart-add-item
+:clean: ../../../../build/generated-snippets/cart-clean
+:delete: ../../../../build/generated-snippets/cart-delete-item
+:get: ../../../../build/generated-snippets/cart-list-select
+
+[[cart]]
+=== Cart
+
+장바구니에 찜 목록 추가 혹은 삭제 조회 등의 요청에 관한 내용
+
+[[cart-list-select]]
+
+==== /v1/cart [small silver]*[GET]*
+
+===== Http-Request
+
+include::{get}/http-request.adoc[]
+
+===== Http-Response
+
+include::{get}/http-response.adoc[]
+
+===== Request-Headers
+
+include::{get}/request-headers.adoc[]
+
+===== Response-Fields
+
+include::{get}/response-fields.adoc[]
+
+[[cart-add-item]]
+
+==== /v1/cart/items/new [small silver]*[PUT]*
+
+===== Http-Request
+
+include::{add}/http-request.adoc[]
+
+===== Http-Response
+
+include::{add}/http-response.adoc[]
+
+===== Request-Headers
+
+include::{add}/request-headers.adoc[]
+
+===== Request-Fields
+
+include::{add}/request-fields.adoc[]
+
+[[cart-delete-item]]
+
+==== /v1/cart/items/{id} [small silver]*[PUT]*
+
+===== Http-Request
+
+include::{delete}/http-request.adoc[]
+
+===== Http-Response
+
+include::{delete}/http-response.adoc[]
+
+===== Path-Parameters
+
+include::{delete}/path-parameters.adoc[]
+
+===== Request-Headers
+
+include::{delete}/request-headers.adoc[]
+
+===== Response-Fields
+
+include::{delete}/response-fields.adoc
+
+[[cart-clean]]
+
+==== /v1/cart [small silver]*[DELETE]*
+
+===== Http-Request
+
+include::{clean}/http-request.adoc[]
+
+===== Http-Response
+
+include::{clean}/http-response.adoc[]
+
+===== Request-Headers
+
+include::{clean}/request-headers.adoc[]

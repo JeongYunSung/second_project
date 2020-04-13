@@ -31,7 +31,7 @@ public class Payment extends BaseUserEntity {
             throw new PaymentFailureException("payment is completed");
         }
         if (this.getOrder().getTotalPrice() > ownPrice) {
-            throw new PaymentFailureException("잔액이 부족합니다.");
+            throw new PaymentFailureException(this.getOrder().getTotalPrice() + " > " + ownPrice);
         }
         this.paymentStatus = PaymentStatus.COMP;
     }

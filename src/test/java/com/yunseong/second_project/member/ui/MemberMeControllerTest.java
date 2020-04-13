@@ -5,6 +5,7 @@ import com.yunseong.second_project.member.command.application.dto.MemberUpdateRe
 import com.yunseong.second_project.member.command.domain.Member;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.core.annotation.Order;
 import org.springframework.hateoas.MediaTypes;
 import org.springframework.restdocs.payload.JsonFieldType;
 import org.springframework.test.web.servlet.ResultActions;
@@ -29,7 +30,7 @@ class MemberMeControllerTest extends BaseTest {
     public void 정보_업데이트() throws Exception {
         //given
         String jwtToken = this.getJwtToken();
-        MemberUpdateRequest request = new MemberUpdateRequest("updatePassword",
+        MemberUpdateRequest request = new MemberUpdateRequest(this.password,
                 this.password, "updateNickname", 10000);
         //when
         ResultActions perform = this.mockMvc.perform(put("/v1/members/me")
@@ -77,7 +78,7 @@ class MemberMeControllerTest extends BaseTest {
         perform
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andDo(document("member-update",
+                .andDo(document("member-select",
                         links(
                                 linkWithRel("profile").description("API 관련 정보")
                         ),
@@ -114,7 +115,7 @@ class MemberMeControllerTest extends BaseTest {
                         )));
     }
 
-    @Test
+/*    @Test
     public void 유저_삭제_후_접근() throws Exception {
         //given
         String jwtToken = this.getJwtToken();
@@ -125,5 +126,5 @@ class MemberMeControllerTest extends BaseTest {
         Optional<Member> memberByUsername = this.memberRepository.findMemberByUsername(this.username);
         //then
         Assertions.assertThrows(NoSuchElementException.class, () -> memberByUsername.get());
-    }
+    }*/
 }

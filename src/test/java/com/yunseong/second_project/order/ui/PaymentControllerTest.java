@@ -4,6 +4,7 @@ import com.yunseong.second_project.category.command.domain.Category;
 import com.yunseong.second_project.common.BaseTest;
 import com.yunseong.second_project.order.commend.application.OrderCommendService;
 import com.yunseong.second_project.order.commend.application.dto.OrderCreateRequest;
+import com.yunseong.second_project.product.commend.domain.Product;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.MediaTypes;
@@ -11,8 +12,10 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.restdocs.payload.JsonFieldType;
 import org.springframework.test.web.servlet.ResultActions;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.IntStream;
 
 import static org.springframework.restdocs.headers.HeaderDocumentation.*;
 import static org.springframework.restdocs.hypermedia.HypermediaDocumentation.linkWithRel;
@@ -35,9 +38,13 @@ class PaymentControllerTest extends BaseTest {
     public void 주문_결제() throws Exception {
         //given
         String jwtToken = this.getJwtToken();
-        Category category = this.createCategory("category", null);
-        List<Long> list = Arrays.asList(1L, 2L, 3L, 4L, 5L);
-        list.stream().forEach(i -> this.createProduct("title : " + i, "description : " + i, 10000, Arrays.asList(category)));
+        this.memberCommandService.addMoney(this.username, 10000);
+        Category category = this.createCategory("category5", null);
+        List<Long> list = new ArrayList<>();
+        IntStream.range(10, 13).forEach(i -> {
+            Product product = this.createProduct("title : " + i, "description : " + i, 1000, Arrays.asList(category));
+            list.add(product.getId());
+        });
         OrderCreateRequest orderCreateRequest = new OrderCreateRequest(list);
         Long order = this.orderCommendService.createOrder(orderCreateRequest);
         //when
@@ -68,7 +75,7 @@ class PaymentControllerTest extends BaseTest {
                         )));
     }
 
-    @Test
+/*    @Test
     public void 주문_결제_후_정보창() throws Exception {
         //given
         String jwtToken = this.getJwtToken();
@@ -86,5 +93,5 @@ class PaymentControllerTest extends BaseTest {
         perform
                 .andDo(print())
                 .andExpect(status().isOk());
-    }
+    }*/
 }

@@ -1,0 +1,134 @@
+:create: ../../../../build/generated-snippets/order-create
+:delete: ../../../../build/generated-snippets/order-delete
+:list-get: ../../../../build/generated-snippets/order-list-select
+:payment: ../../../../build/generated-snippets/order-payment-create
+:get: ../../../../build/generated-snippets/order-select
+
+[[order]]
+=== Order
+
+주문 및 결제에 관해서 요청에 관한 내용
+
+[[order-create]]
+
+==== /v1/orders [small silver]*[POST]*
+
+===== Http-Request
+
+include::{create}/http-request.adoc[]
+
+===== Http-Response
+
+include::{create}/http-response.adoc[]
+
+===== Request-Headers
+
+include::{create}/request-headers.adoc[]
+
+===== Response-Headers
+
+include::{create}/response-headers.adoc[]
+
+[[order-payment-create]]
+
+==== /v1/orders/{id}/payment [small silver]*[POST]*
+
+===== Http-Request
+
+include::{payment}/http-request.adoc[]
+
+===== Http-Response
+
+include::{payment}/http-response.adoc[]
+
+===== links
+
+include::{payment}/links.adoc[]
+
+===== Path-Parameters
+
+include::{payment}/path-parameters.adoc[]
+
+===== Request-Headers
+
+include::{payment}/request-headers.adoc[]
+
+===== Response-Headers
+
+include::{payment}/response-headers.adoc[]
+
+===== Response-Fields
+
+include::{payment}/response-fields.adoc[]
+
+[[order-select]]
+
+==== /v1/orders/{id} [small silver]*[GET]*
+
+===== Http-Request
+
+include::{get}/http-request.adoc[]
+
+===== Http-Response
+
+include::{get}/http-response.adoc[]
+
+===== links
+
+include::{get}/links.adoc[]
+
+===== Path-Parameters
+
+include::{get}/path-parameters.adoc[]
+
+===== Request-Headers
+
+include::{get}/request-headers.adoc[]
+
+===== Response-Fields
+
+include::{get}/response-fields.adoc[]
+
+[[order-list-select]]
+
+==== /v1/orders/my [small silver]*[GET]*
+
+===== Http-Request
+
+include::{list-get}/http-request.adoc[]
+
+===== Http-Response
+
+include::{list-get}/http-response.adoc[]
+
+===== links
+
+include::{list-get}/links.adoc[]
+
+===== Request-Headers
+
+include::{list-get}/request-headers.adoc[]
+
+===== Response-Fields
+
+include::{list-get}/response-fields.adoc[]
+
+[[order-cancel]]
+
+==== /v1/orders/{id} [small silver]*[PUT]*
+
+===== Http-Request
+
+include::{delete}/http-request.adoc[]
+
+===== Http-Response
+
+include::{delete}/http-response.adoc[]
+
+===== Path-Parameters
+
+include::{delete}/path-parameters.adoc[]
+
+===== Request-Headers
+
+include::{delete}/request-headers.adoc[]

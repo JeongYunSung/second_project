@@ -1,0 +1,133 @@
+:member_signup: ../../../../build/generated-snippets/member-signUp
+:member_signin: ../../../../build/generated-snippets/member-signIn
+:member_select: ../../../../build/generated-snippets/member-select
+:member_update: ../../../../build/generated-snippets/member-update
+:member_delete: ../../../../build/generated-snippets/member-delete
+
+[[member]]
+=== Member
+
+회원 가입, 로그인, 수정, 삭제 등의 요청에 관한 내용입니다
+
+[[member-signup]]
+
+==== /v1/members/signup [small silver]*[POST]*
+
+===== Http-Request
+
+include::{member_signup}/http-request.adoc[]
+
+===== Http-Response
+
+include::{member_signup}/http-response.adoc[]
+
+===== links
+
+include::{member_signup}/links.adoc[]
+
+===== Request-Fields
+
+include::{member_signup}/request-fields.adoc[]
+
+===== Response-Headers
+
+include::{member_signup}/response-headers.adoc[]
+
+===== Response-Fields
+
+include::{member_signup}/response-fields.adoc[]
+
+[[member-signin]]
+
+==== /v1/members/signin [small silver]*[POST]*
+
+===== Http-Request
+
+include::{member_signIn}/http-request.adoc[]
+
+===== Http-Response
+
+include::{member_signin}/http-response.adoc[]
+
+===== links
+
+include::{member_signin}/links.adoc[]
+
+===== Request-Fields
+include::{member_signin}/request-fields.adoc[]
+
+===== Response-Headers
+
+include::{member_signin}/response-headers.adoc[]
+
+
+===== Response-Fields
+
+include::{member_signin}/response-fields.adoc[]
+
+[[member-select]]
+
+==== /v1/members/me [small silver]*[GET]*
+
+===== Http-Request
+
+include::{member_select}/http-request.adoc[]
+
+===== Http-Response
+
+include::{member_select}/http-response.adoc[]
+
+===== links
+
+include::{member_select}/links.adoc[]
+
+===== Request-Headers
+
+include::{member_select}/request-headers.adoc[]
+
+===== Response-Fields
+
+include::{member_select}/response-fields.adoc[]
+
+[[member-update]]
+
+==== /v1/members/me [small silver]*[PUT]*
+
+===== Http-Request
+
+include::{member_update}/http-request.adoc[]
+
+===== Http-Response
+
+include::{member_update}/http-response.adoc[]
+
+===== links
+
+include::{member_update}/links.adoc[]
+
+===== Request-Headers
+
+include::{member_update}/request-headers.adoc[]
+
+===== Request-Fields
+include::{member_update}/request-fields.adoc[]
+
+===== Response-Fields
+
+include::{member_update}/response-fields.adoc[]
+
+[[member-delete]]
+
+==== /v1/members/me [small silver]*[DELETE]*
+
+===== Http-Request
+
+include::{member_delete}/http-request.adoc[]
+
+===== Http-Response
+
+include::{member_delete}/http-response.adoc[]
+
+===== Request-Headers
+
+include::{member_delete}/request-headers.adoc[]
