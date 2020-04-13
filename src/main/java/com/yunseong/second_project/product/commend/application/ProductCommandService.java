@@ -107,12 +107,12 @@ public class ProductCommandService {
 
     private Product getProduct(Long id, int value) {
         if (value == 0) {
-            return this.productRepository.findLockById(id).orElseThrow(() -> new NotFoundEntityException("해당 상품은 존재하지 않습니다.", id));
+            return this.productRepository.findById(id).orElseThrow(() -> new NotFoundEntityException("해당 상품은 존재하지 않습니다.", id));
         }
         if (value == 1) {
-            return this.productRepository.findLockRecommendById(id).orElseThrow(() -> new NotFoundEntityException("해당 상품은 존재하지 않습니다.", id));
+            return this.productRepository.findRecommendById(id).orElseThrow(() -> new NotFoundEntityException("해당 상품은 존재하지 않습니다.", id));
         }
-        return this.productRepository.findLockTypesById(id).orElseThrow(() -> new NotFoundEntityException("해당 상품은 존재하지 않습니다.", id));
+        return this.productRepository.findTypesById(id).orElseThrow(() -> new NotFoundEntityException("해당 상품은 존재하지 않습니다.", id));
     }
 
     private void verifyUser(Product product) {

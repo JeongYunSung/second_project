@@ -20,9 +20,6 @@ public class Product extends BaseUserEntity {
     private int value;
     private int view;
 
-    @Version
-    private Integer version;
-
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ProductReferee> productReferees = new ArrayList<>();
 

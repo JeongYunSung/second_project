@@ -13,9 +13,6 @@ import javax.persistence.*;
 @AttributeOverride(name = "id", column = @Column(name = "type_id"))
 public class ProductType extends BaseUserEntity {
 
-    @Version
-    private Integer version;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_name")
     private Product product;

@@ -16,10 +16,6 @@ public interface CategoryRepository extends JpaRepository<Category, Long>, Categ
     @Query("select c from Category c left join fetch c.parent parent where c.id = :id and c.delete = false")
     Optional<Category> findFetchById(Long id);
 
-    @Lock(value = LockModeType.OPTIMISTIC_FORCE_INCREMENT)
-    @Query("select c from Category c left join fetch c.parent parent where c.id = :id and c.delete = false")
-    Optional<Category> findLockFetchById(Long id);
-
     @Query("select distinct c from Category c left join fetch c.parent parent left join fetch c.categories child where c.id = :id and c.delete = false")
     Optional<Category> findDtoById(Long id);
 }

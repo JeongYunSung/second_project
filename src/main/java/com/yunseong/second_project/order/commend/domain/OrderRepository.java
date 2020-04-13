@@ -18,11 +18,6 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
             "left join fetch o.payment pm where o.id = :id")
     Optional<Order> findById(Long id);
 
-    @Lock(value = LockModeType.OPTIMISTIC_FORCE_INCREMENT)
-    @Query("select o from Order o join fetch o.orderItems oi join fetch oi.product pd " +
-            "left join fetch o.payment pm where o.id = :id")
-    Optional<Order> findLockById(Long id);
-
     @Query("select new com.yunseong.second_project.order.query.OrderResponse(o.id, o.totalPrice, p.paymentStatus) from Order o left join o.payment p")
     Page<OrderResponse> findByPage(Pageable pageable);
 

@@ -67,6 +67,6 @@ public class CategoryCommandService {
 
     private Category getCategory(Long id) {
         if (id == null || id == 0) return null;
-        return this.categoryRepository.findLockFetchById(id).orElseThrow(() -> new NotFoundEntityException("해당 카테고리엔티티는 존재하지 않습니다.", id));
+        return this.categoryRepository.findFetchById(id).orElseThrow(() -> new NotFoundEntityException("해당 카테고리엔티티는 존재하지 않습니다.", id));
     }
 }

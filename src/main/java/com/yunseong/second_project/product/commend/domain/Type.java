@@ -13,9 +13,6 @@ import javax.persistence.*;
 @AttributeOverride(name = "id", column = @Column(name = "type_id"))
 public class Type extends BaseUserEntity {
 
-    @Version
-    private Integer version;
-
     private Long categoryId;
     private String categoryName;
     private Long parentId;

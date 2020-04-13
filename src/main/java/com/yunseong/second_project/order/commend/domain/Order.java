@@ -16,9 +16,6 @@ public class Order extends BaseUserEntity {
 
     private int totalPrice;
 
-    @Version
-    private Integer version;
-
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItem> orderItems = new ArrayList<>();
 

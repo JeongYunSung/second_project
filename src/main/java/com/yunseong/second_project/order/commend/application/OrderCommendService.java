@@ -38,7 +38,7 @@ public class OrderCommendService {
     }
 
     public void cancelOrder(Long id) {
-        Order order = this.orderRepository.findLockById(id).orElseThrow(EntityNotFoundException::new);
+        Order order = this.orderRepository.findById(id).orElseThrow(EntityNotFoundException::new);
         order.cancel();
     }
 
@@ -47,7 +47,7 @@ public class OrderCommendService {
 
         Member member = this.memberRepository.findPurchaseById(principal.getId()).orElseThrow(EntityNotFoundException::new);
 
-        Order order = this.orderRepository.findLockById(id).orElseThrow(EntityNotFoundException::new);
+        Order order = this.orderRepository.findById(id).orElseThrow(EntityNotFoundException::new);
         Payment payment = new Payment();
         order.setPayment(payment);
         payment.comp(member.getMoney());
