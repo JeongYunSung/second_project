@@ -1,0 +1,36 @@
+= JysMoll RESTful Developer API Documents
+v1.0, 2020-04-13
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 3
+
+[[introduction]]
+== 소개
+
+Jys 쇼핑몰 RESTful API
+
+== Domain
+
+|===
+| 환경 | Domain
+| 개발서버
+| http://localhost:8080
+
+| 운영서버
+| 개발중
+|===
+
+[[overview]]
+== Overview
+
+include::overview/CurrentVersion.adoc[]
+include::overview/Authentication.adoc[]
+
+[[resource]]
+== Resources
+
+include::resources/resources-member.adoc[]
+include::resources/resources-category.adoc[]
+include::resources/resources-product.adoc[]
+include::resources/resources-cart.adoc[]
+include::resources/resources-order.adoc[]

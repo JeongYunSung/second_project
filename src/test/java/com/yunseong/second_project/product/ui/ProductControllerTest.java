@@ -178,13 +178,11 @@ class ProductControllerTest extends BaseTest {
     @Test
     public void 물품_조회() throws Exception {
         //given
-        String jwtToken = this.getJwtToken();
         Category oldCategory = this.createCategory("oldCategory", null);
         Product product = this.createProduct("product", "product!!!", 100, Arrays.asList(oldCategory));
         //when
         ResultActions perform = this.mockMvc.perform(get("/v1/products/{id}", product.getId())
                 .accept(MediaTypes.HAL_JSON_VALUE)
-                .header("X-AUTH-TOKEN", jwtToken)
                 .param("view", "true"));
         //then
         perform
@@ -195,9 +193,6 @@ class ProductControllerTest extends BaseTest {
                                 linkWithRel("self").description("현재 상품 정보"),
                                 linkWithRel("list").description("상품 목록"),
                                 linkWithRel("profile").description("API 관련 정보")
-                        ),
-                        requestHeaders(
-                                headerWithName("X-AUTH-TOKEN").description("자원의 접근하기위한 해당 유저의 토큰값")
                         ),
                         pathParameters(
                                 parameterWithName("id").description("상품 아이디")
@@ -220,7 +215,6 @@ class ProductControllerTest extends BaseTest {
     @Test
     public void 물품_목록_조회() throws Exception {
         //given
-        String jwtToken = this.getJwtToken();
         Category category1 = this.createCategory("Category1", null);
         Category category2 = this.createCategory("Category2", null);
         IntStream.range(1, 6).forEach(i -> this.createProduct("firstCategory", "Good", 1000*i, Arrays.asList(category1)));
@@ -228,7 +222,6 @@ class ProductControllerTest extends BaseTest {
         //when
         ResultActions perform = this.mockMvc.perform(get("/v1/products")
                 .accept(MediaTypes.HAL_JSON_VALUE)
-                .header("X-AUTH-TOKEN", jwtToken)
                 .contentType(MediaTypes.HAL_JSON_VALUE)
                 .param("size", "10"));
         //then
@@ -239,9 +232,6 @@ class ProductControllerTest extends BaseTest {
                         links(
                                 linkWithRel("self").description("현재 상품 목록"),
                                 linkWithRel("profile").description("API 관련 정보")
-                        ),
-                        requestHeaders(
-                                headerWithName("X-AUTH-TOKEN").description("자원의 접근하기위한 해당 유저의 토큰값")
                         ),
                         requestParameters(
                                 parameterWithName("size").optional().description("페이지 크기"),
@@ -258,7 +248,6 @@ class ProductControllerTest extends BaseTest {
     @Test
     public void 물품_목록_검색() throws Exception {
         //given
-        String jwtToken = this.getJwtToken();
         Category category1 = this.createCategory("Category1", null);
         Category category2 = this.createCategory("Category2", null);
         IntStream.range(1, 6).forEach(i -> this.createProduct("firstCategory", "Good", 1000*i, Arrays.asList(category1)));
@@ -267,7 +256,6 @@ class ProductControllerTest extends BaseTest {
         //when
         ResultActions perform = this.mockMvc.perform(get("/v1/products/search")
                 .accept(MediaTypes.HAL_JSON_VALUE)
-                .header("X-AUTH-TOKEN", jwtToken)
                 .contentType(MediaTypes.HAL_JSON_VALUE)
                 .content(this.objectMapper.writeValueAsString(condition)));
         //then
@@ -278,9 +266,6 @@ class ProductControllerTest extends BaseTest {
                         links(
                                 linkWithRel("self").description("현재 상품 목록"),
                                 linkWithRel("profile").description("API 관련 정보")
-                        ),
-                        requestHeaders(
-                                headerWithName("X-AUTH-TOKEN").description("자원의 접근하기위한 해당 유저의 토큰값")
                         ),
                         requestParameters(
                                 parameterWithName("size").optional().description("페이지 크기"),

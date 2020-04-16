@@ -1,0 +1,10 @@
+[[current-version]]
+=== Current Version
+
+현재 API버전은 v1이며, http1.1 통신 규약을 이용하고있다.
+Header와 Body의 Type은 밑에 명시된 규약을 따라야 한다.
+
+----
+Accept: application/hal+json
+Content-type: application/hal+json
+----
