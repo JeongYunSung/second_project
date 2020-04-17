@@ -6,6 +6,7 @@ import com.yunseong.second_project.product.commend.application.dto.ProductCreate
 import com.yunseong.second_project.product.commend.application.dto.ProductCreateResponse;
 import com.yunseong.second_project.product.commend.application.dto.ProductUpdateRequest;
 import com.yunseong.second_project.product.query.application.ProductQueryService;
+import com.yunseong.second_project.product.query.application.dto.ProductResponse;
 import com.yunseong.second_project.product.query.application.dto.ProductResponseModel;
 import com.yunseong.second_project.product.query.application.dto.ProductSearchCondition;
 import com.yunseong.second_project.product.query.application.dto.RecommendResponse;
@@ -14,6 +15,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.MediaTypes;
 import org.springframework.hateoas.PagedModel;
@@ -22,6 +24,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.List;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
@@ -57,6 +60,27 @@ public class ProductController {
         pagedModel.add(Util.profile);
 
         return ResponseEntity.ok(pagedModel);
+    }
+
+    @GetMapping("/recent")
+    public ResponseEntity getProductsByRecentTop10() {
+        return ResponseEntity.ok(getTop10(this.productQueryService.findRecentTop10()));
+    }
+
+    @GetMapping("/best")
+    public ResponseEntity getProductsByBestTop10() {
+        return ResponseEntity.ok(getTop10(this.productQueryService.findBestTop10()));
+    }
+
+    @GetMapping("/view")
+    public ResponseEntity getProductsByViewTop10() {
+        return ResponseEntity.ok(getTop10(this.productQueryService.findViewTop10()));
+    }
+
+    private CollectionModel<List<ProductResponse>> getTop10(List<ProductResponse> recent) {
+        CollectionModel<List<ProductResponse>> collectionModel = new CollectionModel(recent);
+        collectionModel.add(Util.profile);
+        return collectionModel;
     }
 
     @GetMapping("/search")

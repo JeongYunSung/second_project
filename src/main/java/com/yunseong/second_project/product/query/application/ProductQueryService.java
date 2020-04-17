@@ -10,6 +10,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
@@ -27,5 +29,17 @@ public class ProductQueryService {
 
     public Page<ProductResponse> findByPage(Pageable pageable) {
         return this.productRepository.findByPage(pageable);
+    }
+
+    public List<ProductResponse> findBestTop10() {
+        return this.productRepository.findBestTop10();
+    }
+
+    public List<ProductResponse> findRecentTop10() {
+        return this.productRepository.findRecentTop10();
+    }
+
+    public List<ProductResponse> findViewTop10() {
+        return this.productRepository.findViewTop10();
     }
 }

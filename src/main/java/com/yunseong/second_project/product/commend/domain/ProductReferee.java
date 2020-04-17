@@ -12,7 +12,7 @@ import javax.persistence.*;
 public class ProductReferee extends BaseUserEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_name")
+    @JoinColumn(name = "product_name", unique = true)
     private Product product;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

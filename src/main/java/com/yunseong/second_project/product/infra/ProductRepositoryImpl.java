@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.yunseong.second_project.product.commend.domain.QProduct.product;
@@ -31,6 +32,50 @@ public class ProductRepositoryImpl implements ProductQueryRepository {
     }
 
     @Override
+    public List<ProductResponse> findViewTop10() {
+        List<ProductResponse> content = this.queryFactory
+                .select(new QProductResponse(product))
+                .from(product)
+                .where(product.delete_yn.eq(false))
+                .orderBy(product.view.desc())
+                .offset(0)
+                .limit(10)
+                .fetch();
+
+        return content;
+    }
+
+    @Override
+    public List<ProductResponse> findBestTop10() {
+        List<ProductResponse> content = this.queryFactory
+                .select(new QProductResponse(product))
+                .from(product)
+                .innerJoin(product.productReferees, productReferee)
+                .where(product.delete_yn.eq(false))
+                .groupBy(product.id)
+                .orderBy(product.id.count().desc())
+                .offset(0)
+                .limit(10)
+                .fetch();
+
+        return content;
+    }
+
+    @Override
+    public List<ProductResponse> findRecentTop10() {
+        List<ProductResponse> content = this.queryFactory
+                .select(new QProductResponse(product))
+                .from(product)
+                .where(product.delete_yn.eq(false))
+                .orderBy(product.createdTime.desc())
+                .offset(0)
+                .limit(10)
+                .fetch();
+
+        return content;
+    }
+
+    @Override
     public Page<ProductResponse> findPageBySearch(ProductSearchCondition condition, Pageable pageable) {
         List<ProductResponse> content = this.queryFactory
                 .select(new QProductResponse(product)).distinct()
@@ -39,7 +84,7 @@ public class ProductRepositoryImpl implements ProductQueryRepository {
                 .leftJoin(productReferee.referee, referee)
                 .innerJoin(product.types, productType)
                 .innerJoin(productType.type, type)
-                .where(product.delete.eq(false), containsProductName(condition.getProductName()), containsCategoryName(condition.getCategoryName()),
+                .where(product.delete_yn.eq(false), containsProductName(condition.getProductName()), containsCategoryName(condition.getCategoryName()),
                         loeValue(condition.getMax()), goeValue(condition.getMin()))
                 .offset(pageable.getOffset())
                 .limit(pageable.getPageSize())

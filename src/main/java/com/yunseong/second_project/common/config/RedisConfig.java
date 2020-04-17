@@ -11,7 +11,7 @@ import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSeriali
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 @Configuration
-@EnableRedisRepositories(basePackages = "com.yunseong.second_project.cart")
+@EnableRedisRepositories(basePackages = {"com.yunseong.second_project.cart"})
 public class RedisConfig {
 
     @Bean

@@ -2,11 +2,18 @@ package com.yunseong.second_project.product.ui;
 
 import com.yunseong.second_project.category.command.domain.Category;
 import com.yunseong.second_project.common.BaseTest;
+import com.yunseong.second_project.product.commend.application.ProductCommandService;
 import com.yunseong.second_project.product.commend.application.dto.ProductCreateRequest;
 import com.yunseong.second_project.product.commend.application.dto.ProductUpdateRequest;
 import com.yunseong.second_project.product.commend.domain.Product;
+import com.yunseong.second_project.product.commend.domain.ProductReferee;
+import com.yunseong.second_project.product.commend.domain.Referee;
+import com.yunseong.second_project.product.query.application.ProductQueryService;
 import com.yunseong.second_project.product.query.application.dto.ProductSearchCondition;
+import com.yunseong.second_project.product.query.application.dto.RecommendResponse;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.hateoas.MediaTypes;
@@ -14,7 +21,9 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.restdocs.payload.JsonFieldType;
 import org.springframework.test.web.servlet.ResultActions;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.IntStream;
 
 import static org.springframework.restdocs.headers.HeaderDocumentation.*;
@@ -28,6 +37,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 class ProductControllerTest extends BaseTest {
+
+    @Autowired
+    private ProductCommandService productCommandService;
 
     @Test
     public void 물품_생성() throws Exception {
@@ -283,5 +295,63 @@ class ProductControllerTest extends BaseTest {
                                 subsectionWithPath("_embedded.productResponseList").description("상품 리스트 정보"),
                                 subsectionWithPath("_links").description("상품생성 관련 주소")
                         )));
+    }
+
+    @Test
+    public void 물품_조회_최근탑10() throws Exception {
+        //given
+        Category category = this.createCategory("Category", null);
+        IntStream.range(1, 20).forEach(i -> this.createProduct("firstCategory", "Good", 1000*i, Arrays.asList(category)));
+        //when
+        ResultActions perform = this.mockMvc.perform(get("/v1/products/recent")
+                .accept(MediaTypes.HAL_JSON_VALUE)
+                .contentType(MediaTypes.HAL_JSON_VALUE));
+        //then
+        perform
+                .andDo(print())
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    public void 물품_조회_조회수탑10() throws Exception {
+        //given
+        Category category = this.createCategory("Category", null);
+        List<Product> list = new ArrayList<>();
+        IntStream.range(1, 15).forEach(i -> list.add(this.createProduct("firstCategory", "Good", 1000*i, Arrays.asList(category))));
+        for (int i = 0; i < 10; i++) {
+            for (int j = i; j < 10; j++) {
+                this.productCommandService.updateView(list.get(j).getId());
+            }
+        }
+        //when
+        ResultActions perform = this.mockMvc.perform(get("/v1/products/view")
+                .accept(MediaTypes.HAL_JSON_VALUE)
+                .contentType(MediaTypes.HAL_JSON_VALUE));
+        //then
+        perform
+                .andDo(print())
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    public void 물품_조회_추천수탑10() throws Exception {
+        //given
+        this.getJwtToken();
+        Category category = this.createCategory("Category", null);
+        List<Product> list = new ArrayList<>();
+        IntStream.range(1, 15).forEach(i -> list.add(this.createProduct("firstCategory", "Good", 1000*i, Arrays.asList(category))));
+        for (int i = 0; i < 12; i++) {
+            for (int j = i; j < 12; j++) {
+                this.productCommandService.updateRecommendProduct(list.get(j).getId());
+            }
+        }
+        //when
+        ResultActions perform = this.mockMvc.perform(get("/v1/products/best")
+                .accept(MediaTypes.HAL_JSON_VALUE)
+                .contentType(MediaTypes.HAL_JSON_VALUE));
+        //then
+        perform
+                .andDo(print())
+                .andExpect(status().isOk());
     }
 }

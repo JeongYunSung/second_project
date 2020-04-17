@@ -10,15 +10,15 @@ import java.util.Optional;
 
 public interface MemberRepository extends JpaRepository<Member, Long> {
 
-    @Query("select m from Member m where m.id = :id and m.delete = false")
+    @Query("select m from Member m where m.id = :id and m.delete_yn = false")
     Optional<Member> findById(Long id);
 
-    @Query("select m from Member m left join fetch m.purchases p left join fetch p.purchase pur where m.id = :id and m.delete = false")
+    @Query("select m from Member m left join fetch m.purchases p left join fetch p.purchase pur where m.id = :id and m.delete_yn = false")
     Optional<Member> findPurchaseById(Long id);
 
-    @Query("select m from Member m where m.username = :username and m.delete = false")
+    @Query("select m from Member m where m.username = :username and m.delete_yn = false")
     Optional<Member> findMemberByUsername(String username);
 
-    @Query("select distinct new com.yunseong.second_project.member.query.dto.MemberQueryResponse(m) from Member m left join m.purchases mp left join mp.purchase pc where m.id = :id and m.delete = false")
+    @Query("select distinct new com.yunseong.second_project.member.query.dto.MemberQueryResponse(m) from Member m left join m.purchases mp left join mp.purchase pc where m.id = :id and m.delete_yn = false")
     Optional<MemberQueryResponse> findFetchById(Long id);
 }

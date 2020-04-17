@@ -31,11 +31,11 @@ public class CategoryRepositoryImpl implements CategoryQueryRepository {
                 .select(new QCategoryResponse(category))
                 .from(category)
                 .leftJoin(category.parent, parent).fetchJoin()
-                .where(category.delete.eq(false))
+                .where(category.delete_yn.eq(false))
                 .offset(pageable.getOffset())
                 .limit(pageable.getPageSize())
                 .fetch();
         return PageableExecutionUtils.getPage(content, pageable,
-                this.queryFactory.select(new QCategoryResponse(category)).from(category).where(category.delete.eq(false))::fetchCount);
+                this.queryFactory.select(new QCategoryResponse(category)).from(category).where(category.delete_yn.eq(false))::fetchCount);
     }
 }
