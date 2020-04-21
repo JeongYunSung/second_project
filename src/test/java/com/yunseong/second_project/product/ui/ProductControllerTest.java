@@ -333,7 +333,7 @@ class ProductControllerTest extends BaseTest {
                 .andExpect(status().isOk());
     }
 
-    @Test
+/*    @Test
     public void 물품_조회_추천수탑10() throws Exception {
         //given
         this.getJwtToken();
@@ -353,5 +353,5 @@ class ProductControllerTest extends BaseTest {
         perform
                 .andDo(print())
                 .andExpect(status().isOk());
-    }
+    }*/
 }

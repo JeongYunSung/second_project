@@ -54,7 +54,7 @@ public class Member extends BaseEntity {
     }
 
     public void verifyPassword(String password, PasswordEncoder encoder) {
-        if (this.getPassword().equals(encoder.encode(password))) {
+        if (!this.getPassword().equals(encoder.encode(password))) {
             throw new NotMatchPasswordException("비밀번호가 일치하지 않습니다.", password);
         }
     }

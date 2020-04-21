@@ -466,14 +466,14 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 331
+Content-Length: 332
 
 {
   "username" : "testUsername",
-  "password" : "{bcrypt}$2a$10$yBbrxcTQUW8eb9rUwjcjzujv24N5/KNo82QzPeoetcnCe4xdPJBsK",
+  "password" : "{bcrypt}$2a$10$Q7OEP9f7TcEdF9Nz1NfBaOfv1NrAMuPAlejhMbevjkNEuw5LV625S",
   "nickname" : "testNickname",
   "grade" : "Bronze",
-  "createdTime" : "2020-04-17T03:11:20.862257",
+  "createdTime" : "2020-04-17T13:42:08.8226354",
   "_links" : {
     "profile" : {
       "href" : "http://localhost:8080/docs/index.html"
@@ -632,7 +632,7 @@ Host: localhost:8080
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzA2MDY4MSwiZXhwIjoxNTg3MDYyNDgxfQ.tFu8xxO3QmMwAozAzD5iKViOt2-BzFi-vw-_NET2eqs
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzA5ODUyOSwiZXhwIjoxNTg3MTAwMzI5fQ.WpTE__b-ye2MRhXspiEV_7Puq4_danragX8kXwHiEug
 Content-Type: application/hal+json
 X-Content-Type-Options: nosniff
 X-XSS-Protection: 1; mode=block
@@ -762,7 +762,7 @@ Content-Length: 185
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /v1/members/me HTTP/1.1
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDYwNjgwLCJleHAiOjE1ODcwNjI0ODB9.I42MFytwnANDfw_42lfsQU8i11XTVKk-zDQgEBJJv8U
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDk4NTI4LCJleHAiOjE1ODcxMDAzMjh9.w3Bp0jv7ieF0IuALNOR9ptxXR0n0hzH99LWES3qD_OY
 Accept: application/hal+json
 Host: localhost:8080</code></pre>
 </div>
@@ -788,8 +788,8 @@ Content-Length: 320
   "money" : 0,
   "grade" : "Admin",
   "purchase" : [ ],
-  "createdTime" : "2020-04-17T03:11:12.798826",
-  "updatedTime" : "2020-04-17T03:11:12.888586",
+  "createdTime" : "2020-04-17T13:42:01.157085",
+  "updatedTime" : "2020-04-17T13:42:01.165062",
   "_links" : {
     "profile" : {
       "href" : "http://localhost:8080/docs/index.html"
@@ -909,7 +909,7 @@ Content-Length: 320
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">PUT /v1/members/me HTTP/1.1
 Content-Type: application/hal+json;charset=UTF-8
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDYwNjgwLCJleHAiOjE1ODcwNjI0ODB9.I42MFytwnANDfw_42lfsQU8i11XTVKk-zDQgEBJJv8U
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDk4NTI4LCJleHAiOjE1ODcxMDAzMjh9.w3Bp0jv7ieF0IuALNOR9ptxXR0n0hzH99LWES3qD_OY
 Accept: application/hal+json
 Content-Length: 119
 Host: localhost:8080
@@ -938,12 +938,12 @@ X-Frame-Options: DENY
 Content-Length: 369
 
 {
-  "password" : "{bcrypt}$2a$10$J/cMNrYTlWvrolaRuWEDReqF07e.1KfOjyrxWZfGUBW/oEo4f6sfq",
+  "password" : "{bcrypt}$2a$10$WKeFbTOOhmuGTz0Kz6k/JuNZanvcRwFytb4hY/GEO4sIPLNYvJyWi",
   "nickname" : "updateNickname",
   "money" : 10000,
   "grade" : "Admin",
-  "createdTime" : "2020-04-17T03:11:12.798826",
-  "updatedTime" : "2020-04-17T03:11:12.888586",
+  "createdTime" : "2020-04-17T13:42:01.157085",
+  "updatedTime" : "2020-04-17T13:42:01.165062",
   "_links" : {
     "profile" : {
       "href" : "http://localhost:8080/docs/index.html"
@@ -1096,7 +1096,7 @@ Content-Length: 369
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">DELETE /v1/members/me HTTP/1.1
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDYwNjgwLCJleHAiOjE1ODcwNjI0ODB9.I42MFytwnANDfw_42lfsQU8i11XTVKk-zDQgEBJJv8U
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDk4NTI4LCJleHAiOjE1ODcxMDAzMjh9.w3Bp0jv7ieF0IuALNOR9ptxXR0n0hzH99LWES3qD_OY
 Accept: application/hal+json
 Host: localhost:8080</code></pre>
 </div>

@@ -599,14 +599,14 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 331
+Content-Length: 332
 
 {
   "username" : "testUsername",
-  "password" : "{bcrypt}$2a$10$yBbrxcTQUW8eb9rUwjcjzujv24N5/KNo82QzPeoetcnCe4xdPJBsK",
+  "password" : "{bcrypt}$2a$10$Q7OEP9f7TcEdF9Nz1NfBaOfv1NrAMuPAlejhMbevjkNEuw5LV625S",
   "nickname" : "testNickname",
   "grade" : "Bronze",
-  "createdTime" : "2020-04-17T03:11:20.862257",
+  "createdTime" : "2020-04-17T13:42:08.8226354",
   "_links" : {
     "profile" : {
       "href" : "http://localhost:8080/docs/index.html"
@@ -765,7 +765,7 @@ Host: localhost:8080
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzA2MDY4MSwiZXhwIjoxNTg3MDYyNDgxfQ.tFu8xxO3QmMwAozAzD5iKViOt2-BzFi-vw-_NET2eqs
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzA5ODUyOSwiZXhwIjoxNTg3MTAwMzI5fQ.WpTE__b-ye2MRhXspiEV_7Puq4_danragX8kXwHiEug
 Content-Type: application/hal+json
 X-Content-Type-Options: nosniff
 X-XSS-Protection: 1; mode=block
@@ -895,7 +895,7 @@ Content-Length: 185
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /v1/members/me HTTP/1.1
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDYwNjgwLCJleHAiOjE1ODcwNjI0ODB9.I42MFytwnANDfw_42lfsQU8i11XTVKk-zDQgEBJJv8U
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDk4NTI4LCJleHAiOjE1ODcxMDAzMjh9.w3Bp0jv7ieF0IuALNOR9ptxXR0n0hzH99LWES3qD_OY
 Accept: application/hal+json
 Host: localhost:8080</code></pre>
 </div>
@@ -921,8 +921,8 @@ Content-Length: 320
   "money" : 0,
   "grade" : "Admin",
   "purchase" : [ ],
-  "createdTime" : "2020-04-17T03:11:12.798826",
-  "updatedTime" : "2020-04-17T03:11:12.888586",
+  "createdTime" : "2020-04-17T13:42:01.157085",
+  "updatedTime" : "2020-04-17T13:42:01.165062",
   "_links" : {
     "profile" : {
       "href" : "http://localhost:8080/docs/index.html"
@@ -1042,7 +1042,7 @@ Content-Length: 320
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /v1/members/me HTTP/1.1
 Content-Type: application/hal+json;charset=UTF-8
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDYwNjgwLCJleHAiOjE1ODcwNjI0ODB9.I42MFytwnANDfw_42lfsQU8i11XTVKk-zDQgEBJJv8U
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDk4NTI4LCJleHAiOjE1ODcxMDAzMjh9.w3Bp0jv7ieF0IuALNOR9ptxXR0n0hzH99LWES3qD_OY
 Accept: application/hal+json
 Content-Length: 119
 Host: localhost:8080
@@ -1071,12 +1071,12 @@ X-Frame-Options: DENY
 Content-Length: 369
 
 {
-  "password" : "{bcrypt}$2a$10$J/cMNrYTlWvrolaRuWEDReqF07e.1KfOjyrxWZfGUBW/oEo4f6sfq",
+  "password" : "{bcrypt}$2a$10$WKeFbTOOhmuGTz0Kz6k/JuNZanvcRwFytb4hY/GEO4sIPLNYvJyWi",
   "nickname" : "updateNickname",
   "money" : 10000,
   "grade" : "Admin",
-  "createdTime" : "2020-04-17T03:11:12.798826",
-  "updatedTime" : "2020-04-17T03:11:12.888586",
+  "createdTime" : "2020-04-17T13:42:01.157085",
+  "updatedTime" : "2020-04-17T13:42:01.165062",
   "_links" : {
     "profile" : {
       "href" : "http://localhost:8080/docs/index.html"
@@ -1229,7 +1229,7 @@ Content-Length: 369
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /v1/members/me HTTP/1.1
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDYwNjgwLCJleHAiOjE1ODcwNjI0ODB9.I42MFytwnANDfw_42lfsQU8i11XTVKk-zDQgEBJJv8U
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDk4NTI4LCJleHAiOjE1ODcxMDAzMjh9.w3Bp0jv7ieF0IuALNOR9ptxXR0n0hzH99LWES3qD_OY
 Accept: application/hal+json
 Host: localhost:8080</code></pre>
 </div>
@@ -1286,13 +1286,13 @@ X-Frame-Options: DENY</code></pre>
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /v1/categories HTTP/1.1
 Content-Type: application/hal+json;charset=UTF-8
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDYwNjc5LCJleHAiOjE1ODcwNjI0Nzl9.qI8O4N3_YgNFbI7wMvPEb2SFGaF9crZANq_wzjSUM4g
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDk4NTI3LCJleHAiOjE1ODcxMDAzMjd9.SVus3mi_stnGNc8dZf8lQvMloQ6_tnS6bH9Z0O3LsrE
 Content-Length: 52
 Host: localhost:8080
 
 {
   "categoryName" : "Child",
-  "parentId" : 27
+  "parentId" : 39
 }</code></pre>
 </div>
 </div>
@@ -1302,7 +1302,7 @@ Host: localhost:8080
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 201 Created
-Location: http://localhost:8080/v1/categories/28
+Location: http://localhost:8080/v1/categories/40
 Content-Type: application/hal+json
 X-Content-Type-Options: nosniff
 X-XSS-Protection: 1; mode=block
@@ -1313,11 +1313,11 @@ X-Frame-Options: DENY
 Content-Length: 248
 
 {
-  "id" : 28,
+  "id" : 40,
   "categoryName" : "Child",
-  "parentId" : 27,
+  "parentId" : 39,
   "parentName" : "Parent",
-  "createdTime" : "2020-04-17T03:11:19.4649954",
+  "createdTime" : "2020-04-17T13:42:07.8382119",
   "_links" : {
     "profile" : {
       "href" : "http://localhost:8080/docs/index.html"
@@ -1475,9 +1475,9 @@ Content-Length: 248
 <h5 id="_http_request_7">Http-Request</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /v1/categories/33 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /v1/categories/45 HTTP/1.1
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDYwNjc5LCJleHAiOjE1ODcwNjI0Nzl9.qI8O4N3_YgNFbI7wMvPEb2SFGaF9crZANq_wzjSUM4g
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDk4NTI4LCJleHAiOjE1ODcxMDAzMjh9.w3Bp0jv7ieF0IuALNOR9ptxXR0n0hzH99LWES3qD_OY
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -1497,22 +1497,22 @@ X-Frame-Options: DENY
 Content-Length: 513
 
 {
-  "id" : 33,
+  "id" : 45,
   "categoryName" : "Parent",
-  "parentId" : 32,
+  "parentId" : 44,
   "parentName" : "GradParent",
   "child" : [ {
-    "childId" : 34,
+    "childId" : 46,
     "childName" : "Child1"
   }, {
-    "childId" : 35,
+    "childId" : 47,
     "childName" : "Child2"
   } ],
-  "createdTime" : "2020-04-17T03:11:19.936735",
-  "updatedTime" : "2020-04-17T03:11:19.936735",
+  "createdTime" : "2020-04-17T13:42:08.194261",
+  "updatedTime" : "2020-04-17T13:42:08.194261",
   "_links" : {
     "self" : {
-      "href" : "http://localhost:8080/v1/categories/33"
+      "href" : "http://localhost:8080/v1/categories/45"
     },
     "profile" : {
       "href" : "http://localhost:8080/docs/index.html"
@@ -1659,7 +1659,7 @@ Content-Length: 513
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /v1/categories HTTP/1.1
 Content-Type: application/hal+json;charset=UTF-8
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDYwNjc4LCJleHAiOjE1ODcwNjI0Nzh9.tBJxv3YWFLao7Yt8BugWPk4Uf3tVULRnEWYCsucb3iw
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDk4NTI3LCJleHAiOjE1ODcxMDAzMjd9.SVus3mi_stnGNc8dZf8lQvMloQ6_tnS6bH9Z0O3LsrE
 Content-Length: 190
 Host: localhost:8080
 
@@ -1690,18 +1690,18 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 4541
+Content-Length: 4066
 
 {
   "_embedded" : {
     "categoryResponseList" : [ {
       "id" : 1,
-      "categoryName" : "category3",
+      "categoryName" : "Category",
       "parentId" : null,
       "parentName" : null,
       "child" : null,
-      "createdTime" : "2020-04-17T03:11:13.412187",
-      "updatedTime" : "2020-04-17T03:11:13.412187",
+      "createdTime" : "2020-04-17T13:42:00.334285",
+      "updatedTime" : "2020-04-17T13:42:00.334285",
       "_links" : {
         "category" : {
           "href" : "http://localhost:8080/v1/categories/1"
@@ -1709,12 +1709,12 @@ Content-Length: 4541
       }
     }, {
       "id" : 2,
-      "categoryName" : "category2",
+      "categoryName" : "oldCategory",
       "parentId" : null,
       "parentName" : null,
       "child" : null,
-      "createdTime" : "2020-04-17T03:11:17.868266",
-      "updatedTime" : "2020-04-17T03:11:17.868266",
+      "createdTime" : "2020-04-17T13:42:01.424368",
+      "updatedTime" : "2020-04-17T13:42:01.424368",
       "_links" : {
         "category" : {
           "href" : "http://localhost:8080/v1/categories/2"
@@ -1722,12 +1722,12 @@ Content-Length: 4541
       }
     }, {
       "id" : 3,
-      "categoryName" : "category1",
+      "categoryName" : "newCategory",
       "parentId" : null,
       "parentName" : null,
       "child" : null,
-      "createdTime" : "2020-04-17T03:11:18.04679",
-      "updatedTime" : "2020-04-17T03:11:18.04679",
+      "createdTime" : "2020-04-17T13:42:01.433346",
+      "updatedTime" : "2020-04-17T13:42:01.433346",
       "_links" : {
         "category" : {
           "href" : "http://localhost:8080/v1/categories/3"
@@ -1735,12 +1735,12 @@ Content-Length: 4541
       }
     }, {
       "id" : 4,
-      "categoryName" : "category4",
+      "categoryName" : "category",
       "parentId" : null,
       "parentName" : null,
       "child" : null,
-      "createdTime" : "2020-04-17T03:11:18.187413",
-      "updatedTime" : "2020-04-17T03:11:18.187413",
+      "createdTime" : "2020-04-17T13:42:01.697637",
+      "updatedTime" : "2020-04-17T13:42:01.697637",
       "_links" : {
         "category" : {
           "href" : "http://localhost:8080/v1/categories/4"
@@ -1748,12 +1748,12 @@ Content-Length: 4541
       }
     }, {
       "id" : 5,
-      "categoryName" : "Parent",
+      "categoryName" : "category",
       "parentId" : null,
       "parentName" : null,
       "child" : null,
-      "createdTime" : "2020-04-17T03:11:18.572382",
-      "updatedTime" : "2020-04-17T03:11:18.572382",
+      "createdTime" : "2020-04-17T13:42:01.857212",
+      "updatedTime" : "2020-04-17T13:42:01.857212",
       "_links" : {
         "category" : {
           "href" : "http://localhost:8080/v1/categories/5"
@@ -1761,12 +1761,12 @@ Content-Length: 4541
       }
     }, {
       "id" : 6,
-      "categoryName" : "updateChild",
-      "parentId" : 5,
-      "parentName" : "Parent",
+      "categoryName" : "oldCategory",
+      "parentId" : null,
+      "parentName" : null,
       "child" : null,
-      "createdTime" : "2020-04-17T03:11:18.575376",
-      "updatedTime" : "2020-04-17T03:11:18.605295",
+      "createdTime" : "2020-04-17T13:42:01.907076",
+      "updatedTime" : "2020-04-17T13:42:01.907076",
       "_links" : {
         "category" : {
           "href" : "http://localhost:8080/v1/categories/6"
@@ -1774,12 +1774,12 @@ Content-Length: 4541
       }
     }, {
       "id" : 7,
-      "categoryName" : "1 : Category",
-      "parentId" : 8,
-      "parentName" : "2 : Category",
+      "categoryName" : "oldCategory",
+      "parentId" : null,
+      "parentName" : null,
       "child" : null,
-      "createdTime" : "2020-04-17T03:11:18.756889",
-      "updatedTime" : "2020-04-17T03:11:18.790799",
+      "createdTime" : "2020-04-17T13:42:02.063659",
+      "updatedTime" : "2020-04-17T13:42:02.063659",
       "_links" : {
         "category" : {
           "href" : "http://localhost:8080/v1/categories/7"
@@ -1787,18 +1787,12 @@ Content-Length: 4541
       }
     }, {
       "id" : 8,
-      "categoryName" : "2 : Category",
-      "parentId" : 9,
-      "parentName" : "3 : Category",
-      "child" : [ {
-        "childId" : 7,
-        "childName" : "1 : Category"
-      }, {
-        "childId" : 12,
-        "childName" : "6 : Category"
-      } ],
-      "createdTime" : "2020-04-17T03:11:18.759882",
-      "updatedTime" : "2020-04-17T03:11:18.803764",
+      "categoryName" : "Category1",
+      "parentId" : null,
+      "parentName" : null,
+      "child" : null,
+      "createdTime" : "2020-04-17T13:42:02.145442",
+      "updatedTime" : "2020-04-17T13:42:02.145442",
       "_links" : {
         "category" : {
           "href" : "http://localhost:8080/v1/categories/8"
@@ -1806,18 +1800,12 @@ Content-Length: 4541
       }
     }, {
       "id" : 9,
-      "categoryName" : "3 : Category",
-      "parentId" : 10,
-      "parentName" : "4 : Category",
-      "child" : [ {
-        "childId" : 8,
-        "childName" : "2 : Category"
-      }, {
-        "childId" : 13,
-        "childName" : "7 : Category"
-      } ],
-      "createdTime" : "2020-04-17T03:11:18.763871",
-      "updatedTime" : "2020-04-17T03:11:18.81673",
+      "categoryName" : "Category2",
+      "parentId" : null,
+      "parentName" : null,
+      "child" : null,
+      "createdTime" : "2020-04-17T13:42:02.148433",
+      "updatedTime" : "2020-04-17T13:42:02.148433",
       "_links" : {
         "category" : {
           "href" : "http://localhost:8080/v1/categories/9"
@@ -1825,18 +1813,12 @@ Content-Length: 4541
       }
     }, {
       "id" : 10,
-      "categoryName" : "4 : Category",
-      "parentId" : 11,
-      "parentName" : "5 : Category",
-      "child" : [ {
-        "childId" : 9,
-        "childName" : "3 : Category"
-      }, {
-        "childId" : 14,
-        "childName" : "8 : Category"
-      } ],
-      "createdTime" : "2020-04-17T03:11:18.766865",
-      "updatedTime" : "2020-04-17T03:11:18.829695",
+      "categoryName" : "Category1",
+      "parentId" : null,
+      "parentName" : null,
+      "child" : null,
+      "createdTime" : "2020-04-17T13:42:02.313989",
+      "updatedTime" : "2020-04-17T13:42:02.313989",
       "_links" : {
         "category" : {
           "href" : "http://localhost:8080/v1/categories/10"
@@ -1854,8 +1836,8 @@ Content-Length: 4541
   },
   "page" : {
     "size" : 10,
-    "totalElements" : 16,
-    "totalPages" : 2,
+    "totalElements" : 28,
+    "totalPages" : 3,
     "number" : 0
   }
 }</code></pre>
@@ -1978,16 +1960,16 @@ Content-Length: 4541
 <h5 id="_http_request_9">Http-Request</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /v1/categories/31 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /v1/categories/43 HTTP/1.1
 Content-Type: application/hal+json;charset=UTF-8
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDYwNjc5LCJleHAiOjE1ODcwNjI0Nzl9.qI8O4N3_YgNFbI7wMvPEb2SFGaF9crZANq_wzjSUM4g
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDk4NTI4LCJleHAiOjE1ODcxMDAzMjh9.w3Bp0jv7ieF0IuALNOR9ptxXR0n0hzH99LWES3qD_OY
 Content-Length: 58
 Host: localhost:8080
 
 {
   "categoryName" : "updateChild",
-  "parentId" : 30
+  "parentId" : 42
 }</code></pre>
 </div>
 </div>
@@ -2007,15 +1989,15 @@ X-Frame-Options: DENY
 Content-Length: 383
 
 {
-  "id" : 31,
+  "id" : 43,
   "categoryName" : "updateChild",
-  "parentId" : 30,
+  "parentId" : 42,
   "parentName" : "Parent",
-  "createdTime" : "2020-04-17T03:11:19.763197",
-  "updatedTime" : "2020-04-17T03:11:19.763197",
+  "createdTime" : "2020-04-17T13:42:08.080603",
+  "updatedTime" : "2020-04-17T13:42:08.080603",
   "_links" : {
     "self" : {
-      "href" : "http://localhost:8080/v1/categories/31"
+      "href" : "http://localhost:8080/v1/categories/43"
     },
     "profile" : {
       "href" : "http://localhost:8080/docs/index.html"
@@ -2154,9 +2136,9 @@ Content-Length: 383
 <h5 id="_http_request_10">Http-Request</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /v1/categories/29 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /v1/categories/41 HTTP/1.1
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDYwNjc5LCJleHAiOjE1ODcwNjI0Nzl9.qI8O4N3_YgNFbI7wMvPEb2SFGaF9crZANq_wzjSUM4g
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDk4NTI3LCJleHAiOjE1ODcxMDAzMjd9.SVus3mi_stnGNc8dZf8lQvMloQ6_tnS6bH9Z0O3LsrE
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -2234,15 +2216,15 @@ X-Frame-Options: DENY</code></pre>
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /v1/products/register HTTP/1.1
 Content-Type: application/hal+json;charset=UTF-8
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzA2MDY4MiwiZXhwIjoxNTg3MDYyNDgyfQ.TTGgr6cFJbf4JiOkm6hX5vNKBN7ibaIZOT_WYxIxZY4
-Content-Length: 124
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDk4NTIxLCJleHAiOjE1ODcxMDAzMjF9.ZbozYE2Oqqj9h8dAD93q62ttTi-0itMlM5MHbn_6u7E
+Content-Length: 123
 Host: localhost:8080
 
 {
   "productName" : "productName",
   "description" : "This Product is Example",
   "value" : 10000,
-  "types" : [ 43 ]
+  "types" : [ 4 ]
 }</code></pre>
 </div>
 </div>
@@ -2252,7 +2234,7 @@ Host: localhost:8080
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 201 Created
-Location: http://localhost:8080/v1/products/33
+Location: http://localhost:8080/v1/products/21
 Content-Type: application/hal+json
 X-Content-Type-Options: nosniff
 X-XSS-Protection: 1; mode=block
@@ -2260,23 +2242,23 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 495
+Content-Length: 494
 
 {
-  "id" : 33,
+  "id" : 21,
   "productName" : "productName",
   "description" : "This Product is Example",
   "value" : 10000,
   "view" : 0,
   "recommend" : [ ],
   "categories" : [ {
-    "categoryId" : 43,
+    "categoryId" : 4,
     "categoryName" : "category",
     "parentId" : null,
     "parentName" : null
   } ],
-  "createdTime" : "2020-04-17T03:11:22.8708859",
-  "updatedTime" : "2020-04-17T03:11:22.8708859",
+  "createdTime" : "2020-04-17T13:42:01.7086075",
+  "updatedTime" : "2020-04-17T13:42:01.7086075",
   "_links" : {
     "profile" : {
       "href" : "http://localhost:8080/docs/index.html"
@@ -2464,9 +2446,8 @@ Content-Length: 495
 <h5 id="_http_request_12">Http-Request</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /v1/products/35?view=true HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /v1/products/23?view=true HTTP/1.1
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzA2MDY4MywiZXhwIjoxNTg3MDYyNDgzfQ.XBQ5NIM4Oq4h2AqnEZl4NvDkP4RSpsqhUVjD0OR63D0
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -2483,24 +2464,24 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 537
+Content-Length: 536
 
 {
-  "productId" : 35,
+  "productId" : 23,
   "productName" : "product",
   "description" : "product!!!",
   "value" : 100,
   "view" : 1,
   "recommends" : [ ],
   "types" : [ {
-    "categoryId" : 45,
+    "categoryId" : 6,
     "categoryName" : "oldCategory",
     "parentId" : null,
     "parentName" : null
   } ],
   "_links" : {
     "self" : {
-      "href" : "http://localhost:8080/v1/products/35"
+      "href" : "http://localhost:8080/v1/products/23"
     },
     "list" : {
       "href" : "http://localhost:8080/v1/products"
@@ -2560,27 +2541,6 @@ Content-Length: 537
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>id</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">상품 아이디</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
-<h5 id="_request_headers_10">Request-Headers</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>X-AUTH-TOKEN</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">자원의 접근하기위한 해당 유저의 토큰값</p></td>
 </tr>
 </tbody>
 </table>
@@ -2675,7 +2635,6 @@ Content-Length: 537
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /v1/products?size=10 HTTP/1.1
 Content-Type: application/hal+json;charset=UTF-8
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzA2MDY4MywiZXhwIjoxNTg3MDYyNDgzfQ.XBQ5NIM4Oq4h2AqnEZl4NvDkP4RSpsqhUVjD0OR63D0
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -2692,20 +2651,20 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 4965
+Content-Length: 4926
 
 {
   "_embedded" : {
     "productResponseList" : [ {
       "productId" : 1,
-      "productName" : "product3",
-      "description" : "product3",
-      "value" : 100,
+      "productName" : "firstCategory",
+      "description" : "Good",
+      "value" : 1000,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
         "categoryId" : 1,
-        "categoryName" : "category3",
+        "categoryName" : "Category",
         "parentId" : null,
         "parentName" : null
       } ],
@@ -2716,14 +2675,14 @@ Content-Length: 4965
       }
     }, {
       "productId" : 2,
-      "productName" : "product2",
-      "description" : "product2",
-      "value" : 100,
+      "productName" : "firstCategory",
+      "description" : "Good",
+      "value" : 2000,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 2,
-        "categoryName" : "category2",
+        "categoryId" : 1,
+        "categoryName" : "Category",
         "parentId" : null,
         "parentName" : null
       } ],
@@ -2734,14 +2693,14 @@ Content-Length: 4965
       }
     }, {
       "productId" : 3,
-      "productName" : "product1",
-      "description" : "product1",
-      "value" : 100,
+      "productName" : "firstCategory",
+      "description" : "Good",
+      "value" : 3000,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 3,
-        "categoryName" : "category1",
+        "categoryId" : 1,
+        "categoryName" : "Category",
         "parentId" : null,
         "parentName" : null
       } ],
@@ -2752,14 +2711,14 @@ Content-Length: 4965
       }
     }, {
       "productId" : 4,
-      "productName" : "product : 0",
-      "description" : "product : 0",
-      "value" : 0,
+      "productName" : "firstCategory",
+      "description" : "Good",
+      "value" : 4000,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 4,
-        "categoryName" : "category4",
+        "categoryId" : 1,
+        "categoryName" : "Category",
         "parentId" : null,
         "parentName" : null
       } ],
@@ -2770,14 +2729,14 @@ Content-Length: 4965
       }
     }, {
       "productId" : 5,
-      "productName" : "product : 1",
-      "description" : "product : 1",
-      "value" : 100,
+      "productName" : "firstCategory",
+      "description" : "Good",
+      "value" : 5000,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 4,
-        "categoryName" : "category4",
+        "categoryId" : 1,
+        "categoryName" : "Category",
         "parentId" : null,
         "parentName" : null
       } ],
@@ -2788,14 +2747,14 @@ Content-Length: 4965
       }
     }, {
       "productId" : 6,
-      "productName" : "product : 2",
-      "description" : "product : 2",
-      "value" : 200,
+      "productName" : "firstCategory",
+      "description" : "Good",
+      "value" : 6000,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 4,
-        "categoryName" : "category4",
+        "categoryId" : 1,
+        "categoryName" : "Category",
         "parentId" : null,
         "parentName" : null
       } ],
@@ -2806,14 +2765,14 @@ Content-Length: 4965
       }
     }, {
       "productId" : 7,
-      "productName" : "product : 3",
-      "description" : "product : 3",
-      "value" : 300,
+      "productName" : "firstCategory",
+      "description" : "Good",
+      "value" : 7000,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 4,
-        "categoryName" : "category4",
+        "categoryId" : 1,
+        "categoryName" : "Category",
         "parentId" : null,
         "parentName" : null
       } ],
@@ -2824,14 +2783,14 @@ Content-Length: 4965
       }
     }, {
       "productId" : 8,
-      "productName" : "product : 4",
-      "description" : "product : 4",
-      "value" : 400,
+      "productName" : "firstCategory",
+      "description" : "Good",
+      "value" : 8000,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 4,
-        "categoryName" : "category4",
+        "categoryId" : 1,
+        "categoryName" : "Category",
         "parentId" : null,
         "parentName" : null
       } ],
@@ -2842,14 +2801,14 @@ Content-Length: 4965
       }
     }, {
       "productId" : 9,
-      "productName" : "title : 1",
-      "description" : "description : 1",
-      "value" : 10000,
+      "productName" : "firstCategory",
+      "description" : "Good",
+      "value" : 9000,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 36,
-        "categoryName" : "category1",
+        "categoryId" : 1,
+        "categoryName" : "Category",
         "parentId" : null,
         "parentName" : null
       } ],
@@ -2860,14 +2819,14 @@ Content-Length: 4965
       }
     }, {
       "productId" : 10,
-      "productName" : "title : 2",
-      "description" : "description : 2",
+      "productName" : "firstCategory",
+      "description" : "Good",
       "value" : 10000,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 36,
-        "categoryName" : "category1",
+        "categoryId" : 1,
+        "categoryName" : "Category",
         "parentId" : null,
         "parentName" : null
       } ],
@@ -2890,8 +2849,8 @@ Content-Length: 4965
   },
   "page" : {
     "size" : 10,
-    "totalElements" : 55,
-    "totalPages" : 6,
+    "totalElements" : 43,
+    "totalPages" : 5,
     "number" : 0
   }
 }</code></pre>
@@ -2919,27 +2878,6 @@ Content-Length: 4965
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>profile</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">API 관련 정보</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
-<h5 id="_request_headers_11">Request-Headers</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>X-AUTH-TOKEN</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">자원의 접근하기위한 해당 유저의 토큰값</p></td>
 </tr>
 </tbody>
 </table>
@@ -3017,7 +2955,6 @@ Content-Length: 4965
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /v1/products/search HTTP/1.1
 Content-Type: application/hal+json;charset=UTF-8
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzA2MDY4MywiZXhwIjoxNTg3MDYyNDgzfQ.XBQ5NIM4Oq4h2AqnEZl4NvDkP4RSpsqhUVjD0OR63D0
 Content-Length: 88
 Host: localhost:8080
 
@@ -3042,188 +2979,188 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 4939
+Content-Length: 4879
 
 {
   "_embedded" : {
     "productResponseList" : [ {
-      "productId" : 29,
-      "productName" : "title : 10",
-      "description" : "description : 10",
-      "value" : 1000,
-      "view" : 0,
-      "recommends" : [ ],
-      "types" : [ {
-        "categoryId" : 40,
-        "categoryName" : "category5",
-        "parentId" : null,
-        "parentName" : null
-      } ],
-      "_links" : {
-        "product" : {
-          "href" : "http://localhost:8080/v1/products/29"
-        }
-      }
-    }, {
-      "productId" : 30,
-      "productName" : "title : 11",
-      "description" : "description : 11",
-      "value" : 1000,
-      "view" : 0,
-      "recommends" : [ ],
-      "types" : [ {
-        "categoryId" : 40,
-        "categoryName" : "category5",
-        "parentId" : null,
-        "parentName" : null
-      } ],
-      "_links" : {
-        "product" : {
-          "href" : "http://localhost:8080/v1/products/30"
-        }
-      }
-    }, {
-      "productId" : 31,
-      "productName" : "title : 12",
-      "description" : "description : 12",
-      "value" : 1000,
-      "view" : 0,
-      "recommends" : [ ],
-      "types" : [ {
-        "categoryId" : 40,
-        "categoryName" : "category5",
-        "parentId" : null,
-        "parentName" : null
-      } ],
-      "_links" : {
-        "product" : {
-          "href" : "http://localhost:8080/v1/products/31"
-        }
-      }
-    }, {
-      "productId" : 37,
+      "productId" : 1,
       "productName" : "firstCategory",
       "description" : "Good",
       "value" : 1000,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 47,
-        "categoryName" : "Category1",
+        "categoryId" : 1,
+        "categoryName" : "Category",
         "parentId" : null,
         "parentName" : null
       } ],
       "_links" : {
         "product" : {
-          "href" : "http://localhost:8080/v1/products/37"
+          "href" : "http://localhost:8080/v1/products/1"
         }
       }
     }, {
-      "productId" : 38,
+      "productId" : 2,
       "productName" : "firstCategory",
       "description" : "Good",
       "value" : 2000,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 47,
-        "categoryName" : "Category1",
+        "categoryId" : 1,
+        "categoryName" : "Category",
         "parentId" : null,
         "parentName" : null
       } ],
       "_links" : {
         "product" : {
-          "href" : "http://localhost:8080/v1/products/38"
+          "href" : "http://localhost:8080/v1/products/2"
         }
       }
     }, {
-      "productId" : 39,
+      "productId" : 3,
       "productName" : "firstCategory",
       "description" : "Good",
       "value" : 3000,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 47,
-        "categoryName" : "Category1",
+        "categoryId" : 1,
+        "categoryName" : "Category",
         "parentId" : null,
         "parentName" : null
       } ],
       "_links" : {
         "product" : {
-          "href" : "http://localhost:8080/v1/products/39"
+          "href" : "http://localhost:8080/v1/products/3"
         }
       }
     }, {
-      "productId" : 40,
+      "productId" : 4,
       "productName" : "firstCategory",
       "description" : "Good",
       "value" : 4000,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 47,
-        "categoryName" : "Category1",
+        "categoryId" : 1,
+        "categoryName" : "Category",
         "parentId" : null,
         "parentName" : null
       } ],
       "_links" : {
         "product" : {
-          "href" : "http://localhost:8080/v1/products/40"
+          "href" : "http://localhost:8080/v1/products/4"
         }
       }
     }, {
-      "productId" : 41,
+      "productId" : 5,
       "productName" : "firstCategory",
       "description" : "Good",
       "value" : 5000,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 47,
+        "categoryId" : 1,
+        "categoryName" : "Category",
+        "parentId" : null,
+        "parentName" : null
+      } ],
+      "_links" : {
+        "product" : {
+          "href" : "http://localhost:8080/v1/products/5"
+        }
+      }
+    }, {
+      "productId" : 6,
+      "productName" : "firstCategory",
+      "description" : "Good",
+      "value" : 6000,
+      "view" : 0,
+      "recommends" : [ ],
+      "types" : [ {
+        "categoryId" : 1,
+        "categoryName" : "Category",
+        "parentId" : null,
+        "parentName" : null
+      } ],
+      "_links" : {
+        "product" : {
+          "href" : "http://localhost:8080/v1/products/6"
+        }
+      }
+    }, {
+      "productId" : 7,
+      "productName" : "firstCategory",
+      "description" : "Good",
+      "value" : 7000,
+      "view" : 0,
+      "recommends" : [ ],
+      "types" : [ {
+        "categoryId" : 1,
+        "categoryName" : "Category",
+        "parentId" : null,
+        "parentName" : null
+      } ],
+      "_links" : {
+        "product" : {
+          "href" : "http://localhost:8080/v1/products/7"
+        }
+      }
+    }, {
+      "productId" : 25,
+      "productName" : "firstCategory",
+      "description" : "Good",
+      "value" : 1000,
+      "view" : 0,
+      "recommends" : [ ],
+      "types" : [ {
+        "categoryId" : 8,
         "categoryName" : "Category1",
         "parentId" : null,
         "parentName" : null
       } ],
       "_links" : {
         "product" : {
-          "href" : "http://localhost:8080/v1/products/41"
+          "href" : "http://localhost:8080/v1/products/25"
         }
       }
     }, {
-      "productId" : 42,
-      "productName" : "secondCategory",
+      "productId" : 26,
+      "productName" : "firstCategory",
       "description" : "Good",
-      "value" : 6000,
+      "value" : 2000,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 48,
-        "categoryName" : "Category2",
+        "categoryId" : 8,
+        "categoryName" : "Category1",
         "parentId" : null,
         "parentName" : null
       } ],
       "_links" : {
         "product" : {
-          "href" : "http://localhost:8080/v1/products/42"
+          "href" : "http://localhost:8080/v1/products/26"
         }
       }
     }, {
-      "productId" : 43,
-      "productName" : "secondCategory",
+      "productId" : 27,
+      "productName" : "firstCategory",
       "description" : "Good",
-      "value" : 7000,
+      "value" : 3000,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 48,
-        "categoryName" : "Category2",
+        "categoryId" : 8,
+        "categoryName" : "Category1",
         "parentId" : null,
         "parentName" : null
       } ],
       "_links" : {
         "product" : {
-          "href" : "http://localhost:8080/v1/products/43"
+          "href" : "http://localhost:8080/v1/products/27"
         }
       }
     } ]
@@ -3238,7 +3175,7 @@ Content-Length: 4939
   },
   "page" : {
     "size" : 10,
-    "totalElements" : 11,
+    "totalElements" : 15,
     "totalPages" : 2,
     "number" : 0
   }
@@ -3267,27 +3204,6 @@ Content-Length: 4939
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>profile</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">API 관련 정보</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
-<h5 id="_request_headers_12">Request-Headers</h5>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>X-AUTH-TOKEN</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">자원의 접근하기위한 해당 유저의 토큰값</p></td>
 </tr>
 </tbody>
 </table>
@@ -3401,18 +3317,18 @@ Content-Length: 4939
 <h5 id="_http_request_15">Http-Request</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /v1/products/32 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /v1/products/20 HTTP/1.1
 Content-Type: application/hal+json;charset=UTF-8
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzA2MDY4MiwiZXhwIjoxNTg3MDYyNDgyfQ.TTGgr6cFJbf4JiOkm6hX5vNKBN7ibaIZOT_WYxIxZY4
-Content-Length: 127
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDk4NTIxLCJleHAiOjE1ODcxMDAzMjF9.ZbozYE2Oqqj9h8dAD93q62ttTi-0itMlM5MHbn_6u7E
+Content-Length: 126
 Host: localhost:8080
 
 {
   "productName" : "updateProduct",
   "description" : "updateProduct!!!!",
   "value" : 1000000,
-  "categoryId" : [ 42 ]
+  "categoryId" : [ 3 ]
 }</code></pre>
 </div>
 </div>
@@ -3429,24 +3345,24 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 531
+Content-Length: 530
 
 {
-  "id" : 32,
+  "id" : 20,
   "productName" : "updateProduct",
   "description" : "updateProduct!!!!",
   "value" : 1000000,
   "types" : [ {
-    "categoryId" : 42,
+    "categoryId" : 3,
     "categoryName" : "newCategory",
     "parentId" : null,
     "parentName" : null
   } ],
-  "createdTime" : "2020-04-17T03:11:22.670422",
-  "updatedTime" : "2020-04-17T03:11:22.670422",
+  "createdTime" : "2020-04-17T13:42:01.427359",
+  "updatedTime" : "2020-04-17T13:42:01.427359",
   "_links" : {
     "self" : {
-      "href" : "http://localhost:8080/v1/products/32"
+      "href" : "http://localhost:8080/v1/products/20"
     },
     "profile" : {
       "href" : "http://localhost:8080/docs/index.html"
@@ -3504,7 +3420,7 @@ Content-Length: 531
 </table>
 </div>
 <div class="sect4">
-<h5 id="_request_headers_13">Request-Headers</h5>
+<h5 id="_request_headers_10">Request-Headers</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -3590,9 +3506,9 @@ Content-Length: 531
 <h5 id="_http_request_16">Http-Request</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /v1/products/36/recommend HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /v1/products/24/recommend HTTP/1.1
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzA2MDY4MywiZXhwIjoxNTg3MDYyNDgzfQ.XBQ5NIM4Oq4h2AqnEZl4NvDkP4RSpsqhUVjD0OR63D0
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDk4NTIyLCJleHAiOjE1ODcxMDAzMjJ9.Vpg-SKxJ4CpmFdzLxLOygyc3Cm5dDdGbeE4ImV72Z20
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -3616,7 +3532,7 @@ Content-Length: 242
   "nickname" : "Username",
   "_links" : {
     "self" : {
-      "href" : "http://localhost:8080/v1/products/36"
+      "href" : "http://localhost:8080/v1/products/24"
     },
     "profile" : {
       "href" : "http://localhost:8080/docs/index.html"
@@ -3674,7 +3590,7 @@ Content-Length: 242
 </table>
 </div>
 <div class="sect4">
-<h5 id="_request_headers_14">Request-Headers</h5>
+<h5 id="_request_headers_11">Request-Headers</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -3735,9 +3651,9 @@ Content-Length: 242
 <h5 id="_http_request_17">Http-Request</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /v1/products/34 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /v1/products/22 HTTP/1.1
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzA2MDY4MywiZXhwIjoxNTg3MDYyNDgzfQ.XBQ5NIM4Oq4h2AqnEZl4NvDkP4RSpsqhUVjD0OR63D0
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDk4NTIxLCJleHAiOjE1ODcxMDAzMjF9.ZbozYE2Oqqj9h8dAD93q62ttTi-0itMlM5MHbn_6u7E
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -3779,7 +3695,7 @@ X-Frame-Options: DENY</code></pre>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_request_headers_15">Request-Headers</h5>
+<h5 id="_request_headers_12">Request-Headers</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -3814,7 +3730,7 @@ X-Frame-Options: DENY</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /v1/carts HTTP/1.1
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDYwNjc4LCJleHAiOjE1ODcwNjI0Nzh9.tBJxv3YWFLao7Yt8BugWPk4Uf3tVULRnEWYCsucb3iw
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDk4NTI3LCJleHAiOjE1ODcxMDAzMjd9.SVus3mi_stnGNc8dZf8lQvMloQ6_tnS6bH9Z0O3LsrE
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -3831,37 +3747,37 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 752
+Content-Length: 758
 
 {
   "id" : "Username",
   "cartItems" : [ {
-    "productId" : 3,
+    "productId" : 61,
     "title" : "product1",
     "description" : "product1",
     "value" : 100
   }, {
-    "productId" : 4,
+    "productId" : 62,
     "title" : "product : 0",
     "description" : "product : 0",
     "value" : 0
   }, {
-    "productId" : 5,
+    "productId" : 63,
     "title" : "product : 1",
     "description" : "product : 1",
     "value" : 100
   }, {
-    "productId" : 6,
+    "productId" : 64,
     "title" : "product : 2",
     "description" : "product : 2",
     "value" : 200
   }, {
-    "productId" : 7,
+    "productId" : 65,
     "title" : "product : 3",
     "description" : "product : 3",
     "value" : 300
   }, {
-    "productId" : 8,
+    "productId" : 66,
     "title" : "product : 4",
     "description" : "product : 4",
     "value" : 400
@@ -3872,7 +3788,7 @@ Content-Length: 752
 </div>
 </div>
 <div class="sect4">
-<h5 id="_request_headers_16">Request-Headers</h5>
+<h5 id="_request_headers_13">Request-Headers</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -3936,12 +3852,12 @@ Content-Length: 752
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /v1/carts/items/new HTTP/1.1
 Content-Type: application/hal+json;charset=UTF-8
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDYwNjc4LCJleHAiOjE1ODcwNjI0Nzh9.tBJxv3YWFLao7Yt8BugWPk4Uf3tVULRnEWYCsucb3iw
-Content-Length: 97
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDk4NTI2LCJleHAiOjE1ODcxMDAzMjZ9.Vt3MJgaF5SVqDOh66eM9hMwPkIE3_lxEMMJGlfxMrXI
+Content-Length: 98
 Host: localhost:8080
 
 {
-  "productId" : 3,
+  "productId" : 61,
   "title" : "product1",
   "description" : "product1",
   "value" : 100
@@ -3964,7 +3880,7 @@ X-Frame-Options: DENY</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_request_headers_17">Request-Headers</h5>
+<h5 id="_request_headers_14">Request-Headers</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -4030,9 +3946,9 @@ X-Frame-Options: DENY</code></pre>
 <h5 id="_http_request_20">Http-Request</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /v1/carts/items/2 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /v1/carts/items/60 HTTP/1.1
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDYwNjc3LCJleHAiOjE1ODcwNjI0Nzd9.0095Y1AIw9QCEliK2qs_pMPDkRvSiZSpB6PxtHdBwv8
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDk4NTI2LCJleHAiOjE1ODcxMDAzMjZ9.Vt3MJgaF5SVqDOh66eM9hMwPkIE3_lxEMMJGlfxMrXI
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -4080,7 +3996,7 @@ Content-Length: 24
 </table>
 </div>
 <div class="sect4">
-<h5 id="_request_headers_18">Request-Headers</h5>
+<h5 id="_request_headers_15">Request-Headers</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -4115,7 +4031,7 @@ Content-Length: 24
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /v1/carts HTTP/1.1
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDYwNjczLCJleHAiOjE1ODcwNjI0NzN9.AD-wzSusztkXvBeQjHN1kYkPcxrUBZx4uZX9WoiPmxI
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3MDk4NTIyLCJleHAiOjE1ODcxMDAzMjJ9.Vpg-SKxJ4CpmFdzLxLOygyc3Cm5dDdGbeE4ImV72Z20
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -4135,7 +4051,7 @@ X-Frame-Options: DENY</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_request_headers_19">Request-Headers</h5>
+<h5 id="_request_headers_16">Request-Headers</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -4171,12 +4087,12 @@ X-Frame-Options: DENY</code></pre>
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /v1/orders HTTP/1.1
 Content-Type: application/hal+json;charset=UTF-8
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzA2MDY4MSwiZXhwIjoxNTg3MDYyNDgxfQ.tFu8xxO3QmMwAozAzD5iKViOt2-BzFi-vw-_NET2eqs
-Content-Length: 44
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzA5ODUyOSwiZXhwIjoxNTg3MTAwMzI5fQ.WpTE__b-ye2MRhXspiEV_7Puq4_danragX8kXwHiEug
+Content-Length: 45
 Host: localhost:8080
 
 {
-  "orderItems" : [ 9, 10, 11, 12, 13 ]
+  "orderItems" : [ 67, 68, 69, 70, 71 ]
 }</code></pre>
 </div>
 </div>
@@ -4197,7 +4113,7 @@ X-Frame-Options: DENY</code></pre>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_request_headers_20">Request-Headers</h5>
+<h5 id="_request_headers_17">Request-Headers</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -4247,7 +4163,7 @@ X-Frame-Options: DENY</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /v1/orders/7/payment HTTP/1.1
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzA2MDY4MiwiZXhwIjoxNTg3MDYyNDgyfQ.TTGgr6cFJbf4JiOkm6hX5vNKBN7ibaIZOT_WYxIxZY4
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzA5ODUyOSwiZXhwIjoxNTg3MTAwMzI5fQ.WpTE__b-ye2MRhXspiEV_7Puq4_danragX8kXwHiEug
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -4323,7 +4239,7 @@ Content-Length: 194
 </table>
 </div>
 <div class="sect4">
-<h5 id="_request_headers_21">Request-Headers</h5>
+<h5 id="_request_headers_18">Request-Headers</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -4407,7 +4323,7 @@ Content-Length: 194
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /v1/orders/2 HTTP/1.1
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzA2MDY4MSwiZXhwIjoxNTg3MDYyNDgxfQ.tFu8xxO3QmMwAozAzD5iKViOt2-BzFi-vw-_NET2eqs
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzA5ODUyOSwiZXhwIjoxNTg3MTAwMzI5fQ.WpTE__b-ye2MRhXspiEV_7Puq4_danragX8kXwHiEug
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -4429,23 +4345,23 @@ Content-Length: 680
 {
   "id" : 2,
   "orderProductResponses" : [ {
-    "id" : 14,
+    "id" : 72,
     "productName" : "title : 1",
     "price" : 10000
   }, {
-    "id" : 15,
+    "id" : 73,
     "productName" : "title : 2",
     "price" : 10000
   }, {
-    "id" : 16,
+    "id" : 74,
     "productName" : "title : 3",
     "price" : 10000
   }, {
-    "id" : 17,
+    "id" : 75,
     "productName" : "title : 4",
     "price" : 10000
   }, {
-    "id" : 18,
+    "id" : 76,
     "productName" : "title : 5",
     "price" : 10000
   } ],
@@ -4511,7 +4427,7 @@ Content-Length: 680
 </table>
 </div>
 <div class="sect4">
-<h5 id="_request_headers_22">Request-Headers</h5>
+<h5 id="_request_headers_19">Request-Headers</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -4584,7 +4500,7 @@ Content-Length: 680
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /v1/orders/my HTTP/1.1
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzA2MDY4MiwiZXhwIjoxNTg3MDYyNDgyfQ.TTGgr6cFJbf4JiOkm6hX5vNKBN7ibaIZOT_WYxIxZY4
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzA5ODUyOSwiZXhwIjoxNTg3MTAwMzI5fQ.WpTE__b-ye2MRhXspiEV_7Puq4_danragX8kXwHiEug
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -4601,7 +4517,7 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 4512
+Content-Length: 4596
 
 {
   "_embedded" : {
@@ -4699,26 +4615,26 @@ Content-Length: 4512
       "id" : 4,
       "orderProductResponses" : [ {
         "id" : 4,
-        "productName" : "product3",
-        "price" : 100
+        "productName" : "firstCategory",
+        "price" : 1000
       }, {
         "id" : 4,
-        "productName" : "product2",
-        "price" : 100
+        "productName" : "firstCategory",
+        "price" : 2000
       }, {
         "id" : 4,
-        "productName" : "product1",
-        "price" : 100
+        "productName" : "firstCategory",
+        "price" : 3000
       }, {
         "id" : 4,
-        "productName" : "product : 0",
-        "price" : 0
+        "productName" : "firstCategory",
+        "price" : 4000
       }, {
         "id" : 4,
-        "productName" : "product : 1",
-        "price" : 100
+        "productName" : "firstCategory",
+        "price" : 5000
       } ],
-      "totalPrice" : 400,
+      "totalPrice" : 15000,
       "paymentStatus" : "READY",
       "_links" : {
         "order" : {
@@ -4729,26 +4645,26 @@ Content-Length: 4512
       "id" : 5,
       "orderProductResponses" : [ {
         "id" : 5,
-        "productName" : "product3",
-        "price" : 100
+        "productName" : "firstCategory",
+        "price" : 1000
       }, {
         "id" : 5,
-        "productName" : "product2",
-        "price" : 100
+        "productName" : "firstCategory",
+        "price" : 2000
       }, {
         "id" : 5,
-        "productName" : "product1",
-        "price" : 100
+        "productName" : "firstCategory",
+        "price" : 3000
       }, {
         "id" : 5,
-        "productName" : "product : 0",
-        "price" : 0
+        "productName" : "firstCategory",
+        "price" : 4000
       }, {
         "id" : 5,
-        "productName" : "product : 1",
-        "price" : 100
+        "productName" : "firstCategory",
+        "price" : 5000
       } ],
-      "totalPrice" : 400,
+      "totalPrice" : 15000,
       "paymentStatus" : "READY",
       "_links" : {
         "order" : {
@@ -4759,26 +4675,26 @@ Content-Length: 4512
       "id" : 6,
       "orderProductResponses" : [ {
         "id" : 6,
-        "productName" : "product3",
-        "price" : 100
+        "productName" : "firstCategory",
+        "price" : 1000
       }, {
         "id" : 6,
-        "productName" : "product2",
-        "price" : 100
+        "productName" : "firstCategory",
+        "price" : 2000
       }, {
         "id" : 6,
-        "productName" : "product1",
-        "price" : 100
+        "productName" : "firstCategory",
+        "price" : 3000
       }, {
         "id" : 6,
-        "productName" : "product : 0",
-        "price" : 0
+        "productName" : "firstCategory",
+        "price" : 4000
       }, {
         "id" : 6,
-        "productName" : "product : 1",
-        "price" : 100
+        "productName" : "firstCategory",
+        "price" : 5000
       } ],
-      "totalPrice" : 400,
+      "totalPrice" : 15000,
       "paymentStatus" : "READY",
       "_links" : {
         "order" : {
@@ -4824,7 +4740,7 @@ Content-Length: 4512
 </table>
 </div>
 <div class="sect4">
-<h5 id="_request_headers_23">Request-Headers</h5>
+<h5 id="_request_headers_20">Request-Headers</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
@@ -4887,7 +4803,7 @@ Content-Length: 4512
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /v1/orders/3 HTTP/1.1
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzA2MDY4MSwiZXhwIjoxNTg3MDYyNDgxfQ.tFu8xxO3QmMwAozAzD5iKViOt2-BzFi-vw-_NET2eqs
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzA5ODUyOSwiZXhwIjoxNTg3MTAwMzI5fQ.WpTE__b-ye2MRhXspiEV_7Puq4_danragX8kXwHiEug
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -4929,7 +4845,7 @@ X-Frame-Options: DENY</code></pre>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_request_headers_24">Request-Headers</h5>
+<h5 id="_request_headers_21">Request-Headers</h5>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 50%;">
