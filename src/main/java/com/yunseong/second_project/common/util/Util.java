@@ -58,14 +58,14 @@ public class Util {
         if (condition != null) {
             if(queryCheck)
                 query += "?";
-            if (condition.getMin() != null && condition.getMin() >= 0)
+            if (condition.getMin() != null && !condition.getMin().equalsIgnoreCase("null") && Integer.parseInt(condition.getMin()) >= 0)
                 query += "min=" + condition.getMin() + "&";
-            if (condition.getMax() != null && condition.getMax() <= Integer.MAX_VALUE)
+            if (condition.getMax() != null && !condition.getMax().equalsIgnoreCase("null") && Integer.parseInt(condition.getMax()) <= Integer.MAX_VALUE)
                 query += "max=" + condition.getMax() + "&";
-            if (hasText(condition.getCategoryName()))
-                query += "categoryName=" + condition.getCategoryName() + "&";
-            if (hasText(condition.getProductName()))
-                query += "productName=" + condition.getProductName() + "&";
+            if (hasText(condition.getCategory()))
+                query += "categoryName=" + condition.getCategory() + "&";
+            if (hasText(condition.getProduct()))
+                query += "productName=" + condition.getProduct() + "&";
             query = query.substring(0, query.length()-1);
         }
         return query;

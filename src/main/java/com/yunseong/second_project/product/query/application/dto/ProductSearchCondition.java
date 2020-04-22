@@ -1,14 +1,14 @@
 package com.yunseong.second_project.product.query.application.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
-@AllArgsConstructor
+@Setter
 public class ProductSearchCondition {
 
-    private String productName;
-    private String categoryName;
-    private Integer min;
-    private Integer max;
+    private String product;
+    private String category;
+    private String min;
+    private String max;
 }

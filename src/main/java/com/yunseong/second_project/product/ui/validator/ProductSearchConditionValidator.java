@@ -18,7 +18,7 @@ public class ProductSearchConditionValidator implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         ProductSearchCondition condition = (ProductSearchCondition) target;
-        if (condition.getMin() == null && condition.getMax() == null && !hasText(condition.getCategoryName()) && !hasText(condition.getProductName())) {
+        if (condition != null && condition.getMin() == null && condition.getMax() == null && !hasText(condition.getCategory()) && !hasText(condition.getProduct())) {
             errors.reject("required", "search value is required");
         }
     }

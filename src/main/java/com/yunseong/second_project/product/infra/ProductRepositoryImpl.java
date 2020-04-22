@@ -84,7 +84,7 @@ public class ProductRepositoryImpl implements ProductQueryRepository {
                 .leftJoin(productReferee.referee, referee)
                 .innerJoin(product.types, productType)
                 .innerJoin(productType.type, type)
-                .where(product.delete_yn.eq(false), containsProductName(condition.getProductName()), containsCategoryName(condition.getCategoryName()),
+                .where(product.delete_yn.eq(false), containsProductName(condition.getProduct()), containsCategoryName(condition.getCategory()),
                         loeValue(condition.getMax()), goeValue(condition.getMin()))
                 .offset(pageable.getOffset())
                 .limit(pageable.getPageSize())
@@ -93,23 +93,23 @@ public class ProductRepositoryImpl implements ProductQueryRepository {
                 this.queryFactory.select()
                         .select(new QProductResponse(product))
                         .from(product)
-                        .where(containsProductName(condition.getProductName()), containsCategoryName(condition.getCategoryName()),
+                        .where(containsProductName(condition.getProduct()), containsCategoryName(condition.getCategory()),
                                 loeValue(condition.getMax()), goeValue(condition.getMin()))::fetchCount);
     }
 
-    public BooleanExpression goeValue(Integer value) {
-        return value != null ? product.value.goe(value) : null;
+    public BooleanExpression goeValue(String value) {
+        return hasText(value) && !value.equalsIgnoreCase("null") ? product.value.goe(Integer.parseInt(value)) : null;
     }
 
-    public BooleanExpression loeValue(Integer value) {
-        return value != null ? product.value.loe(value) : null;
+    public BooleanExpression loeValue(String value) {
+        return hasText(value) && !value.equalsIgnoreCase("null") ? product.value.loe(Integer.parseInt(value)) : null;
     }
 
     public BooleanExpression containsCategoryName(String categoryName) {
-        return hasText(categoryName) ? type.categoryName.lower().contains(categoryName.toLowerCase()) : null;
+        return hasText(categoryName) && !categoryName.equalsIgnoreCase("null") ? type.categoryName.lower().contains(categoryName.toLowerCase()) : null;
     }
 
     public BooleanExpression containsProductName(String productName) {
-        return hasText(productName) ? product.productName.lower().contains(productName.toLowerCase()) : null;
+        return hasText(productName) && !productName.equalsIgnoreCase("null") ? product.productName.lower().contains(productName.toLowerCase()) : null;
     }
 }

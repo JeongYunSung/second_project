@@ -84,10 +84,10 @@ public class ProductController {
     }
 
     @GetMapping("/search")
-    public ResponseEntity getProducts(@PageableDefault Pageable pageable, @RequestBody ProductSearchCondition condition, Errors errors) {
+    public ResponseEntity getProducts(@PageableDefault Pageable pageable, @ModelAttribute ProductSearchCondition condition, Errors errors) {
         this.productSearchConditionValidator.validate(condition, errors);
         if (errors.hasErrors()) {
-            return ResponseEntity.ok(this.productQueryService.findByPage(pageable));
+            return ResponseEntity.badRequest().body(errors);
         }
         PagedModel<ProductResponseModel> pagedModel = getProductResponseModels(this.productQueryService.findPageBySearch(condition, pageable).map(product -> new ProductResponseModel(product,
                 linkTo(methodOn(ProductController.class).getProduct(product.getProductId(), false)).withRel("product"))), pageable);

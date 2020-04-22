@@ -6,16 +6,9 @@ import com.yunseong.second_project.product.commend.application.ProductCommandSer
 import com.yunseong.second_project.product.commend.application.dto.ProductCreateRequest;
 import com.yunseong.second_project.product.commend.application.dto.ProductUpdateRequest;
 import com.yunseong.second_project.product.commend.domain.Product;
-import com.yunseong.second_project.product.commend.domain.ProductReferee;
-import com.yunseong.second_project.product.commend.domain.Referee;
-import com.yunseong.second_project.product.query.application.ProductQueryService;
 import com.yunseong.second_project.product.query.application.dto.ProductSearchCondition;
-import com.yunseong.second_project.product.query.application.dto.RecommendResponse;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.hateoas.MediaTypes;
 import org.springframework.http.HttpHeaders;
 import org.springframework.restdocs.payload.JsonFieldType;
@@ -218,6 +211,7 @@ class ProductControllerTest extends BaseTest {
                                 fieldWithPath("description").type(JsonFieldType.STRING).description("상품 설명"),
                                 fieldWithPath("value").type(JsonFieldType.NUMBER).description("상품 가격"),
                                 fieldWithPath("view").type(JsonFieldType.NUMBER).description("상품 조회수"),
+                                fieldWithPath("memberId").type(JsonFieldType.STRING).description("회원 아이디").optional(),
                                 subsectionWithPath("recommends").description("추천자 명단"),
                                 subsectionWithPath("types").description("관련 카테고리 정보"),
                                 subsectionWithPath("_links").description("상품생성 관련 주소")
@@ -264,12 +258,18 @@ class ProductControllerTest extends BaseTest {
         Category category2 = this.createCategory("p-Category11", null);
         IntStream.range(1, 6).forEach(i -> this.createProduct("firstCategory", "Good", 1000*i, Arrays.asList(category1)));
         IntStream.range(6, 11).forEach(i -> this.createProduct("secondCategory", "Good", 1000*i, Arrays.asList(category2)));
-        ProductSearchCondition condition = new ProductSearchCondition(null, null, 1000, 7000);
+        ProductSearchCondition condition = new ProductSearchCondition();
+        condition.setMin("1000");
+        condition.setMin("7000");
         //when
         ResultActions perform = this.mockMvc.perform(get("/v1/products/search")
                 .accept(MediaTypes.HAL_JSON_VALUE)
-                .contentType(MediaTypes.HAL_JSON_VALUE)
-                .content(this.objectMapper.writeValueAsString(condition)));
+//                .contentType(MediaTypes.HAL_JSON_VALUE)
+//                .content(this.objectMapper.writeValueAsString(condition)));
+                .param("category", condition.getCategory())
+                .param("product", condition.getProduct())
+                .param("min", condition.getMin())
+                .param("max", condition.getMax()));
         //then
         perform
                 .andDo(print())
@@ -282,13 +282,11 @@ class ProductControllerTest extends BaseTest {
                         requestParameters(
                                 parameterWithName("size").optional().description("페이지 크기"),
                                 parameterWithName("page").optional().description("현재 페이지"),
-                                parameterWithName("sort").optional().description("정렬방식")
-                        ),
-                        requestFields(
-                                fieldWithPath("min").type(JsonFieldType.NUMBER).optional().description("가격최소값"),
-                                fieldWithPath("max").type(JsonFieldType.NUMBER).optional().description("가격최대값"),
-                                fieldWithPath("productName").type(JsonFieldType.STRING).optional().description("상품이름"),
-                                fieldWithPath("categoryName").type(JsonFieldType.STRING).optional().description("카테고리이름")
+                                parameterWithName("sort").optional().description("정렬방식"),
+                                parameterWithName("min").optional().description("가격최소값"),
+                                parameterWithName("max").optional().description("가격최대값"),
+                                parameterWithName("product").optional().description("상품이름"),
+                                parameterWithName("category").optional().description("카테고리이름")
                         ),
                         responseFields(
                                 subsectionWithPath("page").description("현재 페이지 정보"),
