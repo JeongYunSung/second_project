@@ -32,7 +32,7 @@ class OrderMyControllerTest extends BaseTest {
     public void 주문_목록_조회() throws Exception {
         //given
         String jwtToken = this.getJwtToken();
-        Category category = this.createCategory("category", null);
+        Category category = this.createCategory("o-category4", null);
         List<Long> list = Arrays.asList(1L, 2L, 3L, 4L, 5L);
         list.stream().forEach(i -> this.createProduct("title : " + i, "description : " + i, 10000, Arrays.asList(category)));
         OrderCreateRequest orderCreateRequest = new OrderCreateRequest(list);

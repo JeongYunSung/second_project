@@ -39,7 +39,7 @@ class PaymentControllerTest extends BaseTest {
         //given
         String jwtToken = this.getJwtToken();
         this.memberCommandService.addMoney(this.username, 10000);
-        Category category = this.createCategory("category5", null);
+        Category category = this.createCategory("o-category5", null);
         List<Long> list = new ArrayList<>();
         IntStream.range(10, 13).forEach(i -> {
             Product product = this.createProduct("title : " + i, "description : " + i, 1000, Arrays.asList(category));

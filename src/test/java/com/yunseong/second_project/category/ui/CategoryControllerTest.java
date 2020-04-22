@@ -45,7 +45,7 @@ class CategoryControllerTest extends BaseTest {
         int pageNumber = 1;
         Pageable pageable = PageRequest.of(pageNumber, pageSize);
         List<Category> list = new ArrayList<>();
-        IntStream.range(1, 11).forEach(i -> list.add(this.createCategory(i + " : Category", null)));
+        IntStream.range(1, 11).forEach(i -> list.add(this.createCategory(i + " : Category1", null)));
         long size = (list.size() / 2) + 1;
         for (int i = 0; i < size - 1; i++) {
             this.categoryCommandService.updatePutCategory(i + 2L, new CategoryUpdateRequest("test",
@@ -69,8 +69,8 @@ class CategoryControllerTest extends BaseTest {
     public void 카테고리_생성() throws Exception {
         //given
         String jwtToken = this.getJwtToken();
-        String parentName = "Parent";
-        String childName = "Child";
+        String parentName = "Parent2";
+        String childName = "Child2";
         Category category = this.createCategory(parentName, null);
         CategoryCreateRequest childRequest = new CategoryCreateRequest(childName, category.getId());
         //when
@@ -148,9 +148,9 @@ class CategoryControllerTest extends BaseTest {
     public void 카테고리_수정() throws Exception {
         //given
         String jwtToken = this.getJwtToken();
-        Category parent = this.createCategory("Parent", null);
-        Category child = this.createCategory("Child", null);
-        CategoryUpdateRequest request = new CategoryUpdateRequest("updateChild", parent.getId());
+        Category parent = this.createCategory("Parent4", null);
+        Category child = this.createCategory("Child4", null);
+        CategoryUpdateRequest request = new CategoryUpdateRequest("updateChild1", parent.getId());
         //when
         ResultActions perform = this.mockMvc.perform(put("/v1/categories/{id}", child.getId())
                 .accept(MediaTypes.HAL_JSON_VALUE)
@@ -187,8 +187,8 @@ class CategoryControllerTest extends BaseTest {
     public void 카테고리_수정_부모_삭제() throws Exception {
         //given
         String jwtToken = this.getJwtToken();
-        Category parent = this.createCategory("Parent", null);
-        Category child = this.createCategory("Child", parent);
+        Category parent = this.createCategory("Parent3", null);
+        Category child = this.createCategory("Child3", parent);
         CategoryUpdateRequest request = new CategoryUpdateRequest("updateChild", 0L);
         //when
         ResultActions perform = this.mockMvc.perform(put("/v1/categories/{id}", child.getId())
@@ -206,10 +206,10 @@ class CategoryControllerTest extends BaseTest {
     public void 카테고리_조회() throws Exception {
         //given
         String jwtToken = this.getJwtToken();
-        Category grandParent = this.createCategory("GradParent", null);
-        Category parent = this.createCategory("Parent", grandParent);
-        this.createCategory("Child1", parent);
-        this.createCategory("Child2", parent);
+        Category grandParent = this.createCategory("GradParent5", null);
+        Category parent = this.createCategory("Parent5", grandParent);
+        this.createCategory("Child5", parent);
+        this.createCategory("Child6", parent);
         //when
         ResultActions perform = this.mockMvc.perform(get("/v1/categories/{id}", parent.getId())
                 .accept(MediaTypes.HAL_JSON_VALUE)
@@ -249,7 +249,7 @@ class CategoryControllerTest extends BaseTest {
         int pageNumber = 1;
         Pageable pageable = PageRequest.of(pageNumber, pageSize);
         List<Category> list = new ArrayList<>();
-        IntStream.range(1, 11).forEach(i -> list.add(this.createCategory(i + " : Category", null)));
+        IntStream.range(1, 11).forEach(i -> list.add(this.createCategory(i + " : Category7", null)));
         int size = (list.size()/2);
         for (int i = 0; i < size-1; i++) {
             this.categoryCommandService.updatePutCategory(list.get(i).getId(), new CategoryUpdateRequest(list.get(i).getCategoryName(),

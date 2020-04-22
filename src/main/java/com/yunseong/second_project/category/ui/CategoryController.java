@@ -26,7 +26,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
-@RequestMapping(value = "/v1/categories", produces = MediaTypes.HAL_JSON_VALUE)
+@RequestMapping(value = "/v1/categories", produces = MediaTypes.HAL_JSON_VALUE + ";charset=UTF-8")
 @RequiredArgsConstructor
 public class CategoryController {
 
@@ -52,6 +52,11 @@ public class CategoryController {
         pagedModel.add(linkTo(IndexController.class).slash("v1/categories" + Util.getUtil().getPageableQuery(pageable)).withSelfRel());
         pagedModel.add(Util.profile);
         return ResponseEntity.ok(pagedModel);
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity findAllCategories() {
+        return ResponseEntity.ok(this.categoryQueryService.findCategory());
     }
 
     @PostMapping

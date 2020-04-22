@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Query;
 
 import javax.persistence.LockModeType;
+import java.util.List;
 import java.util.Optional;
 
 public interface CategoryRepository extends JpaRepository<Category, Long>, CategoryQueryRepository {
@@ -18,4 +19,7 @@ public interface CategoryRepository extends JpaRepository<Category, Long>, Categ
 
     @Query("select distinct c from Category c left join fetch c.parent parent left join fetch c.categories child where c.id = :id and c.delete_yn = false")
     Optional<Category> findDtoById(Long id);
+
+    @Query("select distinct new com.yunseong.second_project.category.query.CategoryResponse(c) from Category c")
+    List<CategoryResponse> findAllByDto();
 }

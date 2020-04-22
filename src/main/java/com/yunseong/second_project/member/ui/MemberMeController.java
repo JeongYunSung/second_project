@@ -15,7 +15,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/v1/members/me", produces = MediaTypes.HAL_JSON_VALUE)
+@RequestMapping(value = "/v1/members/me", produces = MediaTypes.HAL_JSON_VALUE + ";charset=UTF-8")
 @RequiredArgsConstructor
 public class MemberMeController {
 

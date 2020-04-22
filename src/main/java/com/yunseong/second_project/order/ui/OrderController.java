@@ -17,7 +17,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
-@RequestMapping(value = "/v1/orders", produces = MediaTypes.HAL_JSON_VALUE)
+@RequestMapping(value = "/v1/orders", produces = MediaTypes.HAL_JSON_VALUE + ";charset=UTF-8")
 @RequiredArgsConstructor
 public class OrderController {
 

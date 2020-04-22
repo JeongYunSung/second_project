@@ -48,7 +48,7 @@ class ProductControllerTest extends BaseTest {
         String productName = "productName";
         String description = "This Product is Example";
         int value = 10000;
-        Category category = this.createCategory("category", null);
+        Category category = this.createCategory("p-category1", null);
         ProductCreateRequest request = new ProductCreateRequest(productName, description, value, Arrays.asList(category.getId()));
         //when
         ResultActions perform = this.mockMvc.perform(post("/v1/products/register")
@@ -95,7 +95,7 @@ class ProductControllerTest extends BaseTest {
         //given
         String jwtToken = this.getJwtToken();
         Product product = this.createProduct("Test", "Test Product", 1000, Arrays.asList(
-                this.createCategory("category", null)));
+                this.createCategory("p-category2", null)));
         //when
         ResultActions perform = this.mockMvc.perform(delete("/v1/products/{id}", product.getId())
                 .accept(MediaTypes.HAL_JSON_VALUE)
@@ -117,9 +117,9 @@ class ProductControllerTest extends BaseTest {
     public void 물품_변경() throws Exception {
         //given
         String jwtToken = this.getJwtToken();
-        Category oldCategory = this.createCategory("oldCategory", null);
+        Category oldCategory = this.createCategory("p-oldCategory3", null);
         Product product = this.createProduct("product", "product!!!", 100, Arrays.asList(oldCategory));
-        Category newCategory = this.createCategory("newCategory", null);
+        Category newCategory = this.createCategory("p-ewCategory3", null);
         ProductUpdateRequest request = new ProductUpdateRequest("updateProduct",
                 "updateProduct!!!!", 1000000, Arrays.asList(newCategory.getId()));
         //when
@@ -159,7 +159,7 @@ class ProductControllerTest extends BaseTest {
     public void 물품_추천() throws Exception {
         //given
         String jwtToken = this.getJwtToken();
-        Category oldCategory = this.createCategory("oldCategory", null);
+        Category oldCategory = this.createCategory("p-oldCategory4", null);
         Product product = this.createProduct("product", "product!!!", 100, Arrays.asList(oldCategory));
         //when
         ResultActions perform = this.mockMvc.perform(put("/v1/products/{id}/recommend", product.getId())
@@ -190,7 +190,7 @@ class ProductControllerTest extends BaseTest {
     @Test
     public void 물품_조회() throws Exception {
         //given
-        Category oldCategory = this.createCategory("oldCategory", null);
+        Category oldCategory = this.createCategory("p-oldCategory5", null);
         Product product = this.createProduct("product", "product!!!", 100, Arrays.asList(oldCategory));
         //when
         ResultActions perform = this.mockMvc.perform(get("/v1/products/{id}", product.getId())
@@ -227,8 +227,8 @@ class ProductControllerTest extends BaseTest {
     @Test
     public void 물품_목록_조회() throws Exception {
         //given
-        Category category1 = this.createCategory("Category1", null);
-        Category category2 = this.createCategory("Category2", null);
+        Category category1 = this.createCategory("p-Category8", null);
+        Category category2 = this.createCategory("p-Category9", null);
         IntStream.range(1, 6).forEach(i -> this.createProduct("firstCategory", "Good", 1000*i, Arrays.asList(category1)));
         IntStream.range(6, 11).forEach(i -> this.createProduct("secondCategory", "Good", 1000*i, Arrays.asList(category2)));
         //when
@@ -260,8 +260,8 @@ class ProductControllerTest extends BaseTest {
     @Test
     public void 물품_목록_검색() throws Exception {
         //given
-        Category category1 = this.createCategory("Category1", null);
-        Category category2 = this.createCategory("Category2", null);
+        Category category1 = this.createCategory("p-Category10", null);
+        Category category2 = this.createCategory("p-Category11", null);
         IntStream.range(1, 6).forEach(i -> this.createProduct("firstCategory", "Good", 1000*i, Arrays.asList(category1)));
         IntStream.range(6, 11).forEach(i -> this.createProduct("secondCategory", "Good", 1000*i, Arrays.asList(category2)));
         ProductSearchCondition condition = new ProductSearchCondition(null, null, 1000, 7000);
@@ -300,7 +300,7 @@ class ProductControllerTest extends BaseTest {
     @Test
     public void 물품_조회_최근탑10() throws Exception {
         //given
-        Category category = this.createCategory("Category", null);
+        Category category = this.createCategory("p-Category12", null);
         IntStream.range(1, 20).forEach(i -> this.createProduct("firstCategory", "Good", 1000*i, Arrays.asList(category)));
         //when
         ResultActions perform = this.mockMvc.perform(get("/v1/products/recent")
@@ -315,7 +315,7 @@ class ProductControllerTest extends BaseTest {
     @Test
     public void 물품_조회_조회수탑10() throws Exception {
         //given
-        Category category = this.createCategory("Category", null);
+        Category category = this.createCategory("p-Category13", null);
         List<Product> list = new ArrayList<>();
         IntStream.range(1, 15).forEach(i -> list.add(this.createProduct("firstCategory", "Good", 1000*i, Arrays.asList(category))));
         for (int i = 0; i < 10; i++) {

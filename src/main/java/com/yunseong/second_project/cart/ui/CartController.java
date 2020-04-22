@@ -12,7 +12,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/v1/carts", produces = MediaTypes.HAL_JSON_VALUE)
+@RequestMapping(value = "/v1/carts", produces = MediaTypes.HAL_JSON_VALUE + ";charset=UTF-8")
 @RequiredArgsConstructor
 public class CartController {
 

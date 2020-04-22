@@ -37,7 +37,7 @@ class OrderControllerTest extends BaseTest {
     public void 주문_생성() throws Exception {
         //given
         String jwtToken = this.getJwtToken();
-        Category category = this.createCategory("category1", null);
+        Category category = this.createCategory("o-category1", null);
         List<Long> list = new ArrayList<>();
         IntStream.range(1, 6).forEach(i -> {
             Product product = this.createProduct("title : " + i, "description : " + i, 10000, Arrays.asList(category));
@@ -67,7 +67,7 @@ class OrderControllerTest extends BaseTest {
     public void 주문_조회() throws Exception {
         //given
         String jwtToken = this.getJwtToken();
-        Category category = this.createCategory("category1", null);
+        Category category = this.createCategory("o-category2", null);
         List<Long> list = new ArrayList<>();
         IntStream.range(1, 6).forEach(i -> {
             Product product = this.createProduct("title : " + i, "description : " + i, 10000, Arrays.asList(category));
@@ -107,7 +107,7 @@ class OrderControllerTest extends BaseTest {
     public void 주문_취소() throws Exception {
         //given
         String jwtToken = this.getJwtToken();
-        Category category = this.createCategory("category3", null);
+        Category category = this.createCategory("o-category3", null);
         List<Long> list = new ArrayList<>();
         IntStream.range(1, 6).forEach(i -> {
             Product product = this.createProduct("title : " + i, "description : " + i, 10000, Arrays.asList(category));
