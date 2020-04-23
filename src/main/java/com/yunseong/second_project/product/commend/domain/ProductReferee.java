@@ -7,12 +7,13 @@ import javax.persistence.*;
 
 @Entity
 @Getter
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"product_name", "referee_name"}))
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AttributeOverride(name = "id", column = @Column(name = "productreferee_id"))
 public class ProductReferee extends BaseUserEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_name", unique = true)
+    @JoinColumn(name = "product_name")
     private Product product;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

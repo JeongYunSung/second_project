@@ -442,7 +442,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /v1/carts HTTP/1.1
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NjIwNzMyLCJleHAiOjE1ODc2MjI1MzJ9.kKDZIegrmHecNuF8na0fRwlXSiZ9ZdtxGrjJIXWJrO0
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NjIxMzMxLCJleHAiOjE1ODc2MjMxMzF9.AsEQCwykoaK1TJdM32f9V2FWx-EM6iroTNXZS6TjtqI
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -459,37 +459,37 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 758
+Content-Length: 752
 
 {
   "id" : "Username",
   "cartItems" : [ {
-    "productId" : 61,
+    "productId" : 3,
     "title" : "product1",
     "description" : "product1",
     "value" : 100
   }, {
-    "productId" : 62,
+    "productId" : 4,
     "title" : "product : 0",
     "description" : "product : 0",
     "value" : 0
   }, {
-    "productId" : 63,
+    "productId" : 5,
     "title" : "product : 1",
     "description" : "product : 1",
     "value" : 100
   }, {
-    "productId" : 64,
+    "productId" : 6,
     "title" : "product : 2",
     "description" : "product : 2",
     "value" : 200
   }, {
-    "productId" : 65,
+    "productId" : 7,
     "title" : "product : 3",
     "description" : "product : 3",
     "value" : 300
   }, {
-    "productId" : 66,
+    "productId" : 8,
     "title" : "product : 4",
     "description" : "product : 4",
     "value" : 400
@@ -564,12 +564,12 @@ Content-Length: 758
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">PUT /v1/carts/items/new HTTP/1.1
 Content-Type: application/hal+json;charset=UTF-8
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NjIwNzMxLCJleHAiOjE1ODc2MjI1MzF9.kqgfTNFBuJtcNu6lG3Vi4Petc4iompRhe6UHb2AWKno
-Content-Length: 98
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NjIxMzMwLCJleHAiOjE1ODc2MjMxMzB9.dhrAIxeJ8U7RywbRmrFeiEAvkeK8txTNJtXyymwwO0U
+Content-Length: 97
 Host: localhost:8080
 
 {
-  "productId" : 61,
+  "productId" : 3,
   "title" : "product1",
   "description" : "product1",
   "value" : 100
@@ -658,9 +658,9 @@ X-Frame-Options: DENY</code></pre>
 <h5 id="_http_request_3">Http-Request</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">PUT /v1/carts/items/60 HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">PUT /v1/carts/items/2 HTTP/1.1
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NjIwNzMxLCJleHAiOjE1ODc2MjI1MzF9.kqgfTNFBuJtcNu6lG3Vi4Petc4iompRhe6UHb2AWKno
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NjIxMzMwLCJleHAiOjE1ODc2MjMxMzB9.dhrAIxeJ8U7RywbRmrFeiEAvkeK8txTNJtXyymwwO0U
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -743,7 +743,7 @@ Content-Length: 24
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">DELETE /v1/carts HTTP/1.1
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NjIwNzI3LCJleHAiOjE1ODc2MjI1Mjd9.U3BwZqsryo5w7zp6dJ1R9KewDbs4ukU69SS2p7_qx50
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NjIxMzI0LCJleHAiOjE1ODc2MjMxMjR9.3dscx6aNJY87Vf1q0AjCHCVBA8DZcmY6VSekIkFfH2o
 Host: localhost:8080</code></pre>
 </div>
 </div>
