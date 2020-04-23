@@ -84,7 +84,7 @@ public class ProductRepositoryImpl implements ProductQueryRepository {
                 .leftJoin(productReferee.referee, referee)
                 .innerJoin(product.types, productType)
                 .innerJoin(productType.type, type)
-                .where(product.delete_yn.eq(false), containsProductName(condition.getProduct()), containsCategoryName(condition.getCategory()),
+                .where(product.delete_yn.eq(false), containsProductName(condition.getProduct()).or(containsCategoryName(condition.getCategory())),
                         loeValue(condition.getMax()), goeValue(condition.getMin()))
                 .offset(pageable.getOffset())
                 .limit(pageable.getPageSize())
