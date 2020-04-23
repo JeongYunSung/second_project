@@ -84,7 +84,7 @@ public class ProductRepositoryImpl implements ProductQueryRepository {
                 .leftJoin(productReferee.referee, referee)
                 .innerJoin(product.types, productType)
                 .innerJoin(productType.type, type)
-                .where(product.delete_yn.eq(false), containsProductName(condition.getProduct()).or(containsCategoryName(condition.getCategory())),
+                .where(product.delete_yn.eq(false), containsProductName(condition.getProduct()), containsCategoryName(condition.getCategory()),
                         loeValue(condition.getMax()), goeValue(condition.getMin()))
                 .offset(pageable.getOffset())
                 .limit(pageable.getPageSize())
@@ -93,6 +93,8 @@ public class ProductRepositoryImpl implements ProductQueryRepository {
                 this.queryFactory.select()
                         .select(new QProductResponse(product))
                         .from(product)
+                        .innerJoin(product.types, productType)
+                        .innerJoin(productType.type, type)
                         .where(containsProductName(condition.getProduct()), containsCategoryName(condition.getCategory()),
                                 loeValue(condition.getMax()), goeValue(condition.getMin()))::fetchCount);
     }

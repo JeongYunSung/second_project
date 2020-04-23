@@ -259,13 +259,11 @@ class ProductControllerTest extends BaseTest {
         IntStream.range(1, 6).forEach(i -> this.createProduct("firstCategory", "Good", 1000*i, Arrays.asList(category1)));
         IntStream.range(6, 11).forEach(i -> this.createProduct("secondCategory", "Good", 1000*i, Arrays.asList(category2)));
         ProductSearchCondition condition = new ProductSearchCondition();
-        condition.setMin("1000");
-        condition.setMin("7000");
+        condition.setProduct("category");
+        condition.setCategory("category");
         //when
         ResultActions perform = this.mockMvc.perform(get("/v1/products/search")
                 .accept(MediaTypes.HAL_JSON_VALUE)
-//                .contentType(MediaTypes.HAL_JSON_VALUE)
-//                .content(this.objectMapper.writeValueAsString(condition)));
                 .param("category", condition.getCategory())
                 .param("product", condition.getProduct())
                 .param("min", condition.getMin())
