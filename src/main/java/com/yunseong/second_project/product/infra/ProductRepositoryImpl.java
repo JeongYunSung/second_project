@@ -84,7 +84,7 @@ public class ProductRepositoryImpl implements ProductQueryRepository {
                 .leftJoin(productReferee.referee, referee)
                 .innerJoin(product.types, productType)
                 .innerJoin(productType.type, type)
-                .where(product.delete_yn.eq(false), containsProductName(condition.getProduct()), containsCategoryName(condition.getCategory()),
+                .where(product.delete_yn.eq(false), containsAll(condition.getCategory(), condition.getProduct()),
                         loeValue(condition.getMax()), goeValue(condition.getMin()))
                 .offset(pageable.getOffset())
                 .limit(pageable.getPageSize())
@@ -95,8 +95,23 @@ public class ProductRepositoryImpl implements ProductQueryRepository {
                         .from(product)
                         .innerJoin(product.types, productType)
                         .innerJoin(productType.type, type)
-                        .where(containsProductName(condition.getProduct()), containsCategoryName(condition.getCategory()),
+                        .where(product.delete_yn.eq(false), containsAll(condition.getCategory(), condition.getProduct()),
                                 loeValue(condition.getMax()), goeValue(condition.getMin()))::fetchCount);
+    }
+
+    public BooleanExpression containsAll(String categoryName, String productName) {
+        BooleanExpression category = this.containsCategoryName(categoryName);
+        BooleanExpression product = this.containsProductName(productName);
+        if(category == null && product == null) {
+            return null;
+        }
+        if(category == null) {
+            return product;
+        }
+        if(product == null) {
+            return category;
+        }
+        return category.or(product);
     }
 
     public BooleanExpression goeValue(String value) {
