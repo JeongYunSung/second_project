@@ -603,10 +603,10 @@ Content-Length: 332
 
 {
   "username" : "testUsername",
-  "password" : "{bcrypt}$2a$10$3993CRsL2Gj51nFDQ3Ugxe/XZvLBjepw5tZL5MLpDIGlVpd5saohy",
+  "password" : "{bcrypt}$2a$10$DwDT11EdHTUqXM4k.3bu6.DA3rPyScajB0BdHd9FXCysG0UaSk96a",
   "nickname" : "testNickname",
   "grade" : "Bronze",
-  "createdTime" : "2020-04-23T16:27:28.1105231",
+  "createdTime" : "2020-04-24T19:51:22.4596595",
   "_links" : {
     "profile" : {
       "href" : "http://localhost:8080/docs/index.html"
@@ -765,7 +765,7 @@ Host: localhost:8080
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzYyNjg0OCwiZXhwIjoxNTg3NjI4NjQ4fQ.0QdsBjdPIFUMZ8joOXVBgt0iI5yHPl31eAu8Jd7qq-o
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzcyNTQ4MiwiZXhwIjoxNTg3NzI3MjgyfQ.b1S0xaeKt58r4r2ueTxrtzlYn1RowR83nUu3xECnPbo
 Content-Type: application/hal+json;charset=UTF-8
 X-Content-Type-Options: nosniff
 X-XSS-Protection: 1; mode=block
@@ -895,7 +895,7 @@ Content-Length: 185
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /v1/members/me HTTP/1.1
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NjI2ODQ3LCJleHAiOjE1ODc2Mjg2NDd9.sa-I94xLs5ycCaOt-qu6AZsQNMX4VaGsbjhA9PW1WmM
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NzI1NDgxLCJleHAiOjE1ODc3MjcyODF9.zu_jD1ST0JrtSenlrHIo_vyDLLdxmoQzBL6D-yCDDcA
 Accept: application/hal+json
 Host: localhost:8080</code></pre>
 </div>
@@ -913,7 +913,7 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 319
+Content-Length: 320
 
 {
   "username" : "Username",
@@ -921,8 +921,8 @@ Content-Length: 319
   "money" : 0,
   "grade" : "Admin",
   "purchase" : [ ],
-  "createdTime" : "2020-04-23T16:27:21.242897",
-  "updatedTime" : "2020-04-23T16:27:21.30074",
+  "createdTime" : "2020-04-24T19:51:15.441432",
+  "updatedTime" : "2020-04-24T19:51:15.522217",
   "_links" : {
     "profile" : {
       "href" : "http://localhost:8080/docs/index.html"
@@ -1042,7 +1042,7 @@ Content-Length: 319
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /v1/members/me HTTP/1.1
 Content-Type: application/hal+json;charset=UTF-8
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NjI2ODQ3LCJleHAiOjE1ODc2Mjg2NDd9.sa-I94xLs5ycCaOt-qu6AZsQNMX4VaGsbjhA9PW1WmM
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NzI1NDgyLCJleHAiOjE1ODc3MjcyODJ9.omDI0jIahncy9xRQmFtFwomQnHhQH9f62jpU6mXvYug
 Accept: application/hal+json
 Content-Length: 119
 Host: localhost:8080
@@ -1068,15 +1068,15 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 368
+Content-Length: 369
 
 {
-  "password" : "{bcrypt}$2a$10$9fFAksBYamVlFauucyqtFuCpPn5.R5bt.jNluHoKOqD2o6IrwarmS",
+  "password" : "{bcrypt}$2a$10$aNz6SPNvCaTrH0eUsyekZOo5NwwI187nsm5yjJQUKaxRSPdTfK3Q6",
   "nickname" : "updateNickname",
   "money" : 10000,
   "grade" : "Admin",
-  "createdTime" : "2020-04-23T16:27:21.242897",
-  "updatedTime" : "2020-04-23T16:27:21.30074",
+  "createdTime" : "2020-04-24T19:51:15.441432",
+  "updatedTime" : "2020-04-24T19:51:15.522217",
   "_links" : {
     "profile" : {
       "href" : "http://localhost:8080/docs/index.html"
@@ -1229,7 +1229,7 @@ Content-Length: 368
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /v1/members/me HTTP/1.1
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NjI2ODQ3LCJleHAiOjE1ODc2Mjg2NDd9.sa-I94xLs5ycCaOt-qu6AZsQNMX4VaGsbjhA9PW1WmM
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NzI1NDgyLCJleHAiOjE1ODc3MjcyODJ9.omDI0jIahncy9xRQmFtFwomQnHhQH9f62jpU6mXvYug
 Accept: application/hal+json
 Host: localhost:8080</code></pre>
 </div>
@@ -1286,7 +1286,7 @@ X-Frame-Options: DENY</code></pre>
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /v1/categories HTTP/1.1
 Content-Type: application/hal+json;charset=UTF-8
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NjI2ODQ3LCJleHAiOjE1ODc2Mjg2NDd9.sa-I94xLs5ycCaOt-qu6AZsQNMX4VaGsbjhA9PW1WmM
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NzI1NDgxLCJleHAiOjE1ODc3MjcyODF9.zu_jD1ST0JrtSenlrHIo_vyDLLdxmoQzBL6D-yCDDcA
 Content-Length: 53
 Host: localhost:8080
 
@@ -1310,14 +1310,14 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 249
+Content-Length: 250
 
 {
   "id" : 28,
   "categoryName" : "Child2",
   "parentId" : 27,
   "parentName" : "Parent2",
-  "createdTime" : "2020-04-23T16:27:27.109203",
+  "createdTime" : "2020-04-24T19:51:21.4423803",
   "_links" : {
     "profile" : {
       "href" : "http://localhost:8080/docs/index.html"
@@ -1477,7 +1477,7 @@ Content-Length: 249
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /v1/categories/33 HTTP/1.1
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NjI2ODQ3LCJleHAiOjE1ODc2Mjg2NDd9.sa-I94xLs5ycCaOt-qu6AZsQNMX4VaGsbjhA9PW1WmM
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NzI1NDgxLCJleHAiOjE1ODc3MjcyODF9.zu_jD1ST0JrtSenlrHIo_vyDLLdxmoQzBL6D-yCDDcA
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -1494,7 +1494,7 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 515
+Content-Length: 511
 
 {
   "id" : 33,
@@ -1508,8 +1508,8 @@ Content-Length: 515
     "childId" : 35,
     "childName" : "Child6"
   } ],
-  "createdTime" : "2020-04-23T16:27:27.460264",
-  "updatedTime" : "2020-04-23T16:27:27.460264",
+  "createdTime" : "2020-04-24T19:51:21.8094",
+  "updatedTime" : "2020-04-24T19:51:21.8094",
   "_links" : {
     "self" : {
       "href" : "http://localhost:8080/v1/categories/33"
@@ -1659,7 +1659,7 @@ Content-Length: 515
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /v1/categories HTTP/1.1
 Content-Type: application/hal+json;charset=UTF-8
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NjI2ODQ2LCJleHAiOjE1ODc2Mjg2NDZ9.ZEpsLvkuG1vkK-FqCAz-I2NdXYwR6xQtNJRluOyepRI
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NzI1NDgwLCJleHAiOjE1ODc3MjcyODB9.dHdlakP7JweVSjM2A1i_jJ6AaEVCUjbuqK-oDCn94HY
 Content-Length: 190
 Host: localhost:8080
 
@@ -1670,8 +1670,8 @@ Host: localhost:8080
     "empty" : true
   },
   "offset" : 10,
-  "pageSize" : 10,
   "pageNumber" : 1,
+  "pageSize" : 10,
   "unpaged" : false,
   "paged" : true
 }</code></pre>
@@ -1690,7 +1690,7 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 4558
+Content-Length: 4560
 
 {
   "_embedded" : {
@@ -1700,8 +1700,8 @@ Content-Length: 4558
       "parentId" : null,
       "parentName" : null,
       "child" : null,
-      "createdTime" : "2020-04-23T16:27:21.645818",
-      "updatedTime" : "2020-04-23T16:27:21.645818",
+      "createdTime" : "2020-04-24T19:51:15.963036",
+      "updatedTime" : "2020-04-24T19:51:15.963036",
       "_links" : {
         "category" : {
           "href" : "http://localhost:8080/v1/categories/1"
@@ -1713,8 +1713,8 @@ Content-Length: 4558
       "parentId" : null,
       "parentName" : null,
       "child" : null,
-      "createdTime" : "2020-04-23T16:27:25.759812",
-      "updatedTime" : "2020-04-23T16:27:25.759812",
+      "createdTime" : "2020-04-24T19:51:20.168787",
+      "updatedTime" : "2020-04-24T19:51:20.168787",
       "_links" : {
         "category" : {
           "href" : "http://localhost:8080/v1/categories/2"
@@ -1726,8 +1726,8 @@ Content-Length: 4558
       "parentId" : null,
       "parentName" : null,
       "child" : null,
-      "createdTime" : "2020-04-23T16:27:25.930368",
-      "updatedTime" : "2020-04-23T16:27:25.930368",
+      "createdTime" : "2020-04-24T19:51:20.342322",
+      "updatedTime" : "2020-04-24T19:51:20.342322",
       "_links" : {
         "category" : {
           "href" : "http://localhost:8080/v1/categories/3"
@@ -1739,8 +1739,8 @@ Content-Length: 4558
       "parentId" : null,
       "parentName" : null,
       "child" : null,
-      "createdTime" : "2020-04-23T16:27:26.060009",
-      "updatedTime" : "2020-04-23T16:27:26.060009",
+      "createdTime" : "2020-04-24T19:51:20.472973",
+      "updatedTime" : "2020-04-24T19:51:20.472973",
       "_links" : {
         "category" : {
           "href" : "http://localhost:8080/v1/categories/4"
@@ -1752,8 +1752,8 @@ Content-Length: 4558
       "parentId" : null,
       "parentName" : null,
       "child" : null,
-      "createdTime" : "2020-04-23T16:27:26.376163",
-      "updatedTime" : "2020-04-23T16:27:26.376163",
+      "createdTime" : "2020-04-24T19:51:20.775164",
+      "updatedTime" : "2020-04-24T19:51:20.775164",
       "_links" : {
         "category" : {
           "href" : "http://localhost:8080/v1/categories/5"
@@ -1765,8 +1765,8 @@ Content-Length: 4558
       "parentId" : 5,
       "parentName" : "Parent3",
       "child" : null,
-      "createdTime" : "2020-04-23T16:27:26.379156",
-      "updatedTime" : "2020-04-23T16:27:26.405087",
+      "createdTime" : "2020-04-24T19:51:20.778157",
+      "updatedTime" : "2020-04-24T19:51:20.801124",
       "_links" : {
         "category" : {
           "href" : "http://localhost:8080/v1/categories/6"
@@ -1778,8 +1778,8 @@ Content-Length: 4558
       "parentId" : 8,
       "parentName" : "2 : Category7",
       "child" : null,
-      "createdTime" : "2020-04-23T16:27:26.54571",
-      "updatedTime" : "2020-04-23T16:27:26.576629",
+      "createdTime" : "2020-04-24T19:51:20.928791",
+      "updatedTime" : "2020-04-24T19:51:20.953689",
       "_links" : {
         "category" : {
           "href" : "http://localhost:8080/v1/categories/7"
@@ -1797,8 +1797,8 @@ Content-Length: 4558
         "childId" : 12,
         "childName" : "6 : Category7"
       } ],
-      "createdTime" : "2020-04-23T16:27:26.548702",
-      "updatedTime" : "2020-04-23T16:27:26.587599",
+      "createdTime" : "2020-04-24T19:51:20.930749",
+      "updatedTime" : "2020-04-24T19:51:20.961668",
       "_links" : {
         "category" : {
           "href" : "http://localhost:8080/v1/categories/8"
@@ -1816,8 +1816,8 @@ Content-Length: 4558
         "childId" : 13,
         "childName" : "7 : Category7"
       } ],
-      "createdTime" : "2020-04-23T16:27:26.550696",
-      "updatedTime" : "2020-04-23T16:27:26.59458",
+      "createdTime" : "2020-04-24T19:51:20.932744",
+      "updatedTime" : "2020-04-24T19:51:20.968653",
       "_links" : {
         "category" : {
           "href" : "http://localhost:8080/v1/categories/9"
@@ -1835,8 +1835,8 @@ Content-Length: 4558
         "childId" : 14,
         "childName" : "8 : Category7"
       } ],
-      "createdTime" : "2020-04-23T16:27:26.553688",
-      "updatedTime" : "2020-04-23T16:27:26.604553",
+      "createdTime" : "2020-04-24T19:51:20.934738",
+      "updatedTime" : "2020-04-24T19:51:20.977624",
       "_links" : {
         "category" : {
           "href" : "http://localhost:8080/v1/categories/10"
@@ -1981,7 +1981,7 @@ Content-Length: 4558
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /v1/categories/31 HTTP/1.1
 Content-Type: application/hal+json;charset=UTF-8
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NjI2ODQ3LCJleHAiOjE1ODc2Mjg2NDd9.sa-I94xLs5ycCaOt-qu6AZsQNMX4VaGsbjhA9PW1WmM
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NzI1NDgxLCJleHAiOjE1ODc3MjcyODF9.zu_jD1ST0JrtSenlrHIo_vyDLLdxmoQzBL6D-yCDDcA
 Content-Length: 59
 Host: localhost:8080
 
@@ -2011,8 +2011,8 @@ Content-Length: 385
   "categoryName" : "updateChild1",
   "parentId" : 30,
   "parentName" : "Parent4",
-  "createdTime" : "2020-04-23T16:27:27.340584",
-  "updatedTime" : "2020-04-23T16:27:27.340584",
+  "createdTime" : "2020-04-24T19:51:21.688723",
+  "updatedTime" : "2020-04-24T19:51:21.688723",
   "_links" : {
     "self" : {
       "href" : "http://localhost:8080/v1/categories/31"
@@ -2156,7 +2156,7 @@ Content-Length: 385
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /v1/categories/29 HTTP/1.1
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NjI2ODQ3LCJleHAiOjE1ODc2Mjg2NDd9.sa-I94xLs5ycCaOt-qu6AZsQNMX4VaGsbjhA9PW1WmM
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NzI1NDgxLCJleHAiOjE1ODc3MjcyODF9.zu_jD1ST0JrtSenlrHIo_vyDLLdxmoQzBL6D-yCDDcA
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -2234,7 +2234,7 @@ X-Frame-Options: DENY</code></pre>
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /v1/products/register HTTP/1.1
 Content-Type: application/hal+json;charset=UTF-8
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzYyNjg0OSwiZXhwIjoxNTg3NjI4NjQ5fQ.Ic9im8O5cWbOiB9tPJ5GlfS-fymkgiuvhWT2aqsfiiU
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzcyNTQ4NCwiZXhwIjoxNTg3NzI3Mjg0fQ.xvslT1DGUUP5zDNxSI2u9yIPW1rnLrLYCsSPfAAmolg
 Content-Length: 124
 Host: localhost:8080
 
@@ -2275,8 +2275,8 @@ Content-Length: 498
     "parentId" : null,
     "parentName" : null
   } ],
-  "createdTime" : "2020-04-23T16:27:29.7032638",
-  "updatedTime" : "2020-04-23T16:27:29.7032638",
+  "createdTime" : "2020-04-24T19:51:24.0523994",
+  "updatedTime" : "2020-04-24T19:51:24.0523994",
   "_links" : {
     "profile" : {
       "href" : "http://localhost:8080/docs/index.html"
@@ -3371,7 +3371,7 @@ Content-Length: 5201
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /v1/products/51 HTTP/1.1
 Content-Type: application/hal+json;charset=UTF-8
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzYyNjg0OSwiZXhwIjoxNTg3NjI4NjQ5fQ.Ic9im8O5cWbOiB9tPJ5GlfS-fymkgiuvhWT2aqsfiiU
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzcyNTQ4MywiZXhwIjoxNTg3NzI3MjgzfQ.2rHzK6UtpEka9jfLebFNmQYeu_xUeJ7WHV9W9hGSZdc
 Content-Length: 127
 Host: localhost:8080
 
@@ -3409,8 +3409,8 @@ Content-Length: 533
     "parentId" : null,
     "parentName" : null
   } ],
-  "createdTime" : "2020-04-23T16:27:29.549676",
-  "updatedTime" : "2020-04-23T16:27:29.549676",
+  "createdTime" : "2020-04-24T19:51:23.853934",
+  "updatedTime" : "2020-04-24T19:51:23.853934",
   "_links" : {
     "self" : {
       "href" : "http://localhost:8080/v1/products/51"
@@ -3559,7 +3559,7 @@ Content-Length: 533
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /v1/products/55/recommend HTTP/1.1
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzYyNjg0OSwiZXhwIjoxNTg3NjI4NjQ5fQ.Ic9im8O5cWbOiB9tPJ5GlfS-fymkgiuvhWT2aqsfiiU
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzcyNTQ4NCwiZXhwIjoxNTg3NzI3Mjg0fQ.xvslT1DGUUP5zDNxSI2u9yIPW1rnLrLYCsSPfAAmolg
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -3704,7 +3704,7 @@ Content-Length: 242
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /v1/products/53 HTTP/1.1
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzYyNjg0OSwiZXhwIjoxNTg3NjI4NjQ5fQ.Ic9im8O5cWbOiB9tPJ5GlfS-fymkgiuvhWT2aqsfiiU
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzcyNTQ4NCwiZXhwIjoxNTg3NzI3Mjg0fQ.xvslT1DGUUP5zDNxSI2u9yIPW1rnLrLYCsSPfAAmolg
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -3781,7 +3781,7 @@ X-Frame-Options: DENY</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /v1/carts HTTP/1.1
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NjI2ODQ2LCJleHAiOjE1ODc2Mjg2NDZ9.ZEpsLvkuG1vkK-FqCAz-I2NdXYwR6xQtNJRluOyepRI
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NzI1NDgwLCJleHAiOjE1ODc3MjcyODB9.dHdlakP7JweVSjM2A1i_jJ6AaEVCUjbuqK-oDCn94HY
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -3903,7 +3903,7 @@ Content-Length: 752
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /v1/carts/items/new HTTP/1.1
 Content-Type: application/hal+json;charset=UTF-8
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NjI2ODQ1LCJleHAiOjE1ODc2Mjg2NDV9.oQPD8-N733jccut8lCA5NZIe8fJp9r_tHRZratQ05bc
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NzI1NDgwLCJleHAiOjE1ODc3MjcyODB9.dHdlakP7JweVSjM2A1i_jJ6AaEVCUjbuqK-oDCn94HY
 Content-Length: 97
 Host: localhost:8080
 
@@ -3999,7 +3999,7 @@ X-Frame-Options: DENY</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /v1/carts/items/2 HTTP/1.1
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NjI2ODQ1LCJleHAiOjE1ODc2Mjg2NDV9.oQPD8-N733jccut8lCA5NZIe8fJp9r_tHRZratQ05bc
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NzI1NDgwLCJleHAiOjE1ODc3MjcyODB9.dHdlakP7JweVSjM2A1i_jJ6AaEVCUjbuqK-oDCn94HY
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -4082,7 +4082,7 @@ Content-Length: 24
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /v1/carts HTTP/1.1
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NjI2ODQxLCJleHAiOjE1ODc2Mjg2NDF9.4fulhVe6BnpDco6MFwwn8WvPv1KYP8HZEc7GGOJLUrU
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NzI1NDc1LCJleHAiOjE1ODc3MjcyNzV9.xEj44Th9lH3BUNZpLyP4JonG0RpmRQ5PRu6_hs8LjD0
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -4138,7 +4138,7 @@ X-Frame-Options: DENY</code></pre>
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /v1/orders HTTP/1.1
 Content-Type: application/hal+json;charset=UTF-8
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzYyNjg0OCwiZXhwIjoxNTg3NjI4NjQ4fQ.0QdsBjdPIFUMZ8joOXVBgt0iI5yHPl31eAu8Jd7qq-o
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzcyNTQ4MiwiZXhwIjoxNTg3NzI3MjgyfQ.b1S0xaeKt58r4r2ueTxrtzlYn1RowR83nUu3xECnPbo
 Content-Length: 44
 Host: localhost:8080
 
@@ -4214,7 +4214,7 @@ X-Frame-Options: DENY</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /v1/orders/7/payment HTTP/1.1
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzYyNjg0OSwiZXhwIjoxNTg3NjI4NjQ5fQ.Ic9im8O5cWbOiB9tPJ5GlfS-fymkgiuvhWT2aqsfiiU
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzcyNTQ4MywiZXhwIjoxNTg3NzI3MjgzfQ.2rHzK6UtpEka9jfLebFNmQYeu_xUeJ7WHV9W9hGSZdc
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -4374,7 +4374,7 @@ Content-Length: 194
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /v1/orders/2 HTTP/1.1
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzYyNjg0OCwiZXhwIjoxNTg3NjI4NjQ4fQ.0QdsBjdPIFUMZ8joOXVBgt0iI5yHPl31eAu8Jd7qq-o
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzcyNTQ4MywiZXhwIjoxNTg3NzI3MjgzfQ.2rHzK6UtpEka9jfLebFNmQYeu_xUeJ7WHV9W9hGSZdc
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -4391,7 +4391,7 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 680
+Content-Length: 708
 
 {
   "id" : 2,
@@ -4417,6 +4417,7 @@ Content-Length: 680
     "price" : 10000
   } ],
   "totalPrice" : 50000,
+  "orderStatus" : "ORDER",
   "paymentStatus" : "READY",
   "_links" : {
     "list" : {
@@ -4530,6 +4531,11 @@ Content-Length: 680
 <td class="tableblock halign-left valign-top"><p class="tableblock">총 가격</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>orderStatus</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">주문 상태</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>paymentStatus</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">결제 상태</p></td>
@@ -4551,7 +4557,7 @@ Content-Length: 680
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /v1/orders/my HTTP/1.1
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzYyNjg0OSwiZXhwIjoxNTg3NjI4NjQ5fQ.Ic9im8O5cWbOiB9tPJ5GlfS-fymkgiuvhWT2aqsfiiU
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzcyNTQ4MywiZXhwIjoxNTg3NzI3MjgzfQ.2rHzK6UtpEka9jfLebFNmQYeu_xUeJ7WHV9W9hGSZdc
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -4568,7 +4574,7 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 4512
+Content-Length: 4686
 
 {
   "_embedded" : {
@@ -4596,6 +4602,7 @@ Content-Length: 4512
         "price" : 10000
       } ],
       "totalPrice" : 50000,
+      "orderStatus" : null,
       "paymentStatus" : "READY",
       "_links" : {
         "order" : {
@@ -4626,6 +4633,7 @@ Content-Length: 4512
         "price" : 10000
       } ],
       "totalPrice" : 50000,
+      "orderStatus" : null,
       "paymentStatus" : "READY",
       "_links" : {
         "order" : {
@@ -4656,6 +4664,7 @@ Content-Length: 4512
         "price" : 10000
       } ],
       "totalPrice" : 50000,
+      "orderStatus" : null,
       "paymentStatus" : "READY",
       "_links" : {
         "order" : {
@@ -4686,6 +4695,7 @@ Content-Length: 4512
         "price" : 100
       } ],
       "totalPrice" : 400,
+      "orderStatus" : null,
       "paymentStatus" : "READY",
       "_links" : {
         "order" : {
@@ -4716,6 +4726,7 @@ Content-Length: 4512
         "price" : 100
       } ],
       "totalPrice" : 400,
+      "orderStatus" : null,
       "paymentStatus" : "READY",
       "_links" : {
         "order" : {
@@ -4746,6 +4757,7 @@ Content-Length: 4512
         "price" : 100
       } ],
       "totalPrice" : 400,
+      "orderStatus" : null,
       "paymentStatus" : "READY",
       "_links" : {
         "order" : {
@@ -4854,7 +4866,7 @@ Content-Length: 4512
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /v1/orders/3 HTTP/1.1
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzYyNjg0OCwiZXhwIjoxNTg3NjI4NjQ4fQ.0QdsBjdPIFUMZ8joOXVBgt0iI5yHPl31eAu8Jd7qq-o
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzcyNTQ4MywiZXhwIjoxNTg3NzI3MjgzfQ.2rHzK6UtpEka9jfLebFNmQYeu_xUeJ7WHV9W9hGSZdc
 Host: localhost:8080</code></pre>
 </div>
 </div>

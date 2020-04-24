@@ -16,11 +16,7 @@ public class Payment extends BaseUserEntity {
     private Order order;
 
     @Enumerated(EnumType.STRING)
-    private PaymentStatus paymentStatus;
-
-    public Payment() {
-        this.paymentStatus = PaymentStatus.READY;
-    }
+    private PaymentStatus paymentStatus = PaymentStatus.READY;
 
     public void setOrder(Order order) {
         this.order = order;

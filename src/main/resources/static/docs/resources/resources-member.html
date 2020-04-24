@@ -470,10 +470,10 @@ Content-Length: 332
 
 {
   "username" : "testUsername",
-  "password" : "{bcrypt}$2a$10$3993CRsL2Gj51nFDQ3Ugxe/XZvLBjepw5tZL5MLpDIGlVpd5saohy",
+  "password" : "{bcrypt}$2a$10$DwDT11EdHTUqXM4k.3bu6.DA3rPyScajB0BdHd9FXCysG0UaSk96a",
   "nickname" : "testNickname",
   "grade" : "Bronze",
-  "createdTime" : "2020-04-23T16:27:28.1105231",
+  "createdTime" : "2020-04-24T19:51:22.4596595",
   "_links" : {
     "profile" : {
       "href" : "http://localhost:8080/docs/index.html"
@@ -632,7 +632,7 @@ Host: localhost:8080
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzYyNjg0OCwiZXhwIjoxNTg3NjI4NjQ4fQ.0QdsBjdPIFUMZ8joOXVBgt0iI5yHPl31eAu8Jd7qq-o
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzcyNTQ4MiwiZXhwIjoxNTg3NzI3MjgyfQ.b1S0xaeKt58r4r2ueTxrtzlYn1RowR83nUu3xECnPbo
 Content-Type: application/hal+json;charset=UTF-8
 X-Content-Type-Options: nosniff
 X-XSS-Protection: 1; mode=block
@@ -762,7 +762,7 @@ Content-Length: 185
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /v1/members/me HTTP/1.1
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NjI2ODQ3LCJleHAiOjE1ODc2Mjg2NDd9.sa-I94xLs5ycCaOt-qu6AZsQNMX4VaGsbjhA9PW1WmM
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NzI1NDgxLCJleHAiOjE1ODc3MjcyODF9.zu_jD1ST0JrtSenlrHIo_vyDLLdxmoQzBL6D-yCDDcA
 Accept: application/hal+json
 Host: localhost:8080</code></pre>
 </div>
@@ -780,7 +780,7 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 319
+Content-Length: 320
 
 {
   "username" : "Username",
@@ -788,8 +788,8 @@ Content-Length: 319
   "money" : 0,
   "grade" : "Admin",
   "purchase" : [ ],
-  "createdTime" : "2020-04-23T16:27:21.242897",
-  "updatedTime" : "2020-04-23T16:27:21.30074",
+  "createdTime" : "2020-04-24T19:51:15.441432",
+  "updatedTime" : "2020-04-24T19:51:15.522217",
   "_links" : {
     "profile" : {
       "href" : "http://localhost:8080/docs/index.html"
@@ -909,7 +909,7 @@ Content-Length: 319
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">PUT /v1/members/me HTTP/1.1
 Content-Type: application/hal+json;charset=UTF-8
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NjI2ODQ3LCJleHAiOjE1ODc2Mjg2NDd9.sa-I94xLs5ycCaOt-qu6AZsQNMX4VaGsbjhA9PW1WmM
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NzI1NDgyLCJleHAiOjE1ODc3MjcyODJ9.omDI0jIahncy9xRQmFtFwomQnHhQH9f62jpU6mXvYug
 Accept: application/hal+json
 Content-Length: 119
 Host: localhost:8080
@@ -935,15 +935,15 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 368
+Content-Length: 369
 
 {
-  "password" : "{bcrypt}$2a$10$9fFAksBYamVlFauucyqtFuCpPn5.R5bt.jNluHoKOqD2o6IrwarmS",
+  "password" : "{bcrypt}$2a$10$aNz6SPNvCaTrH0eUsyekZOo5NwwI187nsm5yjJQUKaxRSPdTfK3Q6",
   "nickname" : "updateNickname",
   "money" : 10000,
   "grade" : "Admin",
-  "createdTime" : "2020-04-23T16:27:21.242897",
-  "updatedTime" : "2020-04-23T16:27:21.30074",
+  "createdTime" : "2020-04-24T19:51:15.441432",
+  "updatedTime" : "2020-04-24T19:51:15.522217",
   "_links" : {
     "profile" : {
       "href" : "http://localhost:8080/docs/index.html"
@@ -1096,7 +1096,7 @@ Content-Length: 368
 <div class="listingblock">
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">DELETE /v1/members/me HTTP/1.1
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NjI2ODQ3LCJleHAiOjE1ODc2Mjg2NDd9.sa-I94xLs5ycCaOt-qu6AZsQNMX4VaGsbjhA9PW1WmM
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQWRtaW4iXSwiaWF0IjoxNTg3NzI1NDgyLCJleHAiOjE1ODc3MjcyODJ9.omDI0jIahncy9xRQmFtFwomQnHhQH9f62jpU6mXvYug
 Accept: application/hal+json
 Host: localhost:8080</code></pre>
 </div>

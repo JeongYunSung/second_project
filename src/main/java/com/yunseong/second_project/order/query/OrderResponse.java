@@ -24,21 +24,17 @@ public class OrderResponse {
         this.orderProductResponses = order.getOrderItems().stream().map(orderItem -> new OrderProductResponse(orderItem.getProduct())).collect(Collectors.toList());
         this.totalPrice = order.getTotalPrice();
         this.orderStatus = order.getOrderStatus();
-        if (order.getPayment() == null) {
-            this.paymentStatus = PaymentStatus.READY;
-        }else {
+        if(order.getPayment() != null)
             this.paymentStatus = order.getPayment().getPaymentStatus();
-        }
+        else
+            this.paymentStatus = PaymentStatus.READY;
     }
 
-    public OrderResponse(Long id, int totalPrice, PaymentStatus paymentStatus) {
+    public OrderResponse(Long id, int totalPrice, OrderStatus orderStatus, PaymentStatus paymentStatus) {
         this.id = id;
         this.totalPrice = totalPrice;
-        if (paymentStatus == null) {
-            this.paymentStatus = PaymentStatus.READY;
-        }else {
-            this.paymentStatus = paymentStatus;
-        }
+        this.orderStatus = orderStatus;
+        this.paymentStatus = paymentStatus;
     }
 
     public void setOrderProductResponses(List<OrderProductResponse> orderProductResponses) {

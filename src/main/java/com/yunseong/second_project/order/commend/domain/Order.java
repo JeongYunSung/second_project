@@ -23,11 +23,7 @@ public class Order extends BaseUserEntity {
     private Payment payment;
 
     @Enumerated(value = EnumType.STRING)
-    private OrderStatus orderStatus;
-
-    public Order() {
-        this.orderStatus = OrderStatus.ORDER;
-    }
+    private OrderStatus orderStatus = OrderStatus.CANCEL;
 
     public void setPayment(Payment payment) {
         this.payment = payment;
