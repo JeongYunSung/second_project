@@ -4,6 +4,8 @@ import com.yunseong.second_project.category.command.domain.Category;
 import com.yunseong.second_project.common.BaseTest;
 import com.yunseong.second_project.order.commend.application.OrderCommendService;
 import com.yunseong.second_project.order.commend.application.dto.OrderCreateRequest;
+import com.yunseong.second_project.order.query.OrderQueryService;
+import com.yunseong.second_project.order.query.OrderResponse;
 import com.yunseong.second_project.product.commend.domain.Product;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +34,8 @@ class OrderControllerTest extends BaseTest {
 
     @Autowired
     private OrderCommendService orderCommendService;
+    @Autowired
+    private OrderQueryService orderQueryService;
 
     @Test
     public void 주문_생성() throws Exception {
