@@ -34,7 +34,10 @@ public class OrderResponse {
         this.id = id;
         this.totalPrice = totalPrice;
         this.orderStatus = orderStatus;
-        this.paymentStatus = paymentStatus;
+        if(paymentStatus == null)
+            this.paymentStatus = PaymentStatus.READY;
+        else
+            this.paymentStatus = paymentStatus;
     }
 
     public void setOrderProductResponses(List<OrderProductResponse> orderProductResponses) {
