@@ -98,6 +98,7 @@ class OrderControllerTest extends BaseTest {
                                 fieldWithPath("id").type(JsonFieldType.NUMBER).description("주문 번호"),
                                 subsectionWithPath("orderProductResponses").description("주문 대상 상품 목록"),
                                 fieldWithPath("totalPrice").type(JsonFieldType.NUMBER).description("총 가격"),
+                                fieldWithPath("orderStatus").type(JsonFieldType.STRING).description("주문 상태"),
                                 fieldWithPath("paymentStatus").type(JsonFieldType.STRING).description("결제 상태"),
                                 subsectionWithPath("_links").description("관련 주소")
                         )));
