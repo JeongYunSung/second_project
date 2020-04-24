@@ -443,7 +443,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">POST /v1/products/register HTTP/1.1
 Content-Type: application/hal+json;charset=UTF-8
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzcyNzAyNSwiZXhwIjoxNTg3NzI4ODI1fQ.VPbwA0pMNF-rkY7KTiDOgL0x75mPVYctXLN-xim-Lwo
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzczMDI2NiwiZXhwIjoxNTg3NzMyMDY2fQ.uCSba3XH6rAWXxKfubd4Cso5V4b6_1w5-s8-WV-O3DU
 Content-Length: 124
 Host: localhost:8080
 
@@ -484,8 +484,8 @@ Content-Length: 498
     "parentId" : null,
     "parentName" : null
   } ],
-  "createdTime" : "2020-04-24T20:17:05.8686466",
-  "updatedTime" : "2020-04-24T20:17:05.8686466",
+  "createdTime" : "2020-04-24T21:11:06.5732153",
+  "updatedTime" : "2020-04-24T21:11:06.5732153",
   "_links" : {
     "profile" : {
       "href" : "http://localhost:8080/docs/index.html"
@@ -884,20 +884,20 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 5295
+Content-Length: 5229
 
 {
   "_embedded" : {
     "productResponseList" : [ {
       "productId" : 1,
-      "productName" : "title : 1",
-      "description" : "description : 1",
-      "value" : 10000,
+      "productName" : "product3",
+      "description" : "product3",
+      "value" : 100,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
         "categoryId" : 1,
-        "categoryName" : "o-category1",
+        "categoryName" : "category3",
         "parentId" : null,
         "parentName" : null
       } ],
@@ -909,14 +909,14 @@ Content-Length: 5295
       }
     }, {
       "productId" : 2,
-      "productName" : "title : 2",
-      "description" : "description : 2",
-      "value" : 10000,
+      "productName" : "product2",
+      "description" : "product2",
+      "value" : 100,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 1,
-        "categoryName" : "o-category1",
+        "categoryId" : 2,
+        "categoryName" : "category2",
         "parentId" : null,
         "parentName" : null
       } ],
@@ -928,14 +928,14 @@ Content-Length: 5295
       }
     }, {
       "productId" : 3,
-      "productName" : "title : 3",
-      "description" : "description : 3",
-      "value" : 10000,
+      "productName" : "product1",
+      "description" : "product1",
+      "value" : 100,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 1,
-        "categoryName" : "o-category1",
+        "categoryId" : 3,
+        "categoryName" : "category1",
         "parentId" : null,
         "parentName" : null
       } ],
@@ -947,14 +947,14 @@ Content-Length: 5295
       }
     }, {
       "productId" : 4,
-      "productName" : "title : 4",
-      "description" : "description : 4",
-      "value" : 10000,
+      "productName" : "product : 0",
+      "description" : "product : 0",
+      "value" : 0,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 1,
-        "categoryName" : "o-category1",
+        "categoryId" : 4,
+        "categoryName" : "category4",
         "parentId" : null,
         "parentName" : null
       } ],
@@ -966,14 +966,14 @@ Content-Length: 5295
       }
     }, {
       "productId" : 5,
-      "productName" : "title : 5",
-      "description" : "description : 5",
-      "value" : 10000,
+      "productName" : "product : 1",
+      "description" : "product : 1",
+      "value" : 100,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 1,
-        "categoryName" : "o-category1",
+        "categoryId" : 4,
+        "categoryName" : "category4",
         "parentId" : null,
         "parentName" : null
       } ],
@@ -985,14 +985,14 @@ Content-Length: 5295
       }
     }, {
       "productId" : 6,
-      "productName" : "title : 1",
-      "description" : "description : 1",
-      "value" : 10000,
+      "productName" : "product : 2",
+      "description" : "product : 2",
+      "value" : 200,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 2,
-        "categoryName" : "o-category2",
+        "categoryId" : 4,
+        "categoryName" : "category4",
         "parentId" : null,
         "parentName" : null
       } ],
@@ -1004,14 +1004,14 @@ Content-Length: 5295
       }
     }, {
       "productId" : 7,
-      "productName" : "title : 2",
-      "description" : "description : 2",
-      "value" : 10000,
+      "productName" : "product : 3",
+      "description" : "product : 3",
+      "value" : 300,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 2,
-        "categoryName" : "o-category2",
+        "categoryId" : 4,
+        "categoryName" : "category4",
         "parentId" : null,
         "parentName" : null
       } ],
@@ -1023,14 +1023,14 @@ Content-Length: 5295
       }
     }, {
       "productId" : 8,
-      "productName" : "title : 3",
-      "description" : "description : 3",
-      "value" : 10000,
+      "productName" : "product : 4",
+      "description" : "product : 4",
+      "value" : 400,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 2,
-        "categoryName" : "o-category2",
+        "categoryId" : 4,
+        "categoryName" : "category4",
         "parentId" : null,
         "parentName" : null
       } ],
@@ -1042,14 +1042,14 @@ Content-Length: 5295
       }
     }, {
       "productId" : 9,
-      "productName" : "title : 4",
-      "description" : "description : 4",
+      "productName" : "title : 1",
+      "description" : "description : 1",
       "value" : 10000,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 2,
-        "categoryName" : "o-category2",
+        "categoryId" : 36,
+        "categoryName" : "o-category1",
         "parentId" : null,
         "parentName" : null
       } ],
@@ -1061,14 +1061,14 @@ Content-Length: 5295
       }
     }, {
       "productId" : 10,
-      "productName" : "title : 5",
-      "description" : "description : 5",
+      "productName" : "title : 2",
+      "description" : "description : 2",
       "value" : 10000,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 2,
-        "categoryName" : "o-category2",
+        "categoryId" : 36,
+        "categoryName" : "o-category1",
         "parentId" : null,
         "parentName" : null
       } ],
@@ -1213,20 +1213,20 @@ Cache-Control: no-cache, no-store, max-age=0, must-revalidate
 Pragma: no-cache
 Expires: 0
 X-Frame-Options: DENY
-Content-Length: 5267
+Content-Length: 5201
 
 {
   "_embedded" : {
     "productResponseList" : [ {
       "productId" : 1,
-      "productName" : "title : 1",
-      "description" : "description : 1",
-      "value" : 10000,
+      "productName" : "product3",
+      "description" : "product3",
+      "value" : 100,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
         "categoryId" : 1,
-        "categoryName" : "o-category1",
+        "categoryName" : "category3",
         "parentId" : null,
         "parentName" : null
       } ],
@@ -1238,14 +1238,14 @@ Content-Length: 5267
       }
     }, {
       "productId" : 2,
-      "productName" : "title : 2",
-      "description" : "description : 2",
-      "value" : 10000,
+      "productName" : "product2",
+      "description" : "product2",
+      "value" : 100,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 1,
-        "categoryName" : "o-category1",
+        "categoryId" : 2,
+        "categoryName" : "category2",
         "parentId" : null,
         "parentName" : null
       } ],
@@ -1257,14 +1257,14 @@ Content-Length: 5267
       }
     }, {
       "productId" : 3,
-      "productName" : "title : 3",
-      "description" : "description : 3",
-      "value" : 10000,
+      "productName" : "product1",
+      "description" : "product1",
+      "value" : 100,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 1,
-        "categoryName" : "o-category1",
+        "categoryId" : 3,
+        "categoryName" : "category1",
         "parentId" : null,
         "parentName" : null
       } ],
@@ -1276,14 +1276,14 @@ Content-Length: 5267
       }
     }, {
       "productId" : 4,
-      "productName" : "title : 4",
-      "description" : "description : 4",
-      "value" : 10000,
+      "productName" : "product : 0",
+      "description" : "product : 0",
+      "value" : 0,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 1,
-        "categoryName" : "o-category1",
+        "categoryId" : 4,
+        "categoryName" : "category4",
         "parentId" : null,
         "parentName" : null
       } ],
@@ -1295,14 +1295,14 @@ Content-Length: 5267
       }
     }, {
       "productId" : 5,
-      "productName" : "title : 5",
-      "description" : "description : 5",
-      "value" : 10000,
+      "productName" : "product : 1",
+      "description" : "product : 1",
+      "value" : 100,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 1,
-        "categoryName" : "o-category1",
+        "categoryId" : 4,
+        "categoryName" : "category4",
         "parentId" : null,
         "parentName" : null
       } ],
@@ -1314,14 +1314,14 @@ Content-Length: 5267
       }
     }, {
       "productId" : 6,
-      "productName" : "title : 1",
-      "description" : "description : 1",
-      "value" : 10000,
+      "productName" : "product : 2",
+      "description" : "product : 2",
+      "value" : 200,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 2,
-        "categoryName" : "o-category2",
+        "categoryId" : 4,
+        "categoryName" : "category4",
         "parentId" : null,
         "parentName" : null
       } ],
@@ -1333,14 +1333,14 @@ Content-Length: 5267
       }
     }, {
       "productId" : 7,
-      "productName" : "title : 2",
-      "description" : "description : 2",
-      "value" : 10000,
+      "productName" : "product : 3",
+      "description" : "product : 3",
+      "value" : 300,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 2,
-        "categoryName" : "o-category2",
+        "categoryId" : 4,
+        "categoryName" : "category4",
         "parentId" : null,
         "parentName" : null
       } ],
@@ -1352,14 +1352,14 @@ Content-Length: 5267
       }
     }, {
       "productId" : 8,
-      "productName" : "title : 3",
-      "description" : "description : 3",
-      "value" : 10000,
+      "productName" : "product : 4",
+      "description" : "product : 4",
+      "value" : 400,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 2,
-        "categoryName" : "o-category2",
+        "categoryId" : 4,
+        "categoryName" : "category4",
         "parentId" : null,
         "parentName" : null
       } ],
@@ -1371,14 +1371,14 @@ Content-Length: 5267
       }
     }, {
       "productId" : 9,
-      "productName" : "title : 4",
-      "description" : "description : 4",
+      "productName" : "title : 1",
+      "description" : "description : 1",
       "value" : 10000,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 2,
-        "categoryName" : "o-category2",
+        "categoryId" : 36,
+        "categoryName" : "o-category1",
         "parentId" : null,
         "parentName" : null
       } ],
@@ -1390,14 +1390,14 @@ Content-Length: 5267
       }
     }, {
       "productId" : 10,
-      "productName" : "title : 5",
-      "description" : "description : 5",
+      "productName" : "title : 2",
+      "description" : "description : 2",
       "value" : 10000,
       "view" : 0,
       "recommends" : [ ],
       "types" : [ {
-        "categoryId" : 2,
-        "categoryName" : "o-category2",
+        "categoryId" : 36,
+        "categoryName" : "o-category1",
         "parentId" : null,
         "parentName" : null
       } ],
@@ -1580,7 +1580,7 @@ Content-Length: 5267
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">PUT /v1/products/51 HTTP/1.1
 Content-Type: application/hal+json;charset=UTF-8
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzcyNzAyNSwiZXhwIjoxNTg3NzI4ODI1fQ.VPbwA0pMNF-rkY7KTiDOgL0x75mPVYctXLN-xim-Lwo
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzczMDI2NiwiZXhwIjoxNTg3NzMyMDY2fQ.uCSba3XH6rAWXxKfubd4Cso5V4b6_1w5-s8-WV-O3DU
 Content-Length: 127
 Host: localhost:8080
 
@@ -1618,8 +1618,8 @@ Content-Length: 533
     "parentId" : null,
     "parentName" : null
   } ],
-  "createdTime" : "2020-04-24T20:17:05.702092",
-  "updatedTime" : "2020-04-24T20:17:05.702092",
+  "createdTime" : "2020-04-24T21:11:06.349813",
+  "updatedTime" : "2020-04-24T21:11:06.349813",
   "_links" : {
     "self" : {
       "href" : "http://localhost:8080/v1/products/51"
@@ -1768,7 +1768,7 @@ Content-Length: 533
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">PUT /v1/products/55/recommend HTTP/1.1
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzcyNzAyNiwiZXhwIjoxNTg3NzI4ODI2fQ.zI_lWG0wsoA0Nubxzp6H5GQnHLS1Y8wy0FyOo4OpjYg
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzczMDI2NiwiZXhwIjoxNTg3NzMyMDY2fQ.uCSba3XH6rAWXxKfubd4Cso5V4b6_1w5-s8-WV-O3DU
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -1913,7 +1913,7 @@ Content-Length: 242
 <div class="content">
 <pre class="highlight nowrap"><code class="language-http" data-lang="http">DELETE /v1/products/53 HTTP/1.1
 Accept: application/hal+json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzcyNzAyNSwiZXhwIjoxNTg3NzI4ODI1fQ.VPbwA0pMNF-rkY7KTiDOgL0x75mPVYctXLN-xim-Lwo
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVc2VybmFtZSIsInJvbGVzIjpbIlJPTEVfQnJvbnplIl0sImlhdCI6MTU4NzczMDI2NiwiZXhwIjoxNTg3NzMyMDY2fQ.uCSba3XH6rAWXxKfubd4Cso5V4b6_1w5-s8-WV-O3DU
 Host: localhost:8080</code></pre>
 </div>
 </div>

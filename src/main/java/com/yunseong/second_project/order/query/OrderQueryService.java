@@ -1,10 +1,13 @@
 package com.yunseong.second_project.order.query;
 
+import com.yunseong.second_project.common.domain.CustomUser;
 import com.yunseong.second_project.order.commend.domain.Order;
 import com.yunseong.second_project.order.commend.domain.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,7 +29,8 @@ public class OrderQueryService {
     }
 
     public Page<OrderResponse> findsOrder(Pageable pageable) {
-        Page<OrderResponse> byPage = this.orderRepository.findByPage(pageable);
+        CustomUser principal = (CustomUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Page<OrderResponse> byPage = this.orderRepository.findByPage(pageable, principal.getId());
 
         List<Long> ids = byPage.getContent().stream().map(OrderResponse::getId).collect(Collectors.toList());
 
